@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <h1>hello ejs</h1>
+  <!-- 接收后端传过来的数据 -->
+  <p><%=title%></p>
+  <p><%=userInfo.name%></p>
+   <!-- 解析html字符串 <%-h3%> -->
+  <p><%-h3%></p>
+  <!-- <%   %> 里面可以写js代码 -->
+  <%if(flag==true){%>
+    <p>true</p>
+    <%}else{%>
+      <p>false</p>
+      <%}%>
+      <!-- //引入其他模板 -->
+      <%- include('footer.ejs')%>
+</body>
+</html>

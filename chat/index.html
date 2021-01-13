@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div{
+        width: 200px;
+        height: 200px;
+        background-color:#EBEBEB;
+        color: black;
+    }
+</style>
+<body>
+    <input type="text" placeholder="请输入">
+    <button>发送内容</button>
+    <div></div>
+    <script>
+        let input = document.querySelector('input')
+        let button = document.querySelector('button')
+        let div= document.querySelector('div')
+        //使用webscockt
+        let socket = new WebSocket("ws://localhost:3000")
+        socket.addEventListener('open',()=>{
+            div.innerHTML="websocket连接成了"
+        })
+        button.addEventListener('click',()=>{
+            let value = input.value
+            //给webscoket发消息
+            socket.send("c:"+value)           
+        })
+        socket.addEventListener('message',(e)=>{
+            //接收webscoket消息
+        console.log(e.data)
+        div.innerHTML=e.data
+        })
+    </script>
+</body>
+</html>
