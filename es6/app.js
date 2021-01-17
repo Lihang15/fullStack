@@ -1,5 +1,4 @@
 //箭头函数 对象，解构表达式应用
-
 let person = {
     name :"wanglihang",
     eat :(food) =>console.log(person.name,food),

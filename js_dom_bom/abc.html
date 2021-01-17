@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+
+
+
+<body>
+    <p>hello</p>
+    <p id="abc">把我换掉</p>
+    <button type="button" onclick="a()">xaxa</button>
+    <img id ="imga" src="./a.jpg" onclick="change()">
+    <p>请输入5-10之间的数</p>
+    <input type="text" id="input">
+    <button type="button" onclick="b()">点我</button>
+    <p id ="pp"></p>
+    <p onclick="this.style.color='red'">xxxx</p>
+    <p id="aaa">xxxxaxx</p>
+
+    <script>
+            document.getElementById("aaa").addEventListener("click",function(){
+            console.log("123456")
+            document.getElementById("aaa").style.color="red"
+        })
+        // document.getElementById("aaa").addEventListener("click",bb)
+        // function bb(){
+        //     document.getElementById("aaa").style.color="red"
+        // }
+        for(var i =5;i<10;i++){
+            console.log(i)
+        }
+        console.log("xxx",i)
+        var x
+        var y = new Number
+        console.log(x)
+        function a(){
+            console.log("xxxx")
+            document.getElementById("abc").innerHTML=new Date().getFullYear()
+        }
+        function change(){
+           var imga = document.getElementById("imga")
+           console.log(imga)
+           if (imga.src.match("a.jpg")){
+               imga.src="./b.jpg"
+               console.log("if")
+           }else{
+            imga.src="./a.jpg"
+            console.log("else")
+           }
+        }
+        function b(){
+            var input = document.getElementById("input").value
+            try{
+            if (isNaN(input)){
+              throw "不是数字"
+            }
+        }catch(err){
+            document.getElementById("pp").innerHTML=err
+        }
+            
+        }
+    </script>
+</body>
+</html>
