@@ -4,13 +4,13 @@
 //作用 ：a里变量成为私有变量 
 
 function foo(){
-    var local = 1
+    this.local = 1
     return function(){
         local++
         return local
     }
   }
-  
+  //func 为闭包函数
   var func = foo()
   console.log(func())
   console.log(func())
