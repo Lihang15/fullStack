@@ -30,6 +30,6 @@ console.log(n)
 
 let{language:x}=person
 console.log(x)
-
+console.log({})
 
 

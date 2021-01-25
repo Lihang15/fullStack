@@ -20,20 +20,20 @@ class User{
 
 }
 
-let user = new User("wanglihang",18)
-// console.log(user.sayhello())
+let user = new User("zjj",18)
+console.log(user.name)
 User.isAdult(17)
-console.log("+++",new User("wanglihang",18).name)0
+console.log("+++",new User("wanglihang",18).name)
 
 
 class wanglihang extends User{
     constructor(name,age){
         super(name,age)
-        // this.name = "zi"
-        // this.age = super.name
+        this.name1 = "wlh"
+        this.age1 = "18"
     }
 }
 
-let hang = new wanglihang('aa',18)
+let hang = new wanglihang('aa',19)
 console.log(hang.name)
 console.log(hang.age)

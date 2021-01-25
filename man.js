@@ -36,3 +36,5 @@ console.log(aa[1])
 
 var arr = ["xx",11]
 console.log(arr)
+console.log(obj)
+// console.log(hello)

@@ -10,7 +10,6 @@
 // }
 // console.log("xx",i)  //输出defined
 
-
 const str = "abc"  //常量 不可改变
 console.log(str)
 // str = "a"
