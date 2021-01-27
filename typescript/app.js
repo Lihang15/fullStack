@@ -30,3 +30,7 @@ console.log(mycars.length)
 // var ss = 1
 // ss = "xx"
 // console.log(ss)
+for (let i = 0; i < 5; i++) {
+
+}
+console.log(i)
