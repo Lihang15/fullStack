@@ -8,8 +8,8 @@ app.use(express.static('static'))
 app.listen(8000,function(){
     console.log("开启服务")
 })
-app.get('/hello',function(req,res){
-    res.write("hello")
+app.get('/jyh',function(req,res){
+    res.write("姜育恒")
     res.end()                                                       
 })
                                      
