@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<style>
+    .name {
+        width: 100px;
+        height: 100px;
+        background: red;
+    }
+</style>
+
+<body>
+    <!-- <div id="app">
+     绑定html代码 到元素上
+    <div v-html="message"></div>
+</div> -->
+
+    <!-- v-if使用 v-else v-else-if
+<div id="app">
+    <div v-if="true">
+        <p>aaa</p>
+        <p v-if="type==='a'">a</p>
+        <p v-else-if="type==='b'">b</p>
+        <p v-else-if="type==='c'">c</p>
+        <p v-else>a 吧</p>
+    </div>
+</div> -->
+
+    <!-- v-for 使用
+    <div id="app">
+        <ul>
+            <li v-for='site in sites'>{{site.name}}</li>
+        </ul>
+    </div> -->
+
+    <!-- v-model 双向数据绑定 指令用来在 input、select、textarea、checkbox、radio 等表单控件元素上创建双向数据绑定，根据表单上的值，自动更新绑定的元素的值。
+<div id="app">
+    <p>{{msg}}</p>
+    <input type="text" v-model="msg">
+</div> -->
+
+    <!-- 绑定 url
+<div id="app">
+    <a v-bind:href="url">aaa</a>
+</div> -->
+
+    绑定class
+    <div id="app">
+        <div v-bind:class="{'name':true}"></div>
+        内嵌 样式
+        <div v-bind:style="{ color: aa, fontSize: bbb + 'px' }">菜鸟教程</div>
+    </div>
+
+
+    <!-- 绑定函数
+<div id="app">
+    <p>{{msg}}</p>
+    <input type="text" v-model="msg" />
+    <button v-on:click="f">反转字符串</button>
+</div> -->
+
+
+    <!-- 过滤器
+<div id="app">
+    <p>{{msg | fil}}</p>
+    <input type="text" v-model="msg" />
+    <button v-on:click="f">反转字符串</button>
+</div> -->
+
+
+    <!-- watch 监测属性变化
+    <div id="app">
+        <p>{{count}}</p>
+        <button v-on:click="f1">计数</button>
+    </div> --> -->
+
+
+
+    <script>
+        var vue = new Vue({
+            el: "#app",
+            data: {
+                message: '<h1>标题1</h1>',
+                flag: false,
+                url: "http://www.baidu.com",
+                msg: "xyz",
+                type: "d",
+                count: 0,
+                aa: 'red',
+                bb: 10,
+                sites: [{
+                    name: 'wanglihang'
+                }, {
+                    name: 'wangxianzhi'
+                }]
+            },
+            methods: {
+                f: function () {
+                    alert("abc")
+                },
+                f1: function () {
+                    this.count++
+                }
+            },
+            filters: {
+                fil: function (value) {
+                    return value.toString().toUpperCase()
+                }
+            }
+        })
+        vue.$watch('count', (a, b) => {
+            alert(b)
+            alert(a)
+        })
+    </script>
+</body>
+
+</html>

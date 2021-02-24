@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 拿到 vue传过来的数据 -->
+        {{message}}
+        <p>{{name}}</p>
+        <p>{{age}}</p>
+        <p>{{detail()}}</p>
+    </div>
+
+    <script>
+        //通过Vue 像 元素中传数据 方法
+        new Vue({
+            el: '#app',
+            data: {
+                message: "hello first vue.js",
+                name: "wanglihang",
+                age: 18
+            },
+            methods: {
+                detail: () => {
+                    return "i am function"
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
