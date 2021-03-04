@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+ <script type="text/babel">
+ //秒表组件
+class Clock extends React.Component {
+    constructor(props) {
+    super(props);
+    this.state = {date: new Date()};
+  }
+  //生命周期函数
+  //组件第一次渲染到dom中 执行
+  componentDidMount() {
+    this.timerID = setInterval(
+      () => this.tick(),
+      1000
+    );
+  }
+
+  tick() {
+    this.setState({
+      date: new Date()
+    });
+  }
+   //组件卸载时 执行
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
+  render() {
+    return (
+      <div>
+        <h1>Hello, world!</h1>
+        <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
+      </div>
+    );
+  }
+}
+
+ ReactDOM.render(
+     //jsx 语法
+  <Clock />,
+  document.getElementById('root')
+);
+
+ </script>
+</html>
