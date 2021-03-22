@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .div1{
+            margin-bottom: 100px;
+            width: 500px;
+            height: 200px;
+            background-color: pink;
+            display: flex;
+            /* 孩子平均分布 默认x轴 从左到右*/
+            /* justify-content: space-around; */
+            /* flex-direction: row; */
+            /* y轴 从上到下 */
+            /* flex-direction: column; */
+            /* justify-content: center; */
+            /* 先把左右边上的盒子 贴边 然后 平均分配空间 */
+            justify-content: space-between;
+            /* 换行 */
+            flex-wrap: wrap;
+
+            /* 盒子水平垂直居中 */
+            /* justify-content: center;
+            align-items: center; */
+
+            /* 设置测轴上的子元素的排列方式 多行 */
+            
+            
+        }
+        .div1 span{
+            width: 150px;
+            height: 100px;
+            background-color: red;
+            /* margin-right: 5px; */
+            /* flex: 1; */
+        }
+        .a{
+            background-color: red;
+            width: 100px;
+            height: 100px;
+        }
+       .div2{
+            width: 800px;
+            height: 400px;
+            background-color: pink;
+            display: flex;
+            /* 换行 */
+            flex-wrap: wrap;
+            /* 有换行情况下 align-content 来调整多行 */
+            /* align-content: flex-start; */
+            align-content: space-between;
+       }
+       .div2 span{
+            width: 150px;
+            height: 100px;
+            background-color: red;
+            margin: 10px;
+            /* margin-right: 5px; */
+            /* flex: 1; *  
+        }
+    </style>
+</head>
+<body>
+    <div class="div1">
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+    </div>
+   
+    <div class="div2">
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>5</span>
+        <span>6</span>
+    </div>
+</body>
+</html>

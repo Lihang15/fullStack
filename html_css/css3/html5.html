@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./iconfont.css" type="text/css">
+    <style>
+
+    input[value]{
+        color: pink;
+    }
+    input[type="password"]{
+        color: red;
+    }
+    ul :first-child{
+        color: red;
+    }
+    ul :nth-child(3){
+        color: salmon;
+    }
+    .box{
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+    }
+    .box::before{
+        content: '我';
+
+    }
+    .box::after{
+        content: '是';
+        width: 20px;
+        height: 20px;
+        border: 1px solid red;
+    }
+    .lala{
+        width: 200px;
+        height: 35px;
+        border: 1px solid red;
+    }
+    .lala::after{
+        content: '\&#xe65a;';
+    }
+    </style>
+</head>
+<body>
+    <header></header>
+    <nav></nav>
+    <article></article>
+    <section></section>
+    <aside></aside>
+    <footer></footer>
+    <input type="text" name="" id="" value="请输入用户名">
+    <input type="password" name="" id="" value="请输入密码">
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+    </ul>
+    <div class="box">
+    是
+    </div>
+    <div class="lala"></div>
+    <span class="iconfont">&#xe65a;</span>
+</body>
+</html>
