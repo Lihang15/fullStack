@@ -4,7 +4,20 @@
         width: 1280px;
     }
 }
-
+@media screen and (max-width:991px){
+    .nav li{
+        float: left;
+        width: 20%;
+    }
+    article{
+        margin-top: 10px;
+    }
+}
+@media screen and (max-width:500px){
+    .nav li{
+        font-size: 5px;
+    }
+}
 header {
     padding-left: 0 !important;
 }
@@ -14,7 +27,22 @@ ul {
     margin: 0;
     padding: 0;
 }
-
+.logo span{
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+}
+.logo{
+    background-color: wheat;
+}
+.logo img{
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+}
 .nav {
     background-color: #eee;
     border-bottom: 1px solid #ccc;
