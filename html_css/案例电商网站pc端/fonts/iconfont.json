@@ -6,11 +6,53 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "1231563",
+      "name": "swipe-right",
+      "font_class": "swipe-right",
+      "unicode": "e664",
+      "unicode_decimal": 58980
+    },
+    {
+      "icon_id": "3537276",
+      "name": "shopping_cart",
+      "font_class": "shopping_cart",
+      "unicode": "eb00",
+      "unicode_decimal": 60160
+    },
+    {
+      "icon_id": "5379952",
+      "name": "shoppingCart",
+      "font_class": "shoppingCart",
+      "unicode": "e71b",
+      "unicode_decimal": 59163
+    },
+    {
+      "icon_id": "7214821",
+      "name": "Arrow right 1",
+      "font_class": "Arrowright",
+      "unicode": "e6c0",
+      "unicode_decimal": 59072
+    },
+    {
+      "icon_id": "8805274",
+      "name": "Human Rights",
+      "font_class": "HumanRights",
+      "unicode": "e911",
+      "unicode_decimal": 59665
+    },
+    {
       "icon_id": "15838429",
       "name": "arrow-down",
       "font_class": "arrow-down",
       "unicode": "e665",
       "unicode_decimal": 58981
+    },
+    {
+      "icon_id": "18261686",
+      "name": "right",
+      "font_class": "right",
+      "unicode": "e630",
+      "unicode_decimal": 58928
     }
   ]
 }
