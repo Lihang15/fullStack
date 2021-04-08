@@ -1,32 +1,38 @@
-
 /* 头部 */
-.shortcut{
+.shortcut {
     height: 31px;
     background-color: #f1f1f1;
     line-height: 31px;
 }
-.w{
+
+.w {
     width: 1200px;
     margin: 0 auto;
 }
-.fl{
+
+.fl {
     float: left;
 }
-.fr{
+
+.fr {
     float: right;
 }
-.shortcut ul li{
+
+.shortcut ul li {
     list-style: none;
     float: left;
 }
-.style_red{
+
+.style_red {
     color: red;
 }
-a{
+
+a {
     text-decoration: none;
     color: black;
 }
-.shortcut .fr ul li:nth-child(even){
+
+.shortcut .fr ul li:nth-child(even) {
     width: 1px;
     height: 12px;
     background-color: #666;
@@ -41,9 +47,9 @@ a{
         url('../fonts/iconfont.woff') format('woff'),
         url('../fonts/iconfont.ttf') format('truetype'),
         url('../fonts/iconfont.svg#iconfont') format('svg');
-  }
+}
 
-  .iconfont {
+.iconfont {
     font-family: "iconfont" !important;
     font-size: 16px;
     font-style: normal;
@@ -51,62 +57,71 @@ a{
     -moz-osx-font-smoothing: grayscale;
     margin-left: 5px;
     /* color: red; */
-  }
+}
 
-  .header{
-      height: 105px;
-      position: relative;
-  }
-  .logo{
-      position: absolute;
-      top: 25px;
-      width: 176px;
-      height: 61px;
-  }
-  .logo a{
+.header {
+    height: 105px;
+    position: relative;
+}
+
+.logo {
+    position: absolute;
+    top: 25px;
+    width: 176px;
+    height: 61px;
+}
+
+.logo a {
     display: block;
     width: 176px;
     height: 61px;
     background: url(../img/logo.png) no-repeat;
     font-size: 0;
-  }
-  .search{
-      position: absolute;
-      left: 346px;
-      top:25px;
-      width: 538px;
-      height: 36px;
-      border: 2px solid #b1191a;
-  }
-  button,input{
-      border: 0;
-      outline: none;
-  }
-  .search input{
-      width: 454px;
-      height: 32px;
-      padding-left: 10px;
-      float: left;
-  }
-  .search button{
-      width: 80px;
-      height: 32px;
-      color: #fff;
-      background-color: #b1191a;
-      float: left;
-      font-size: 16px;
-  }
+}
 
-  .hotwords{
+.search {
     position: absolute;
-    top:66px;
-    left:346px;
-  }
-  .hotwords a{
-      margin: 0 10px;
-      font-size: 12px;
-  }
-.shopcar{
+    left: 346px;
+    top: 25px;
+    width: 538px;
+    height: 36px;
+    border: 2px solid #b1191a;
+}
+
+button,
+input {
+    border: 0;
+    outline: none;
+}
+
+.search input {
+    width: 454px;
+    height: 32px;
+    padding-left: 10px;
+    float: left;
+}
+
+.search button {
+    width: 80px;
+    height: 32px;
+    color: #fff;
+    background-color: #b1191a;
+    float: left;
+    font-size: 16px;
+}
+
+.hotwords {
+    position: absolute;
+    top: 66px;
+    left: 346px;
+}
+
+.hotwords a {
+    margin: 0 10px;
+    font-size: 12px;
+}
+
+.shopcar {
     position: absolute;
     right: 60px;
     top: 25px;
@@ -117,15 +132,18 @@ a{
     line-height: 35px;
     text-align: center;
 }
-.shopcar .caricon{
+
+.shopcar .caricon {
     font-size: 20px;
     color: red;
     margin-right: 5px;
 }
-.shopcar .leicon{
-   margin: 0;
+
+.shopcar .leicon {
+    margin: 0;
 }
-.count{
+
+.count {
     position: absolute;
     top: -5px;
     left: 105px;
@@ -138,32 +156,36 @@ a{
     font-size: 12px;
 }
 
-.nav{
+.nav {
     height: 47px;
     border-bottom: 2px solid #b1191a;
 }
 
-.nav .dropdown{
+.nav .dropdown {
     float: left;
     width: 210px;
     height: 45px;
     background-color: #b1191a;
 }
-.nav .navitems{
+
+.nav .navitems {
     height: 45px;
     float: left;
     line-height: 45px;
 }
-.nav .navitems ul li{
+
+.nav .navitems ul li {
     float: left;
 }
-.nav .navitems ul li a{
+
+.nav .navitems ul li a {
     display: block;
     font-size: 16px;
     height: 45px;
     padding: 0 25px;
 }
-.dropdown .dt{
+
+.dropdown .dt {
     width: 100%;
     height: 100%;
     color: #fff;
@@ -171,86 +193,99 @@ a{
     text-align: center;
     font-size: 16px;
 }
-.dropdown .dd{
+
+.dropdown .dd {
     width: 210px;
     height: 465px;
     background-color: #c81623;
     margin-top: 2px;
 }
-.dd ul li{
+
+.dd ul li {
     height: 31px;
     line-height: 31px;
     margin-left: 2px;
     padding-left: 10px;
 }
-.dd ul li a{
+
+.dd ul li a {
     color: #fff;
     font-size: 14px;
 }
-.dropdown .dd ul li:hover{
+
+.dropdown .dd ul li:hover {
     background-color: #fff;
 }
-.dropdown .dd ul li:hover a{
+
+.dropdown .dd ul li:hover a {
     color: #c81623;
 }
 
-.footer{
+.footer {
     height: 415px;
     background-color: #f5f5f5;
     padding-top: 30px;
 }
-.mod_service{
+
+.mod_service {
     height: 80px;
     border-bottom: 1px solid #ccc;
 }
-.mod_service ul li{
+
+.mod_service ul li {
     width: 300px;
     height: 50px;
     float: left;
     padding-left: 35px;
 }
-.mod_service ul li h5{
+
+.mod_service ul li h5 {
     width: 54px;
     height: 50px;
-    background:url(../img/icons.png) no-repeat -252px -2px; 
+    background: url(../img/icons.png) no-repeat -252px -2px;
     float: left;
 }
 
-.service_txt h4{
+.service_txt h4 {
     font-size: 14px;
 }
-.service_txt p{
+
+.service_txt p {
     font-size: 12px;
 }
 
-.mod_help{
+.mod_help {
     height: 185px;
     border-bottom: 1px solid #ccc;
     padding-top: 20px;
     padding-left: 50px;
 }
-.mod_help dl dt{
+
+.mod_help dl dt {
     font-size: 16px;
     margin-bottom: 10px;
 }
 
-.mod_help dl dd{
+.mod_help dl dd {
     font-size: 12px;
 }
 
-.mod_help dl{
+.mod_help dl {
     float: left;
     width: 200px;
-   
+
 }
-.mod_help dl:last-child{
+
+.mod_help dl:last-child {
     width: 150px;
     text-align: center;
 }
-.mod_copyright{
+
+.mod_copyright {
     text-align: center;
     padding-top: 20px;
 }
-.links{
+
+.links {
     margin-bottom: 15px;
 }

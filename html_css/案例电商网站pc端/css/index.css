@@ -4,49 +4,56 @@
     box-sizing: border-box;
 }
 
-.main{
+.main {
     width: 980px;
     height: 455px;
     margin-left: 220px;
     margin-top: 10px;
 }
-.main .focus{
+
+.main .focus {
     width: 721px;
     height: 455px;
     background-color: #fff;
     float: left;
 }
-.newsflash{
+
+.newsflash {
     width: 250px;
     height: 455px;
     float: right;
 }
 
-.news{
+.news {
     height: 165px;
     border: 1px solid #e4e4e4;
 }
-.news_hd{
+
+.news_hd {
     height: 33px;
     border-bottom: 1px solid #e4e4e4;
     line-height: 33px;
     padding: 0 15px;
 }
-.news_hd h5{
-float: left;
-font-size: 14px;
+
+.news_hd h5 {
+    float: left;
+    font-size: 14px;
 }
-.news a{
-float: right;
-font-size: 14px;
+
+.news a {
+    float: right;
+    font-size: 14px;
 }
-.lifeservice{
-height: 209px;
-border: 1px solid #e4e4e4;
-border-top: 0;
-overflow: hidden;
+
+.lifeservice {
+    height: 209px;
+    border: 1px solid #e4e4e4;
+    border-top: 0;
+    overflow: hidden;
 }
-.lifeservice ul li{
+
+.lifeservice ul li {
     width: 63px;
     height: 71px;
     border-right: 1px solid #e4e4e4;
@@ -54,25 +61,62 @@ overflow: hidden;
     float: left;
     text-align: center;
 }
-.lifeservice ul{
+
+.lifeservice ul {
     width: 285px;
     font-size: 12px;
 }
-.lifeservice ul li i{
+
+.lifeservice ul li i {
     margin-top: 12px;
     display: inline-block;
     width: 24px;
     height: 28px;
     background: url(../img/icons.png) no-repeat -19px -15px;
 }
-.news_bd ul li{
+
+.news_bd ul li {
     height: 24px;
     line-height: 24px;
     font-size: 14px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
-.news_bd{
+
+.news_bd {
     padding: 5px 15px 0;
 }
-.bargin{
+
+.bargin {
     margin-top: 5px;
+}
+
+.recom {
+    height: 163px;
+    background-color: pink;
+    margin-top: 12px;
+}
+
+.recom_hd {
+    float: left;
+    height: 163px;
+    width: 205px;
+    background-color: #5c5251;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+}
+
+.recom_bd {
+    float: left;
+}
+
+.recom_hd img {
+    display: inline-block;
+    margin-top: 35px;
+}
+
+.recom_bd ul li {
+    float: left;
 }
