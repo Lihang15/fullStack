@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 1.定义动画（开始和结束状态） 2.使用动画 通过动画名字*/
+          @keyframes move {
+            from{
+                transform: translateX(0px);
+            }
+            to{
+                 transform: translateX(1000px);
+            }
+        }
+        @keyframes move2{
+            0%{}
+            25%{
+                transform: translateX(1000px);
+            }
+            50%{
+                transform: translate(1000px,500px);
+            }
+            75%{
+                transform: translate(0px,500px);
+            }
+            100%{
+                transform: translate(0);
+            }
+        }
+        @keyframes move3{
+            0%{}
+           
+            100%{
+                transform: translateX(1000px);
+            }
+        }
+        .div1{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            /* 调用动画 */
+            animation-name:move;
+            animation-duration: 2s;
+            /* 停在动画结束的位置 */
+            animation-fill-mode:forwards;
+        }
+        .div2{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            /* 调用动画 */
+            animation-name:move2;
+            animation-duration: 2s;
+            
+            
+        }
+        .div3{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            /* 调用动画 */
+            animation-name:move3;
+            animation-duration: 2s;
+            /* 运动曲线 先快后慢*/
+            animation-timing-function: ease;
+            /* 何时开始 */
+            animation-delay: 2s;
+            /* 重复次数 */
+            animation-iteration-count: infinite;
+            /* 是否反方向播放 */
+            animation-direction: alternate;
+        }
+        .div3:hover{
+           animation-play-state: paused;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1"></div>
+    <div class="div2"></div>
+    <div class="div3"></div>
+</body>
+</html>

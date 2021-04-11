@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .parent{
+            position: relative;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+             /* 2d转换 translate 移动效果 x y 是轴  移动方式类似于相对定位 但是不会影响其他盒子位置  */
+             /* transition: 过度效果 */
+             /* transition: all 0.2s; */
+            /* transform: translate(100px,0);
+            transform: translateY(100px) */
+            /* transform: translate(50%,50%); */
+        }
+        .child{
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            /* 让子盒子水平垂直居中 */
+            top:50%;
+            left: 50%;
+            background-color: red;
+            transform: translate(-50%,-50%);
+        }
+        .xuanzhuan{
+            width: 200px;
+            height: 200px;
+            background-color: black;
+            /* 顺时针旋转45度
+            transform: rotate(45deg); */
+            border: 3px solid red;
+            transition: all 0.3s;
+        }
+        .xuanzhuan:hover{
+            transform: rotate(360deg);
+        }
+        .suofang{
+            width: 200px;
+            height: 200px;
+            background-color: black;
+            /* transform: scale(2,2) */
+        }
+        .suofang:hover{
+            /* 宽高等比例缩放2倍 */
+            transform: scale(2)
+        }
+    </style>
+</head>
+<body>
+    <!-- 平移动 -->
+    <div class="parent">
+        <div class="child"></div>
+    </div>
+    <!-- 旋转 -->
+    <div class="xuanzhuan"></div>
+    <!-- 缩放 -->
+    <div class="suofang"></div>
+</body>
+</html>
