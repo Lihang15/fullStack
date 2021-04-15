@@ -8,7 +8,7 @@
 </head>
 <style>
     .div1{
-        height: 1300px;
+        height: 700px;
         border: 3px solid red;
     }
    .div2{
@@ -21,6 +21,7 @@
        height: 400px;
        background-color: black;
        transform: translateY(150px);
+       transition: all 0.8s ease;
    }
   
 </style>
@@ -28,26 +29,30 @@
     <div class="div1" id="div1">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
     <div class="div2" id="div2"></div>
     <div class="div3" id="div3"></div>
+    <div class="div4" id="div4"></div>
     <script>
-        // let div3 = document.getElementById("div3")
-        // div3.addEventListener('click',()=>{
-        //     let div2 = document.getElementById('div2')
-        //     div2.style.transform = "translateY("+ 0 +"px)";
-        // })
         window.addEventListener('scroll',()=>{
             let elem = document.getElementsByClassName('div2')[0]
-            // // 滚动区域到头部的距离
-            let scrollTop = elem.scrollTop
-            console.log(scrollTop)
-            // console.log(scrollTop)
-            // const offset = elem.getBoundingClientRect()
-            // const offsetTop = offset.top
-            // console.log(offsetTop)
-            // if (offsetTop>200){
-            //     // alert("aa")
-            //     let div2 = document.getElementById('div2')
-            //     div2.style.transform = "translateY("+ 0 +"px)";
-            // }
+            let elem3 = document.getElementsByClassName('div3')[0]
+            const offset = elem.getBoundingClientRect()
+            const offsetTop = offset.top
+            const offset3 = elem3.getBoundingClientRect()
+            const offsetTop3 = offset3.top
+            // offsetTop+150-window.innerHeight<150 进入可视区域元素复原
+            if (offsetTop+150-window.innerHeight<150){
+                let div2 = document.getElementById('div2')
+                div2.style.transform = "translateY("+ 0 +"px)";
+            }else{
+                let div2 = document.getElementById('div2')
+                div2.style.transform = "translateY("+ 150+"px)";
+            }
+            if (offsetTop3+150-window.innerHeight<150){
+                let div3 = document.getElementById('div3')
+                div3.style.transform = "translateY("+ 0 +"px)";
+            }else{
+                let div3 = document.getElementById('div3')
+                div3.style.transform = "translateY("+ 150 +"px)";
+            }
         })
     </script>
 </body>
