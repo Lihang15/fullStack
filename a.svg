@@ -1,0 +1,16 @@
+<svg width="20px" height="22px" viewBox="0 0 20 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon/news_white</title>
+    <g id="01-首页" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="首页状态说明" transform="translate(-221.000000, -2272.000000)" fill="#FFFFFF" fill-rule="nonzero">
+            <g id="编组-13" transform="translate(-101.000000, 2165.000000)">
+                <g id="impor/news" transform="translate(0.000000, 82.000000)">
+                    <g id="编组-2" transform="translate(320.000000, 21.000000)">
+                        <g id="icon/news_white" transform="translate(2.000000, 4.000000)">
+                            <path d="M12.577,19.15 L12.577,21.25 L7.495,21.25 L7.495,19.15 L12.5755,19.15 L12.577,19.15 Z M0.262,17.5 L0.262,15.4 L2.5,15.4 L2.5,9.49 C2.50046507,5.76169148 5.23899304,2.59954148 8.929,2.0665 L8.929,0.25 L11.029,0.25 L11.029,2.0605 C14.7385072,2.57496174 17.5003087,5.74648807 17.5,9.4915 L17.5,15.4 L19.762,15.4 L19.762,17.5 L0.262,17.5 Z M10,4.09 C7.01766235,4.09 4.6,6.50766235 4.6,9.49 L4.6,15.4 L15.4,15.4 L15.4,9.49 C15.4,6.50766235 12.9823376,4.09 10,4.09 Z" id="形状"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

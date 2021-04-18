@@ -8,28 +8,25 @@
 </head>
 <style>
     .div1{
-        height: 700px;
+        height: 750px;
         border: 3px solid red;
     }
    .div2{
         height: 400px;
         background-color: green;
-        transform: translateY(150px);
         transition: all 0.8s ease;
    }
    .div3{
        height: 400px;
-       background-color: black;
-       transform: translateY(150px);
+       background-color:red;
        transition: all 0.8s ease;
    }
   
 </style>
 <body>
-    <div class="div1" id="div1">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-    <div class="div2" id="div2"></div>
-    <div class="div3" id="div3"></div>
-    <div class="div4" id="div4"></div>
+    <div class="div1" id="div1">不下拉滚动条的主页面</div>
+    <div class="div2" id="div2">盒子一</div>
+    <div class="div3" id="div3">盒子二</div>
     <script>
         window.addEventListener('scroll',()=>{
             let elem = document.getElementsByClassName('div2')[0]
@@ -38,15 +35,14 @@
             const offsetTop = offset.top
             const offset3 = elem3.getBoundingClientRect()
             const offsetTop3 = offset3.top
-            // offsetTop+150-window.innerHeight<150 进入可视区域元素复原
-            if (offsetTop+150-window.innerHeight<150){
+            if (offsetTop-window.innerHeight<0){
                 let div2 = document.getElementById('div2')
                 div2.style.transform = "translateY("+ 0 +"px)";
             }else{
                 let div2 = document.getElementById('div2')
                 div2.style.transform = "translateY("+ 150+"px)";
             }
-            if (offsetTop3+150-window.innerHeight<150){
+            if (offsetTop3-window.innerHeight<0){
                 let div3 = document.getElementById('div3')
                 div3.style.transform = "translateY("+ 0 +"px)";
             }else{
