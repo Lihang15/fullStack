@@ -19,6 +19,33 @@ app.get('/index',function(req,res){
     res.end()
 })
 
+app.get('/weixin_data',(req,res)=>{
+    console.log(req.query.pagenum) 
+    console.log(req.query.count)
+    let data = {}
+    if(req.query.pagenum==1){
+        data = {
+            dataList:[
+                {title:"title1",time:"2021-01-02"},
+                {title:"title2",time:"2021-02-03"},
+                {title:"title3",time:"2021-03-04"}
+             ]
+        }
+    }
+    if(req.query.pagenum==2){
+       data= {
+            dataList:[
+                {title:"page2",time:"2021-01-02"},
+                {title:"page3",time:"2021-02-03"},
+                {title:"page4",time:"2021-03-04"}
+             ]
+        }
+    } 
+    console.log("xxx")
+    // res.write("123")
+    // res.write(JSON.stringify(data))
+    res.json(data)
+})
 app.get('/a',function(req,res){
     res.sendFile( __dirname + "/" + "a.html" );
     res.end()
