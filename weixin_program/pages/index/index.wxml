@@ -20,7 +20,7 @@
 
 <scroll-view class="major" scroll-x>
   <view class="majorCon">
-    <navigator>
+    <navigator url="/pages/link/link">
       <image class="pic" src="/images/kecheng1.png">
     </image>
     <view class="txt">
@@ -75,10 +75,39 @@
       <view class="txt">行业动态</view>
       <navigator class="more">更多 ></navigator>
   </view>
-  <view class="dynamic">
-    <navigator>
-      <view class="pic"></view>
-      <view class="txt"></view>
-    </navigator>
+
+  <view class="dyMain container">
+      <navigator class="dyItem">
+        <view class="pic"><image src="/images/2019_ps_ai.jpg"></image></view>
+        <view class="txt">
+           <view class="title">这里是标题部分</view>
+           <view class="info">
+             作者：王立航<text space="ensp"> - </text>时间：2021-04-27
+           </view>
+        </view>
+      </navigator>
+      <navigator class="dyItem">
+        <view class="pic"><image src="/images/2019_ps_id.jpg"></image></view>
+        <view class="txt">
+           <view class="title">这里是标题部分</view>
+           <view class="info">
+             作者：王立航<text space="ensp"> - </text>时间：2021-04-27
+           </view>
+        </view>
+      </navigator>
+      <navigator class="dyItem">
+        <view class="pic"><image src="/images/2019_ps_guanggaogouqi.jpg"></image></view>
+        <view class="txt">
+           <view class="title">这里是标题部分</view>
+           <view class="info">
+             作者：王立航<text space="ensp"> - </text>时间：2021-04-27
+           </view>
+        </view>
+      </navigator>
   </view>
+</view>
+
+<view class="footer">
+  <image mode="widthFix" src="/images/logo.png"></image>
+  <view class="text">小程序的底部啊</view>
 </view>

@@ -1,0 +1,3 @@
+<!--pages/link/link.wxml-->
+<my_header></my_header>
+<my_title myTitle="行业动态"></my_title>

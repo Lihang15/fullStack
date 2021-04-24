@@ -1,0 +1,6 @@
+<!--Component/title/title.wxml-->
+
+<view class="pubTitle container">
+      <view class="txt">{{myTitle}}</view>
+      <navigator class="more">更多 ></navigator>
+   </view>
