@@ -1,0 +1,24 @@
+/* miniprogram/pages/demo/demo.wxss */
+.reset{
+  background-color: #ebebeb;
+}
+.btn{
+  margin-top: 20rpx;
+  display: flex;
+  justify-content:space-between;
+}
+.btn button{
+  margin:0 ;
+  padding: 0;
+}
+.username{
+  padding: 0 40rpx;
+}
+.idcode{
+  margin-top:20rpx;
+  padding: 0 40rpx;
+}
+input{
+  border:1px solid#ebebeb;
+  height:60rpx;
+}

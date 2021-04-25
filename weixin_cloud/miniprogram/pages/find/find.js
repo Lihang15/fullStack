@@ -1,13 +1,35 @@
-// pages/works/works.js
+// pages/find/find.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    
+     userList:[],
   },
-
+  formSubmit(e){
+    let that = this;
+    const db = wx.cloud.database()
+    let param ={}
+    if(e.detail.value.username!=""){
+      param = {
+        username:e.detail.value.username,
+      }
+    }
+    db.collection('mydata').where(param).get(
+    {
+      success: res => {
+        console.log(res.data)
+        that.setData({
+          userList: res.data
+        })
+      },
+      fail:err=>{
+          console.log(err)
+      }
+    }
+    )
+  },
   /**
    * 生命周期函数--监听页面加载
    */

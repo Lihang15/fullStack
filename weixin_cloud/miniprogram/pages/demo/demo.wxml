@@ -1,0 +1,15 @@
+<!--miniprogram/pages/demo/demo.wxml-->
+
+    <form class="f" bindsubmit="formSubmit">
+      <view class="username">
+        姓名：<input name="username" placeholder="请输入姓名" />
+      </view>
+       <view class="idcode">
+        身份证号:<input name="idcode" placeholder="请输入身份证号码" />
+       </view>
+        <view class="btn">
+        <button type="primary" formType="submit">Submit</button>
+        <button class="reset" formType="reset">Reset</button>
+      </view>
+    </form>
+

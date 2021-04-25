@@ -11,4 +11,7 @@ https://liiked.github.io/VS-Code-Extension-Doc-ZH/#/references/vscode-api  vscod
 
 https://blog.csdn.net/qq_41966009/article/details/96359558
 
+9cac4b77aa13462c1242e09484ba1ea3
+https://github.com/iamdarcy/hioshop-server
+
 

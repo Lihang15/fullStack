@@ -1,0 +1,22 @@
+<!--pages/find/find.wxml-->
+
+
+<form class="f" bindsubmit="formSubmit">
+     <view class="main">
+      <view class="username">
+       <input name="username" placeholder="请输入姓名" />
+      </view>
+        <view class="btn">
+        <button class="btn1" size="mini" type="primary" formType="submit">查询</button>
+      </view>
+    </view>
+    </form>
+
+    <view class="content">
+      <view wx:for="{{userList}}" wx:key="_id">
+         <navigator class="display" url="/pages/user/user?_id={{item._id}}">
+              <view class="name">姓名：{{item.username}}</view>
+              <view>身份证号： {{item.idcode}}</view>
+         </navigator>
+        </view>
+    </view>
