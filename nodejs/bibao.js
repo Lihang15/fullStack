@@ -3,6 +3,9 @@
 //a函数中的变量内存不会被销毁
 //作用 ：a里变量成为私有变量 
 
+//用一个函数去操作一个不会被销毁得变量
+
+
 function foo(){
     this.local = 1
     return function(){
@@ -14,3 +17,5 @@ function foo(){
   var func = foo()
   console.log(func())
   console.log(func())
+  
+ 
