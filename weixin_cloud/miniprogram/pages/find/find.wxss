@@ -1,0 +1,25 @@
+/* pages/find/find.wxss */
+.main{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 40rpx;
+}
+.username input{
+  height: 60rpx;
+  border:1px solid#ebebeb;
+  width: 530rpx;
+}
+.btn{
+  margin-top: 2rpx;
+}
+
+.content{
+  padding: 0 40rpx;
+}
+.display{
+  margin-top:20rpx;
+  border:1px solid #ebebeb
+}
+.name{
+  margin-bottom: 10rpx;
+}

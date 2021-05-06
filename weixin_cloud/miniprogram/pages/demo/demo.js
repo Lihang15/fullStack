@@ -1,13 +1,30 @@
-// pages/works/works.js
+// miniprogram/pages/demo/demo.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    
+
   },
 
+
+  formSubmit(e){
+    const db = wx.cloud.database()
+    db.collection('mydata').add({
+        data:{
+          username:e.detail.value.username,
+          idcode:e.detail.value.idcode,
+        },
+        success:res=>{
+           console.log(res._id)
+        },
+        fail:err=>{
+          console.log(err)
+        }
+    })
+    console.log(e.detail.value)
+  },
   /**
    * 生命周期函数--监听页面加载
    */

@@ -1,0 +1,15 @@
+<!--pages/user/user.wxml-->
+<form class="f" bindsubmit="formSubmit">
+     <view class="_id">
+        id：<input name="_id" placeholder="请输入姓名" value="{{user._id}}" />
+      </view>
+      <view class="username">
+        姓名：<input name="username" placeholder="请输入姓名" value="{{user.username}}" />
+      </view>
+       <view class="idcode">
+        身份证号:<input name="idcode" placeholder="请输入身份证号码" value="{{user.idcode}}" />
+       </view>
+        <view class="btn">
+        <button type="primary" formType="submit">修改</button>
+      </view>
+    </form>
