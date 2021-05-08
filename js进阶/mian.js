@@ -7,14 +7,16 @@
 
 //js 原型，原型链
 
-// class Student{
+// export class Student{
 //     constructor(name){
 //         this.name=name
 //     }
-    //   getname(){
-    //       console,log(this.name)
-    //   }
+//       getname(){
+//           console.log(this.name)
+//       }
 // }
+
+// console.log(Student.prototype)
 
 // let student = new Student('A')
 
@@ -51,3 +53,13 @@
 // 如何检查这个属性或者方法是不是自身的
 // teacher.hasOwnProperty('name')  =>true
 // teacher.hasOwnProperty('teach') =>false 原型上的
+
+// vue 
+// computed 和watch 区别
+// 1.computed 不支持异步，当computed内有异步操作时无效，无法监听数据的变化，watch支持异步操作
+
+// 2、是否调用缓存：computed中的函数所依赖的属性没有发生变化，那么调用当前的函数的时候会从缓存中读取，而watch在每次监听的值发生变化的时候都会执行回调。
+
+// 3、是否调用return：computed中的函数必须要用return返回，watch中的函数不是必须要用return。
+
+// 4、使用场景：computed----当一个属性受多个属性影响的时候，使用computed-------登录的时候 用户名 密码，验证码 输入完成 登录按钮亮
