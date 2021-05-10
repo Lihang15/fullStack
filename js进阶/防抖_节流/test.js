@@ -3,4 +3,6 @@
  //节流：在持续触发的事件中，一段时间，只执行一次处理函数
 
 
- 
+ let timer = setInterval(()=>{
+      console.log("xxx")
+ },1000)
