@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div{
+        width: 200px;
+        height: 200px;
+        background-color:pink;
+        transition: 2s ease;
+    }
+</style>
+<body>
+    <div id='div1'>hello</div>
+    <div>xxx</div>
+    <button id='btn'>点我</button>
+    <script>
+        let btn = document.getElementById('btn')
+        btn.addEventListener('click',()=>{
+            console.log('xxx')
+            let d = document.getElementById('div1')
+            if(d.style.opacity=='1'){
+                d.style.opacity='0'
+            }else{
+                d.style.opacity='1'
+            }
+        })
+       
+    </script>
+</body>
+</html>

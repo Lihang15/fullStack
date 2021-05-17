@@ -32,3 +32,9 @@
 
 // 现象：父盒子里面的子盒子设置margin-top：20px 父盒子会被拽下来20px 父盒子margin塌陷 
 // 让父盒子形成bfc 解决此问题 给父盒子overflow：hidden
+
+// mvc和mvvm区别？
+// mvc 中大量的 DOM 操作使页面渲染性能降低，加载速度变慢，影响用户体验。和当 Model 频繁发生变化，开发者需要主动更新到 View 
+
+// mvc controller接收数据，model处理数据，数据处理完把数据给view渲染
+// mvvm 把controller改成viewmodel 和model双向数据绑定，viewmodel接收数据处理数据，数据改变model改变，view自动更新（model和view没直接关联）
