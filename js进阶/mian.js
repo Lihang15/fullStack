@@ -63,3 +63,11 @@
 // 3、是否调用return：computed中的函数必须要用return返回，watch中的函数不是必须要用return。
 
 // 4、使用场景：computed----当一个属性受多个属性影响的时候，使用computed-------登录的时候 用户名 密码，验证码 输入完成 登录按钮亮
+
+// vuex 所有组件共享状态 可以拿这个状态值，也可以修改这个状态值
+// 父子组件传值：父 传值 子通过props接收
+//             子通过this.$emit() 触发父注册的函数
+
+//  兄弟组件之间的传值 创建一个文件 export default new Vue，总线传值
+//  然后在组件一中 导入这个文件 比如叫bus  然后 接收方组件bus.$on('event',()=>{})
+//  传值方 bus.$emit('event',value)

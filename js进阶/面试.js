@@ -38,3 +38,25 @@
 
 // mvc controller接收数据，model处理数据，数据处理完把数据给view渲染
 // mvvm 把controller改成viewmodel 和model双向数据绑定，viewmodel接收数据处理数据，数据改变model改变，view自动更新（model和view没直接关联）
+//apply call bind 改变this的指向
+
+var obj ={
+    name:"wanglihang"
+}
+
+var obj1={
+    name:'xxxx',
+    a(){
+      console.log(this.name)  
+    }
+}
+
+obj1.a()
+obj1.a.apply(obj)
+obj1.a.call(obj)
+let bind =obj1.a.bind(obj)
+bind()
+
+// apply（可以传数组的展开，和数组） call（可以传数组）
+Math.max.call(null,1,2,3)
+console.log(Math.max.call(null,1,2,3))
