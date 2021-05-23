@@ -18,7 +18,11 @@ app.get('/index',function(req,res){
     res.sendFile( __dirname + "/static/" + "index.html" );
     res.end()
 })
-
+app.get('/react_login',(req,res)=>{
+    data={token:'111111'}
+    // res.json(data)
+    res.status(508).json(data)
+})
 app.get('/weixin_data',(req,res)=>{
     console.log(req.query.pagenum) 
     console.log(req.query.count)

@@ -5,7 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    div{
+        opacity: 0;
+        transition: ease 2s;
+    }
+</style>
 <body>
-    <img src="" alt="">
+    <div id ='xx'>woshiyizxxasxasxaxasxasxasxx</div>
+    <button id ='yy'>xxx</button>
+    <script>
+        let yy = document.getElementById('yy')
+        yy.addEventListener('click',()=>{
+            let xx = document.getElementById('xx')
+            if(xx.style.opacity==0){
+                xx.style.opacity=1
+            }else{
+                xx.style.opacity=0
+            }
+            
+            
+        })
+    </script>
 </body>
 </html>
