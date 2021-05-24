@@ -19,22 +19,22 @@
 //     return Array.from(new Set(arr))
 // }
 
-function reduceDel(arr){
-    return arr.reduce((prev,cur)=>{
-        if(!prev.includes(cur)){
-             prev.push(cur)
-        }
-        return prev  
-    },[])
-}
+// function reduceDel(arr){
+//     return arr.reduce((prev,cur)=>{
+//         if(!prev.includes(cur)){
+//              prev.push(cur)
+//         }
+//         return prev  
+//     },[])
+// }
 
-let arr = [2,3,4,5,8,8,0,6,4,3,5,5,55]
+// let arr = [2,3,4,5,8,8,0,6,4,3,5,5,55]
 
 // let newarr = delRepeat(arr)
 // let newarr1 = delRepeat1(arr)
 // console.log(newarr)
 // console.log(newarr1)
-console.log(reduceDel(arr))
+// console.log(reduceDel(arr))
 
 //数组扁平化
 
@@ -54,3 +54,18 @@ console.log(reduceDel(arr))
 // console.log(...arr)
 // console.log(bianping(arr))
 // console.log(flatten(arr))
+
+//统计数组中每个元素出现的次数返回一个对象
+
+let arr = [2,3,4,5,8,8,0,6,4,3,5,5,55]
+function count(arr){
+    return arr.reduce((prev,cur)=>{
+        if(!prev[cur]){
+            prev[cur] = 1
+        }else{
+            prev[cur]++
+        }
+        return prev
+    },{})
+}
+console.log(count(arr))
