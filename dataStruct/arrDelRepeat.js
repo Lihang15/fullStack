@@ -1,27 +1,56 @@
-function delRepeat(arr){
-    if(!arr){
-        return 'null'
-    }
-    var newarr = []
-    let map = new Map()
+// function delRepeat(arr){
+//     if(!arr){
+//         return 'null'
+//     }
+//     var newarr = []
+//     let map = new Map()
 
-    for(let key of arr){
-        if(!map.has(key)){
-            map.set(key,null)
-            newarr.push(key)
+//     for(let key of arr){
+//         if(!map.has(key)){
+//             map.set(key,null)
+//             newarr.push(key)
+//         }
+//     }
+//     console.log(map)
+//     return newarr
+// }
+
+// function delRepeat1(arr){
+//     return Array.from(new Set(arr))
+// }
+
+function reduceDel(arr){
+    return arr.reduce((prev,cur)=>{
+        if(!prev.includes(cur)){
+             prev.push(cur)
         }
-    }
-    console.log(map)
-    return newarr
+        return prev  
+    },[])
 }
-
-function delRepeat1(arr){
-    return Array.from(new Set(arr))
-}
-
 
 let arr = [2,3,4,5,8,8,0,6,4,3,5,5,55]
-let newarr = delRepeat(arr)
-let newarr1 = delRepeat1(arr)
-console.log(newarr)
-console.log(newarr1)
+
+// let newarr = delRepeat(arr)
+// let newarr1 = delRepeat1(arr)
+// console.log(newarr)
+// console.log(newarr1)
+console.log(reduceDel(arr))
+
+//数组扁平化
+
+// function flatten(arr) {
+//     return arr.join(',').split(',').map(function(item) {
+//         return parseInt(item);
+//     })
+// }
+// function bianping(arr){
+//    return  arr.toString().split(',').map((item)=>{
+//         return Number(item)
+//     })
+// }
+
+// let arr =[[1,3,5],[2,8,1,2],3]
+// console.log(arr)
+// console.log(...arr)
+// console.log(bianping(arr))
+// console.log(flatten(arr))

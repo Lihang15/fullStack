@@ -15,16 +15,16 @@ let arr = [1,2,-3,4]
 // )
 // console.log(newarr)
 // console.log(arr)
-//reduce（） 接收一个默认值 和一个回调函数 前一个函数的结果作为后一个参数，以此类推
+//reduce（） 接收一个默认值 和一个回调函数（prev,cur,index,arr）prev为上一次调用结果的返回值，cur为当前元素,index为当前元素下标,arr为当前数组
 // let arr = [1,2,-3,4]
 // let result = arr.reduce((a,b,c)=>{
 //     return a+b+c
 // },1)
 
-// let res = arr.reduce((a,b)=>{
-//    return a*b
-// })
-// console.log(res)
+let res = arr.reduce((a,b)=>{
+   return a+b
+})
+console.log(res)
 // console.log(result)
 // console.log(arr)
 // let a =[]

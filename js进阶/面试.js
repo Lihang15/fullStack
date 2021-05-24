@@ -4,8 +4,6 @@
 //    3.被遗忘的定时器
 //    4.脱离dom的引用 定义了dom 设为null 没被垃圾回收器回收
 
-const { ok } = require("assert")
-const { Http2ServerRequest } = require("http2")
 
 //js的事件循环 
 
@@ -60,7 +58,7 @@ obj1.a.call(obj)
 let bind =obj1.a.bind(obj)
 bind()
 
-// apply（可以传数组的展开，和数组） call（可以传数组）
+// apply（传数组） call（传递数组的展开中间逗号分隔）
 Math.max.call(null,1,2,3)
 console.log(Math.max.call(null,1,2,3))
 
@@ -73,3 +71,7 @@ console.log(Math.max.call(null,1,2,3))
 // 500 服务器内部错误
 // 502 网关出问题
 // 503 服务器挂了
+
+// console.log(i)
+//   var i=10
+//  var 涉及变量提升 因为没在函数作用域中 var i   console.log(i)  i = 10
