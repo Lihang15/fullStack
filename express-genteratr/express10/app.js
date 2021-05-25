@@ -14,6 +14,8 @@ app.use(bodyParser.json())
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var postfile = require('./routes/file');
+var mongos = require('./routes/mongos')
+app.use("/mongos",mongos)
 //解析表单post 数据
 
 app.use("/file",postfile)
