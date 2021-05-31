@@ -56,6 +56,21 @@
 // teacher.hasOwnProperty('name')  =>true
 // teacher.hasOwnProperty('teach') =>false 原型上的
 
+//原型继承
+//   function Father(name){
+//       this.name =name
+//       this.f =function(){
+//           console.log('ff')
+//       }
+//   }
+//   function Son(){
+//   }
+//   let F = new Father('wanglihang')
+//   Son.prototype = F
+//   let S = new Son()
+//   S.f()
+//   console.log(S.name)
+
 // vue 
 // computed 和watch 区别
 // 1.computed 不支持异步，当computed内有异步操作时无效，无法监听数据的变化，watch支持异步操作
