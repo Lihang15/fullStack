@@ -1,4 +1,4 @@
-//層序
+//層序 广度优先遍历
 
 function TreeNode(val) {
     this.val = val
