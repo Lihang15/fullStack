@@ -18,7 +18,7 @@ let before_dfs = function (nodes) {
     return result;
 }
 
-//深度优先遍历  先序
+//深度优先遍历  后序
 let after_dfs = function (nodes) {
     let result = [];
     let stack = [];
