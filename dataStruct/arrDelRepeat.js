@@ -57,15 +57,23 @@
 
 //统计数组中每个元素出现的次数返回一个对象
 
-let arr = [2,3,4,5,8,8,0,6,4,3,5,5,55]
-function count(arr){
-    return arr.reduce((prev,cur)=>{
-        if(!prev[cur]){
-            prev[cur] = 1
-        }else{
-            prev[cur]++
-        }
-        return prev
-    },{})
-}
-console.log(count(arr))
+// let arr = [2,3,4,5,8,8,0,6,4,3,5,5,55]
+// function count(arr){
+//     return arr.reduce((prev,cur)=>{
+//         if(!prev[cur]){
+//             prev[cur] = 1
+//         }else{
+//             prev[cur]++
+//         }
+//         return prev
+//     },{})
+// }
+// console.log(count(arr))
+
+//数组去重
+// let newarr = [2,3,4,5,8,8,0,6,4,3,5,5,55].filter((number, index, arr) => arr.indexOf(number) === index)
+// console.log(newarr)
+
+//找到数组中的数 返回number
+// let a = [1, 4, -5, 10].find(n => {return n < 0})
+// console.log(a)
