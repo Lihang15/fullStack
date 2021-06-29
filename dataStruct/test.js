@@ -245,29 +245,34 @@
 // console.log(inOut([1,2,3,4],[1,4,2,3]))
 
 //括号匹配问题 [{()}] 合法 
-let kuohao = str=>{
-    let stack = []
-    let left=['[','{','(']
-    let right=[']','}',')']
-    for(let i=0;i<str.length;i++){
-        if(left.includes(str[i])){
-            stack.push(str[i])
-            console.log(stack)
-        }
-        if(right.includes(str[i])){
-            if(stack.length<0){
-                return false
-            }else{
-               if(left.indexOf(stack.pop())==right.indexOf(str[i])){
-                   stack.pop()
-               }
-            }
-        }
-    }
-    if(stack.length==0){
-        return true
-    }
-    return false
-}
+// let kuohao = str=>{
+//     let stack = []
+//     let left=['[','{','(']
+//     let right=[']','}',')']
+//     for(let i=0;i<str.length;i++){
+//         if(left.includes(str[i])){
+//             stack.push(str[i])
+//         }
+//         if(right.includes(str[i])){
+//             if(stack.length<0){
+//                 return false
+//             }else{
+//                if(left.indexOf(stack[stack.length-1])==right.indexOf(str[i])){
+//                    stack.pop()
+//                }else{
+//                    return false
+//                }
+//             }
+//         }
+//     }
+//     if(stack.length==0){
+//         return true
+//     }
+//     return false
+// }
 
-console.log(kuohao('[{)}]'))
+// console.log(kuohao('({[]]})'))
+
+let sort=arr=>{
+    
+}
