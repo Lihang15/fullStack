@@ -250,6 +250,24 @@ let kuohao = str=>{
     let left=['[','{','(']
     let right=[']','}',')']
     for(let i=0;i<str.length;i++){
-        if(left.includes())
+        if(left.includes(str[i])){
+            stack.push(str[i])
+            console.log(stack)
+        }
+        if(right.includes(str[i])){
+            if(stack.length<0){
+                return false
+            }else{
+               if(left.indexOf(stack.pop())==right.indexOf(str[i])){
+                   stack.pop()
+               }
+            }
+        }
     }
+    if(stack.length==0){
+        return true
+    }
+    return false
 }
+
+console.log(kuohao('[{)}]'))
