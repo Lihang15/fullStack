@@ -39,8 +39,8 @@
 //     }
 //   }
 
-// hooks 钩子常用 useState()  useReducer() 像redux  useEffect()它接收两个参数，
-//  第一个是进行的异步操作， 第二个是数组，用来给出Effect的依赖项  hooks 可以代替传统redux高阶组件
+// hooks 钩子常用 useState()   useEffect()它接收两个参数，
+//  第一个是进行的异步操作初始化数据， 第二个是数组，用来给出Effect的依赖项 
 
 
 
