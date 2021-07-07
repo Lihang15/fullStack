@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='login_container'>
+      
+    </div>
+    <script src="http://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js"></script>
+    <script>
+         var obj = new WxLogin({
+            self_redirect:true,
+            id:"login_container", 
+            appid: "wxfee0340998de6ab1", 
+            scope: "snsapi_login", 
+            redirect_uri: "https%3A%2F%2Fwww.nowcoder.com%2Foauth2%2Flogin%2Fweixin",
+            state: "11",
+            style: "",
+            href: ""
+            });
+    </script>
+  https://open.weixin.qq.com/connect/qrconnect?appid=wxfee0340998de6ab1&redirect_uri=https%3A%2F%2Fwww.nowcoder.com%2Foauth2%2Flogin%2Fweixin?&response_type=code&scope=snsapi_login&state=11
+</body>
+</html>
