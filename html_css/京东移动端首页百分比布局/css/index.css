@@ -4,6 +4,10 @@ body{
     width: 100%;
     height: 100%;
     margin: 0 auto;
+    font-family: -apple-system, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color:#666
 }
 .app{
    height: 45px;
@@ -26,39 +30,69 @@ body{
      text-align: center;
      line-height: 45px;
 } 
+.app ul li:nth-child(1) img{
+    width: 10px;
+   
+} 
 .app ul li:nth-child(2){
+    line-height: 45px;
      width: 10%;
 }
+.app ul li:nth-child(2) img{
+    width: 30px;
+    vertical-align: middle;
+    /* 改变图片对齐方式 一个div中 有文字和图片，文字居中对齐，图片设置vertical-align改变图片对齐方式 */
+}
 .app ul li:nth-child(3){
+    text-align: center;
+    line-height: 45px;
       width: 57%;
 }
 .app ul li:nth-child(4){
-       width: 25%;
-       background:pink;
+    text-align: center;
+    line-height: 45px;
+    width: 25%;
+    background:#f63515;
 }
 
 .search-wrap{
     height: 44px;
-    position: relative;
+    position: fixed;
     overflow: hidden;
+    min-width: 320px;
+    max-width: 640px;
+    width: 100%;
 }
 .search-btn{
     position: absolute;
     top: 0;
     left: 0;
-    background-color: pink;
     width: 40px;
     height: 44px;
+}
+.search-btn::before{
+    content: "";
+    display: block;
+    width: 20px;
+    height: 18px;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAgAgMAAAAdw9KTAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURUdwTP///////////waf0AoAAAADdFJOUwDjSYAlncUAAAAbSURBVBjTY5j/Hwq+MdTDmH+RmUgK6AuGhcsAU5tyB6Ji+x0AAAAASUVORK5CYII=");
+    background-repeat: no-repeat;
+    background-size: 20px 18px;
+    margin-top: 14px;
+    margin-left: 15px;
 }
 .search-login{
     position: absolute;
     top: 0;
     right: 0;
-    background-color: pink;
     width: 40px;
     height: 44px;
+    line-height: 44px;
+    color: #fff;
+    text-align: center;
 }
 .search{
+    position: relative;
     height: 30px;
     margin:0 50px;
     background: blue;
@@ -71,4 +105,57 @@ body{
     border: 1;
     outline: none;
     border-radius: 15px;
+}
+.jd-icon{
+    width: 20px;
+    height: 15px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAeCAMAAABpA6zvAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAzUExURUdwTOo8Puo7Peo7Pek7Peo7Pe0/Qek7PvE+SP9SUuo7Peo7Peo7Pus8P+o7Peo7Pek7PZSxd20AAAAQdFJOUwBV8eG+hyGkEQbGmWs/rthNA0r+AAAA5klEQVQ4y63T0RaDIAgAUEDRUjP//2u3CI/T1vJhvM3uVBAANGx5xwLgiwSZ3TI6uMYANSyuc7AUs03CUvgHRMTEflcZ76FezDGJTE/wTYNI9whhDePhNxAcDVveQWDJbgK6Y8FPQDBH2WdgPlZmYNQvj5D7tP8Ap4+2s8lQX56g4AK34bGPshJ8gbl/wrXoASOUDanlgvVFB3g2T5sGZ2on9xCp23BJ8tusPVzw7O/zhuxtHSIZDYGRo891WUemjeVZgsu4kmY8ju8Ifb2f/i3WV+/gzq0Zgs0xba0eHCSsj4zLR91f1fAfiWsqzlEAAAAASUVORK5CYII=") no-repeat;
+    background-size: 20px 15px;
+}
+.jd-icon::after{
+    content: "";
+    display: block;
+    width: 1px;
+    height: 15px;
+    background-color: #ccc;
+    position: absolute;
+    right: -10px;
+}
+.sou{
+    position: absolute;
+    top:8px;
+    left:50px;
+    width:18px;
+    height: 15px;
+    background:url("../jd-sprites.png") no-repeat -81px 0;
+    background-size: 200px auto;
+}
+
+.main-content{
+
+}
+.slider img{
+     width: 100%;
+}
+
+nav a{
+    float: left;
+    width: 20%;
+    text-align: center;
+}
+
+nav a img{
+    width: 40px;
+    margin: 10px 0;
+}
+nav a span{
+    display: block;
+}
+
+a{
+    color: #666;
+    text-decoration: none;
 }
