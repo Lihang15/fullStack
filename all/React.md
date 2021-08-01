@@ -38,6 +38,34 @@ ReactDOM.render(){
     document.getElementById('root')
 }
 
+### 问题二 React虚拟dom
 
+虚拟dom js对象描述的dom
+state改变 render方法执行，通过diff算法对比，通过新的虚拟dom，只改变变化的部分，浏览器不会回流，
+虚拟dom真正的意义是 让react脱离了浏览器束缚，react可以运行在任何可以执行js的环境里 比如react-native写ios android应用
 
+### 问题三 为什么遍历列表的时候key最好别用index
+当状态发生改变的时候，新的虚拟dom会对比旧的虚拟dom通过key，有相同的key和内容，会使用之前的，如果key不相同，
+新的虚拟dom会替换变化部分，如果key用index 比如我在列表第一个位置插入一个新列表元素，key=index（0），
+旧dom中key=0的元素 就与新dom中key等于一的key=1的相同，但是key变了，本来不需要替换的dom被替换了，影响性能。
+
+### 问题四 React生命周期（挂载，更新，卸载）
+常用生命周期钩子函数调用过程
+挂载阶段 
+constructor()
+componentWillMount() //不适合异步取数据操作，render中取得接口数据，可能是空的
+render()  dom已插入
+componentDidMount() //初始化数据
+
+更新阶段 当组件props和state发生变化
+ shouldComponentUpdate() 由于父组件更新，子组件render也会调用，可以在这个函数
+ 写判断 只有子组件依赖父组件数据更新才更新，可以用pureComponent代替
+ render()
+ componentDidUpdate() 
+
+卸载 组件从dom中移除时候
+componentWillUnmount()
+错误处理
+在渲染中，生命周期，构造函数，或者子组件中出现异常执行
+componentDidCatch()
 
