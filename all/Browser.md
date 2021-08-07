@@ -53,4 +53,14 @@
 ### 问题八 重绘 回流
    重绘：'render tree'中一些影响外观，但是不影响布局的属性改变，比如bgc-color，整棵树不需要重新构建
    回流： 布局，元素尺寸大小改变，需要重新绘制整棵树，就是回流，页面第一次加载就是回流
-   
+### 常见的兼容性问题
+   浏览器由于版本不同，内核不同，导致最后渲染出来的的结果有不同，通常使用normalize抹平样试差异 
+   默认边距也可能不同
+   ie4-8 不支持css3 opacity属性，可以通过css filter来设置
+   ie4-8 不支持媒体查询，不支持html5新标签 
+   ie4-8 window.event.returnValue =false 阻止默认行为      window.event.cancelBubble = true 防止事件冒泡
+   webkit内核 event.preventDefault()                      event.stopPropagation()
+### 浏览器默认行为（直接在处理函数中加return false也会阻止默认行为）
+<a href="">会默认跳转地址 通过监听事件 阻止默认行为 就不能跳转了
+<input> 获得焦点后 敲击键盘会自动输入 阻止后 键盘输入无效
+ type为submit的input 或者<button>都会触发表达提交，阻止后不提交
