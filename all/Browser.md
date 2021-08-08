@@ -61,6 +61,29 @@
    ie4-8 window.event.returnValue =false 阻止默认行为      window.event.cancelBubble = true 防止事件冒泡
    webkit内核 event.preventDefault()                      event.stopPropagation()
 ### 浏览器默认行为（直接在处理函数中加return false也会阻止默认行为）
-<a href="">会默认跳转地址 通过监听事件 阻止默认行为 就不能跳转了
-<input> 获得焦点后 敲击键盘会自动输入 阻止后 键盘输入无效
- type为submit的input 或者<button>都会触发表达提交，阻止后不提交
+    <a href="">会默认跳转地址 通过监听事件 阻止默认行为 就不能跳转了
+    <input> 获得焦点后 敲击键盘会自动输入 阻止后 键盘输入无效
+    type为submit的input 或者<button>都会触发表达提交，阻止后不提交
+### 浏览器本地存储 
+    localStorage 存储大约5m大小 永久存储除非删掉
+    sessionStorage 存储大约5m大小 关闭浏览器就是失效
+    cookie 存储大约4k 不设置过期时间的话 关闭浏览器会失效
+    session 存储在服务端 通过服务器设置 一般会以键值对存储在cookie中
+    下次请求浏览器会自动带上sessionid去服务器，服务器自动解析sessionid，
+    获取session 通过session获取session存储的信息
+### 事件委托机制
+    由于事件默认是向上冒泡的，操作子盒子的事件可以写在父盒子上，让父盒子去执行
+    比如ul 下面多个li 不需要给每个li都设置点击事件，父盒子设置设置点击事件，
+    点击子盒子也可以拿到子盒子的标签。
+### http状态码
+    200 ok
+    301：永久重定向；
+    302：临时移动，可使用原有URI；
+    304：资源未修改，可使用缓存；
+    400 服务器无法解析客户端请求
+    401 需要请求身份认证
+    403 服务器拒绝执行此请求
+    404 服务器找不到客户请求资源
+    500 服务器内部错误
+    502 网关出问题
+    503 服务器挂了

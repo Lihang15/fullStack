@@ -11,13 +11,13 @@ router.get("/carousel", (req, res) => {
         id: 0,
         image:
           "https://img2.baidu.com/it/u=1267931373,3662510004&fm=26&fmt=auto&gp=0.jpg",
-        colors: ["red", "blue"],
+        colors: ["black", "blue"],
       },
       {
         id: 1,
         image:
           "https://img2.baidu.com/it/u=2636384542,2342846786&fm=26&fmt=auto&gp=0.jpg",
-        colors: ["#eee", "#ddd"],
+        colors: ["red", "red"],
       },
       {
         id: 2,

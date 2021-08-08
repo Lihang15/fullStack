@@ -6,27 +6,53 @@
     <title>Document</title>
 </head>
 <style>
-    div{
-        opacity: 0;
+    /* div{
+        opacity: 0; 
         transition: ease 2s;
+    } */
+    .z{
+        width:100px;
+        height: 100px;
+        background-color: red;
+        float: right;
+    }
+    .p{
+        /* height: 400px; */
+        /* overflow: hidden; */
+        /* position: absolute; */
     }
 </style>
 <body>
     <div id ='xx'>woshiyizxxasxasxaxasxasxasxx</div>
     <button id ='yy'>xxx</button>
+    <div class="p">
+        <div class="z"></div>
+    </div>
     <script>
+        function a(){
+            var a = parseInt(Math.random()*256)
+            return 'xx'+a
+        }
         let yy = document.getElementById('yy')
-        yy.addEventListener('click',(e)=>{
-            // console.log(e)
-            let xx = document.getElementById('xx')
-            if(xx.style.opacity==0){
-                xx.style.opacity=1
-            }else{
-                xx.style.opacity=0
-            }
-            
-            
-        })
+            yy.innerHTML += '看显卡显卡' +a()
+
+            function person(arg1,arg2){
+    console.log(this.name)
+    console.log(arg1,arg2)
+}
+
+var egg ={
+    name:'蛋老师'
+}
+            Function.prototype.newCall =function(obj,...arg){
+            var obj = obj || window
+            obj.p = this
+            obj.p(...arg)
+            delete obj.p
+        }
+        person.newCall(null,'xx','bb')
+
+        
     </script>
 </body>
 </html>

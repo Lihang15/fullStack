@@ -1,10 +1,12 @@
 var express = require('express')
 var app = express()
 const router_r = require('./ximalaya_router')
+const router_classify = require('./classify_router')
 //ejs 加载模板引擎 也可以像模板传数据传递
 //npm install ejs 安装ejs                                                              
 app.set("view engine","ejs")
 app.use(router_r)
+app.use(router_classify)
 //默认加载模板引擎的文件夹  views 可以使用自定义目录 app.set('views','你的目录路径')
 app.use(express.static('static'))
 app.listen(8000,function(){
