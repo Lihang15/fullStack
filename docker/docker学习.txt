@@ -1,0 +1,41 @@
+
+一.docker 基本命令
+
+docker ps 查看正在后台运行的容器
+docker images 查看所有本地的镜像
+docker ps -a 查看容器的启动关闭历史
+docker search mysql 查询mysql镜像
+
+docker run 镜像名 linux命令    在容器执行linux命令
+docker run -i -t 镜像名 /bin/bash  以交互的方式进入镜像
+
+docker run -d 镜像名 xxx   后台启动容器 xxx如果不是命令 不会后台启动
+
+docker exec -it 容器id  bin/bash  进入交互容器  退出后容器后台不会停
+docker attach  容器id   进入交互容器  退出后容器后台会停
+
+docker tag 镜像id centos:dev  为镜像添加标签
+
+二.dockerfile 构建镜像
+
+FROM : 用于构建镜像的基本镜像
+RUN :  shell基本命令  或者  ["./test","dev","offine"] 等同于 RUN ./test dev offine
+COPY:  a?.txt? /mydir/     把本地上下文目录 a.txt 复制到容器  /mydir/ 下
+ADD :  a.gzip  /mydir/     把本地上下文目录 a.gzip 复制到容器  /mydir/ 下 会自动解压(.gzip .bzip)
+
+CMD  : shell基本命令        和RUN的区别 => CMD是在docker run 时候执行 RUN是 docker build 时候执行
+CMD 也可以给ENTRYPOINT 传默认 ["param1",..."param2"]       比如 CMD ["/etc/nginx/nginx.conf"]  
+ENTRYPOINT : ["<executeable>","<param1>","<param2>",...]  比如  ENTRYPOINT ["nginx", "-c"] 
+docker run nginx:test  容器内会默认运行以下命令 nginx -c /etc/nginx/nginx.conf
+如果docker run使用了--entrypoint 或者 跟了cmd命令 会覆盖CMD  ENTRYPOINT
+
+ENV ： 设置环境变量  比如 ENV NODE_VERSION 12.6.0  后续的命令可以 RUN curl -SLO "http://nodejs.org/v$NODE_VERSION" 获取
+ARG ： 
+
+构建docker镜像
+在dockerfile所在目录  执行 docker build -t 想叫的镜像名 . (这个.就是上下文目录)  或者 docker build -t 想叫的镜像名 dockerfile的绝对目录 
+
+
+
+
+
