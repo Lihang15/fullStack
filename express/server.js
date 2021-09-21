@@ -7,6 +7,8 @@ const router_classify = require('./classify_router')
 app.set("view engine","ejs")
 app.use(router_r)
 app.use(router_classify)
+app.use(express.json()) // for parsing application/json
+
 //默认加载模板引擎的文件夹  views 可以使用自定义目录 app.set('views','你的目录路径')
 app.use(express.static('static'))
 app.listen(8000,function(){
@@ -73,4 +75,24 @@ app.get('/',function(req,res){
     res.end()
 })
 
+
+app.post("/login11",(req,res)=>{
+    if(!req.body.user){
+        let data={
+            "msg":"请输入用户名"
+        }
+        res.status(200).json(data);
+    }
+    console.log(req.body)
+    let data={
+        "msg":"用户名或者密码错误"
+    }
+    if(req.body.user=="zjj"&&req.body.password=='123456'){
+        let data={
+            "msg":"登录成功"
+        }
+        res.status(200).json(data);
+    }
+    res.status(200).json(data);
+  })
 

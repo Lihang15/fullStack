@@ -1,0 +1,84 @@
+#!/bin/bash set -ex 遇到错误后 后面的不执行 exit 0正常退出 exit 1异常退出
+
+变量 
+your_name='wanglihang' 单引号内所有字符原样输出 双引号可读变量echo "xxx${your_name}xxx" 
+
+字符串操作
+拼接字符串 str = 'xxx',${your_name}
+取字符串长度 ${#your_name}
+截取字符串 ${your_name:1:4}
+
+数组
+定义 arr=(1 2 3 "xxx") 
+获取数组长度 ${arr[*]}
+
+读取传递参数 
+echo "$0，$1"  获取传递参数$0 文件名 $1-n才是传递参数
+echo "$#"  获取 传递参数的个数
+echo "$*" 传递参数作为一个字符串显示
+echo "$@" 和“$*” 输出一样  但遍历时候是多个单独参数
+
+运算符 ‘ expr $a-$b’ 必须要在反引号里 运算
+
+if [$a -eq $b] -eq等于   -ne不等于 -gt大于 -lt小于 -ge大于等于 -le小于等于
+
+！非  &&或 ||与
+
+流程控制
+if [ $a -eq $b ]
+then
+    echo "$a,$b"
+else 
+    echo "else"
+fi
+
+for var in 1 2 3 4
+do
+   echo "$var"
+done
+
+int=1
+while(($int<=5))
+do
+  echo $int
+  ((int++))
+done
+
+aNum=2
+case $aNum in
+    1)  echo '你选择了 1'
+    ;;
+    2)  echo '你选择了 2'
+    ;;
+    3)  echo '你选择了 3'
+    ;;
+    4)  echo '你选择了 4'
+    ;;
+    *)  echo '你没有输入 1 到 4 之间的数字'
+    ;;
+esac
+
+函数
+function demo(){
+    echo "$1"
+    echo "$2"
+    shift 1 代表将参数左移 1以前的$2 变成$1
+    return 1
+}
+
+demo 1 2 
+echo $?
+
+读文件
+echo "执行语句开始"
+cat ./file.txt | while read line
+do
+        echo ${line}
+        echo ${line} > ./a.txt
+done
+
+包含文件 在另一个.sh 文件中 . ./filepath.sh
+
+
+
+

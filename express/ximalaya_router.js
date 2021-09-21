@@ -1,7 +1,24 @@
 const express = require("express");
+var app = express()
 var router = express.Router();
 
+
+router.post("/login",(req,res)=>{
+  console.log(req.body)
+  data={
+    username:"我是张晶晶"
+  }
+  res.status(200).json(data);
+})
+
 router.get("/carousel", (req, res) => {
+  console.log(req.query.username)
+  if(req.query.username){
+    data={
+      username:"我是张晶晶"
+    }
+    res.status(200).json(data);
+  }
   console.log("get:/carousel");
   data = {
     status: 100,

@@ -11,6 +11,9 @@ docker run -i -t 镜像名 /bin/bash  以交互的方式进入镜像
 
 docker run -d 镜像名 xxx   后台启动容器 xxx如果不是命令 不会后台启动
 
+docker -p 3306:3306 如果不跟参数 dockerfile EXPOSE 端口 随即映射本机端口
+docker --name 指定镜像跑起来的容器名字 
+
 docker exec -it 容器id  bin/bash  进入交互容器  退出后容器后台不会停
 docker attach  容器id   进入交互容器  退出后容器后台会停
 
@@ -18,7 +21,7 @@ docker tag 镜像id centos:dev  为镜像添加标签
 
 二.dockerfile 构建镜像
 
-FROM : 用于构建镜像的基本镜像
+FROM : 用于构建镜像的基础镜像  构建新镜像 必须要有一个基础镜像，基础镜像一般是干净的，没有三方修改的 在这个基础上构建新镜像 
 RUN :  shell基本命令  或者  ["./test","dev","offine"] 等同于 RUN ./test dev offine
 COPY:  a?.txt? /mydir/     把本地上下文目录 a.txt 复制到容器  /mydir/ 下
 ADD :  a.gzip  /mydir/     把本地上下文目录 a.gzip 复制到容器  /mydir/ 下 会自动解压(.gzip .bzip)
@@ -27,13 +30,18 @@ CMD  : shell基本命令        和RUN的区别 => CMD是在docker run 时候执
 CMD 也可以给ENTRYPOINT 传默认 ["param1",..."param2"]       比如 CMD ["/etc/nginx/nginx.conf"]  
 ENTRYPOINT : ["<executeable>","<param1>","<param2>",...]  比如  ENTRYPOINT ["nginx", "-c"] 
 docker run nginx:test  容器内会默认运行以下命令 nginx -c /etc/nginx/nginx.conf
-如果docker run使用了--entrypoint 或者 跟了cmd命令 会覆盖CMD  ENTRYPOINT
+如果docker run使用了--entrypoint 会覆盖 ENTRYPOINT  或者 跟了cmd命令 会覆盖CMD  
 
-ENV ： 设置环境变量  比如 ENV NODE_VERSION 12.6.0  后续的命令可以 RUN curl -SLO "http://nodejs.org/v$NODE_VERSION" 获取
-ARG ： 
+ENV ： 设置环境变量  可以设置环境变量 也可以比如 ENV NODE_VERSION 12.6.0  后续的命令可以 RUN curl -SLO "http://nodejs.org/v$NODE_VERSION" 获取
+ARG ： 与ENV 作用一致 只在dockerfile中有效  在容器内部没用
+VOLUME ： 定义挂载数据卷 启动时候如果忘记挂载，会自动挂载到匿名卷 docker run -v 可以也可指定
+EXPOSE : 声明端口  帮助使用者理解这个镜像服务的守护端口，方便映射配置
+WORKDIER：/tmp/nginx-1.13.7    相当于 cd /tmp/nginx-1.13.7 
+
 
 构建docker镜像
 在dockerfile所在目录  执行 docker build -t 想叫的镜像名 . (这个.就是上下文目录)  或者 docker build -t 想叫的镜像名 dockerfile的绝对目录 
+
 
 
 

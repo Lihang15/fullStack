@@ -1,5 +1,4 @@
 FROM    centos:6.7
-MAINTAINER      Fisher "fisher@sudops.com"
 
 RUN     /bin/echo 'root:123456' |chpasswd
 RUN     useradd runoob

@@ -1,0 +1,75 @@
+1.设置临时环境变量 
+export PATH="/User/lihang/test:$PATH"  比如我test目录下有 test.sh  就可以在任意目录下直接test.sh运行  只限于当前终端
+
+2.永久设置环境变量
+linux 修改 $HOME/.bash_profile  改完需要sourse一下   mac 修改$HOME/.zshrc  如果$HOME/.bash_profile下也有环境变量配置
+直接把sourse ~/.bash_profile 写在最后一行 要不然$HOME/.bash_profile下的配置电脑重启后不生效
+
+1.cat  
+创建文件 cat > file.txt 可以在终端继续输入文件内容
+查看文件 内容cat file.txt 
+查看文件 内容cat file.txt | cut -d"," -f1  文本已，号分割 显示第一段
+合并文件内容 到指定文件 cat file1.txt >file.txt
+
+2.chmod 变更文件权限 
+ls -l 文件名字 查看文件权限 -rwx-xr-x  -rwx-代表当前用户u的权限 xr-g组用户  x o其他用户 (r 4  w 2  x 1)
+chomd 777 文件名 给文件所有用户设置读写执行权限 
+chmod +rwx 文件名 给当前用户设置 读写执行权限
+
+3.chown 改变文件所有者
+chown root:group1 file.text 改变文件权限 给root用户 group1 组
+
+4. cp 
+cp file.text file1.txt 复制出一个file1.txt
+cp -R /tmp /tmp2 递归复制/tmp/ 下所有内容到 /tmp2/ 下
+
+5. curl http 工具
+
+6. diff 比较两个文件的不同
+diff -y file1.txt file2.txt
+
+7. file 
+file -i file.txt 显示文件的mime 类型
+
+8.find 用来在指定目录下查找文件和目录
+find ./ -name *.txt 查找当前目录下所有.txt结尾的文件
+find ./ -ctime -1 查找当前目录下近一天内改过的文件
+
+9. grep 查找文件里符合条件的字符串
+grep Hello hello.c 打印出hello.c中 包含 Hello字符串的行数据
+
+grep -c Hello hello.c 打印出hello.c中 包含 Hello字符串的行数总和
+
+grep -n Hello hello.c 打印出hello.c中 包含 Hello字符串的行数据 并打印行号
+
+grep -rni "Hello" ./ 递归匹配当前目录下 所有包含 Hello字符串的文件
+
+10.mv 
+mv file1.txt file2.txt 文件改名
+mv file1.txt /tmp/ 将文件移动到/tmp/下
+
+11. kill
+kill -9 pid  杀死pid进程
+ps aux 列出所有进程
+
+12.lsof -i :port
+lsof -i tcp:8000 查看8000端口的 pid 和8000端口有没有被占用
+
+13.  windows系统 
+netstat -ano | findstr 8000 查看进程pid
+taskkill /F /PID pid 杀死进程
+
+
+14.scp 用于两个linux电脑的文件复制
+scp -r ./ lihang@1.1.1.1:/tmp  将本机的当前目录下所有东西传到 lihang机器下/tmp目录
+scp file.txt ihang@1.1.1.1:/tmp 将本机的当前目录下file.txt传到  lihang机器下/tmp目录
+
+
+
+
+
+
+
+
+
+
