@@ -11,4 +11,8 @@
     2、链接到原型；
     3、将构造函数的this指向这个新对象，执行构造函数的代码，为这个对象添加属性，方法等；
     4、返回新对象。
-    
+### 问题五 js模块化
+   require/exports	2009年	CommonJS  应用nodejs
+   import/export	2015年	ECMAScript2015（ES6）应用前端js
+   原生浏览器不支持 require/exports，可使用支持 CommonJS 模块规范的 Browsersify、webpack 等打包工具，它们会将 require/exports 转换成能在浏览器使用的代码。
+   import/export 在浏览器中无法直接使用，会跨域，可以借助webpack打包

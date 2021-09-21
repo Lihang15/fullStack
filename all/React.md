@@ -1,3 +1,9 @@
+### SPA单页应用的原理
+spa 就是一个页面完成所有功能 什么操作展示什么内容
+1.锚点(hash) window.onhashchange()这个函数在点击<a href="#/home"></a>自动执行，在location.hash中能获取#/home  2.h5(history)
+2.react-router-dom库，让react能开发spa项目，直接在根组件使用。
+3.路由嵌套 
+
 ### 问题一 高阶组件（HOC）实现方式 
 属性代理模式  state复用 传入一个组件 返回一个新组件 新组件得到增强 ，复用代码写在父亲组件中
 const withHoc =(WrappedComponent)=>{

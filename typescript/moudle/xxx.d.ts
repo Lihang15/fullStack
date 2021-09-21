@@ -1,0 +1,1 @@
+decalre function getName(id:number|string):string
