@@ -13,3 +13,4 @@ export class B {
     }
 }
 
+export const jsx = 'jsxjsx';

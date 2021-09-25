@@ -15,4 +15,5 @@ var me = {
 console.log(me);
 var a = new Utils.IPerson1;
 console.log(a.name);
+console.log("xxxxx" + a_1.jsx);
 ///// <reference path="namespace.ts" /> 可以通过这种方式也可以导入三方的js 声明ts文件  然后直接用

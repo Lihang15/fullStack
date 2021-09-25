@@ -1,5 +1,5 @@
 /// <reference path="namespace.ts" />
-import {foo, B} from "./a";
+import {foo, B,jsx} from "./a";
 import A1 from "./a";
 
 
@@ -20,5 +20,6 @@ console.log(me);
 let a = new Utils.IPerson1
 console.log(a.name); 
 
+console.log("xxxxx"+jsx)
 
 ///// <reference path="namespace.ts" /> 可以通过这种方式也可以导入三方的js 声明ts文件  然后直接用

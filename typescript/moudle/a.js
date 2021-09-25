@@ -1,6 +1,6 @@
 "use strict";
 exports.__esModule = true;
-exports.B = exports.foo = void 0;
+exports.jsx = exports.B = exports.foo = void 0;
 exports.foo = 123;
 var A = /** @class */ (function () {
     function A() {
@@ -19,3 +19,4 @@ var B = /** @class */ (function () {
     return B;
 }());
 exports.B = B;
+exports.jsx = 'jsxjsx';
