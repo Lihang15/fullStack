@@ -1,9 +1,13 @@
-FROM    centos:6.7
+FROM ubuntu
 
-RUN     /bin/echo 'root:123456' |chpasswd
-RUN     useradd runoob
-RUN     /bin/echo 'runoob:123456' |chpasswd
-RUN     /bin/echo -e "LANG=\"en_US.UTF-8\"" >/etc/default/local
-EXPOSE  22
-EXPOSE  80
-CMD     /usr/sbin/sshd -D
+COPY node-v14.17.6-linux-x64 /opt/node-v14.17.6-linux-x64/
+RUN cd /opt
+ENV PATH /opt/node-v14.17.6-linux-x64/bin:$PATH
+RUN mkdir express
+COPY node_modules /opt/express/node_modules/
+COPY ./server.js /opt/express/
+COPY ./ximalaya_router.js /opt/express/
+COPY ./classify_router.js /opt/express/
+RUN cd /opt/express 
+EXPOSE 8000
+ENTRYPOINT node /opt/express/server.js
