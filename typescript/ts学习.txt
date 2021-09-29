@@ -8,6 +8,7 @@ js代码和ts代码共存 => tsc只会编译ts代码 js代码不会编译=>ts完
 
 可以使用 tsconfig.json 来配置tsc编译选项
 1. tsc --init    在当前目录下生成tsconfig.json 
+2. tsc 可以搜索tsconfig.json 并全局编译   tsc 指定文件  不会触发tsc全局
 
 
 2.ts和前端js都可以通过es6 import和export方式导入导出方式引入  通过tsconfig可以配置编译出来的js代码是什么类型的
@@ -24,6 +25,7 @@ js代码和ts代码共存 => tsc只会编译ts代码 js代码不会编译=>ts完
 .d.ts 文件可以直接和npm包写在一起发布   也可以提一个pr给DefinitelyTyped这个项目 @types
 
 
-
+1.脚手架创建ts react-app
+npx create-react-app ts-react --template typescript
 
 
