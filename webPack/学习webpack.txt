@@ -1,0 +1,31 @@
+为什么要使用webpack？
+
+1.前端工程化的解决方案 可以打包js模块 可以将ts less 等转换成浏览器识别的语法打包，可以提高我们的开发速度
+
+怎么使用？
+1. npm init 创建一个package.json 包管理工具
+
+2. npm i -D webpack webpack-cli typescript ts-loader
+//会把这些包放到package.json  devDependencies里  如果这个包pulish到npm库里，
+别人拉取你的npm包 devDependencies里的包 不会被下载
+
+3.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2.webpack 打包 一般到生产环境 要增加一些 压缩js代码 js与css分离之类的插件 来优化  react官方脚手架的 npm build默认webpack有优化
+

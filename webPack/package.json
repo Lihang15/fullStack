@@ -1,16 +1,17 @@
 {
-  "name": "project1",
+  "name": "webpack",
   "version": "1.0.0",
   "description": "",
-  "main": "a.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "css-loader": "^5.0.1",
-    "less-loader": "^7.3.0",
-    "style-loader": "^2.0.0"
+  "devDependencies": {
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.4.3",
+    "webpack": "^5.55.1",
+    "webpack-cli": "^4.8.0"
   }
 }
