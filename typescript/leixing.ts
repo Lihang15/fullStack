@@ -25,6 +25,10 @@ enum color {
 }
 let em: color = color.Blue  //默认从0开始
 
+enum direction{
+  Up= 'UP'
+  Down = 'DOWN'
+}
 
 console.log(em)
 
