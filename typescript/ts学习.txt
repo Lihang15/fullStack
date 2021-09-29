@@ -1,0 +1,35 @@
+为什么要使用typescript?
+
+1.ts有静态类型检查 在编译期可以发现大部分错误
+2.ts更适合编写大型应用
+
+js代码和ts代码共存 => tsc只会编译ts代码 js代码不会编译=>ts完全融合js是js的超集
+
+
+可以使用 tsconfig.json 来配置tsc编译选项
+1. tsc --init    在当前目录下生成tsconfig.json 
+2. tsc 可以搜索tsconfig.json 并全局编译   tsc 指定文件  不会触发tsc全局
+
+
+2.ts和前端js都可以通过es6 import和export方式导入导出方式引入  通过tsconfig可以配置编译出来的js代码是什么类型的
+
+引入三方库怎么引入?
+1.通过 npm install wlh-hbbhk 这个库是js库没有类型声明文件  tsconfig如果没开启严格模式可以直接用  
+如果开启严格模式需要在这个包下写一个.d.ts文件 declare module 'wlh-hbbhk' tsc就可以全局编译 这样就可以用了  或者把这个.d.ts文件放到根目录下也可以
+这句话声明这个js文件都是any类型      
+
+2.也可以为三方的npm js文件写一些其他的.d.ts类型声明 也可以放到项目根目录下 暂时没理解咋写   
+
+在ts文件如何引入本地的js和js.d.ts？
+
+本地的js文件和这个本地的js.d.ts文件暂时没找到方案 暂不考虑
+
+.d.ts声明类型文件
+
+.d.ts 文件可以直接和npm包写在一起发布   也可以提一个pr给DefinitelyTyped这个项目 @types
+
+
+1.脚手架创建ts react-app
+npx create-react-app ts-react --template typescript
+
+
