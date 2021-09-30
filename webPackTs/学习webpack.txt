@@ -1,0 +1,39 @@
+为什么要使用webpack？
+
+1.前端工程化的解决方案 可以打包js模块 可以将ts less 等转换成浏览器识别的语法打包，可以提高我们的开发速度
+
+怎么使用？
+1. npm init 创建一个package.json 包管理工具
+
+2. npm i -D webpack webpack-cli typescript ts-loader
+//会把这些包放到package.json  devDependencies里  如果这个包pulish到npm库里，
+别人拉取你的npm包 devDependencies里的包 不会被下载
+
+3. 写一个webpack.config.json文件在根目录下 这里写打包配置
+  1.如果不想自己写html并把打包出来的东西引进去 打包时候可以引用一些插件 配置帮你完成 cnpm i -D html-webpack-plugin 配置html模板
+  2.可以安装webpack默认服务器 cnpm i -D webpack-dev-server  直接执行webpack serve --open 启动服务 它会开启一个服务 他会自动找有引入bundle.js的html页面
+  3.可以配置babel 把代码转换成 es5代码让所有浏览器都能识别 cnpm i -D @babel/core @babel/preset-env babel-loader core-js  
+
+4.加载ts文件 需要 ts-loader 和在根目录下生成tsconfig文件
+
+5. 执行 webpack  命令  或者在package.json文件 script里配置
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2.webpack 打包 一般到生产环境 要增加一些 压缩js代码 js与css分离之类的插件 来优化  react官方脚手架的 npm build默认webpack有优化
+
