@@ -32,9 +32,6 @@ module.exports = {
            {
                 test: /\.(jpg|png|gif)$/,
                 loader:'url-loader',
-                options:{
-                    limit:8*1024
-                }
            }
         ]
     },

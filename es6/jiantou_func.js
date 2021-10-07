@@ -34,5 +34,8 @@ c(3,4)
 let d = (arg1,arg2) =>{
     return arg2+arg1
 }
+//如果箭头函数后面只有一行 并且不是console.log {} () 不加括号都会自动拼一个return
+let f = (arg)=>(arg)
 
 console.log(d(11,11))
+

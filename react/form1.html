@@ -12,21 +12,18 @@
 <body>
         <div id="root"></div>
         <script type="text/babel">
-        //受控组件 文本框的值和state绑定 受状态控制
+        //使用箭头函数 不用绑定this
      class NameForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {value: ''};
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) {
+  handleChange=(event)=>{
     this.setState({value: event.target.value});
   }
 
-  handleSubmit(event) {
+  handleSubmit=(event)=> {
     alert('提交的名字: ' + this.state.value);
     event.preventDefault();
   }

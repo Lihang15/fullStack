@@ -44,6 +44,31 @@ ReactDOM.render(){
     document.getElementById('root')
 }
 
+
+第二种方式实现状态复用 render-props 给复用状态组件内部传递一个函数
+class Mouse extends React.Component{
+        state={
+            x:0,
+            y:0
+        }
+        handelMouseMove = (e)={
+          this.setState({
+              x:e.clientX,
+              y:e.clientY
+          })
+        }
+        componentDidMount(){
+            windows.addEventListener('mousemove',this.handelMouseMove)
+        }
+        componentWillUnmount(){
+            windows.removeEventListener('mousemove',this.handelMouseMove)
+        }
+        render(){
+            return this.props.render(this.state)
+        }
+    }
+调用 <Mouse render ={ (mouse)=>(<p>鼠标当前位置{mouse.x},{mouse.y}</p>)  }>
+
 ### 问题二 React虚拟dom
 
 虚拟dom js对象描述的dom
@@ -75,3 +100,6 @@ componentWillUnmount()
 在渲染中，生命周期，构造函数，或者子组件中出现异常执行
 componentDidCatch()
 
+### 问题5 为什么要使用Hook
+1.组件复用状态逻辑难  =>之前能通过hoc 和render-props实现
+2.复杂组件难以理解   =>this的指向难以理解，不相关的逻辑都添加到了一起
