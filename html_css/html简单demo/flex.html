@@ -9,17 +9,24 @@
         .div1{
             margin-bottom: 100px;
             width: 500px;
-            height: 200px;
+            height: 300px;
             background-color: pink;
             display: flex;
             /* 孩子平均分布 默认x轴 从左到右*/
             /* justify-content: space-around; */
+
+            /* 先把左右边上的盒子 贴边 然后 平均分配空间 */
+            /* justify-content: space-between; */
+
+            /* x轴默认 */
             /* flex-direction: row; */
+
             /* y轴 从上到下 */
             /* flex-direction: column; */
+
+            /* 元素居中 */
             /* justify-content: center; */
-            /* 先把左右边上的盒子 贴边 然后 平均分配空间 */
-            justify-content: space-between;
+            
             /* 换行 */
             flex-wrap: wrap;
 
@@ -28,40 +35,25 @@
             align-items: center; */
 
             /* 设置测轴上的子元素的排列方式 多行 */
+             /* 有换行情况下 align-content 来调整多行 只在多行换行情况下生效 */
             
+            /* 主轴为x轴时候 行间距没了 并水平排列x轴上面 默认wrap是有行间距的 */
+            align-content: flex-start;
+            /* 主轴为x轴时候 行间距没了 并水平排列x轴下面 默认wrap是有行间距的 */
+            align-content: flex-end;
+            /* align-content: space-between; */
             
         }
         .div1 span{
             width: 150px;
             height: 100px;
+            margin: 10px;
+            margin-right: 5px;
             background-color: red;
-            /* margin-right: 5px; */
+             /* 元素平均分配空间 */
             /* flex: 1; */
         }
-        .a{
-            background-color: red;
-            width: 100px;
-            height: 100px;
-        }
-       .div2{
-            width: 800px;
-            height: 400px;
-            background-color: pink;
-            display: flex;
-            /* 换行 */
-            flex-wrap: wrap;
-            /* 有换行情况下 align-content 来调整多行 */
-            /* align-content: flex-start; */
-            align-content: space-between;
-       }
-       .div2 span{
-            width: 150px;
-            height: 100px;
-            background-color: red;
-            margin: 10px;
-            /* margin-right: 5px; */
-            /* flex: 1; *  
-        }
+
     </style>
 </head>
 <body>
@@ -69,15 +61,10 @@
         <span>1</span>
         <span>2</span>
         <span>3</span>
+        <span>3</span>
+        <span>3</span>
+       
     </div>
    
-    <div class="div2">
-        <span>1</span>
-        <span>2</span>
-        <span>3</span>
-        <span>4</span>
-        <span>5</span>
-        <span>6</span>
-    </div>
 </body>
 </html>
