@@ -23,4 +23,11 @@
     这四种哪个最好overflow：hidden
     现象：父盒子里面的子盒子设置margin-top：20px 父盒子会被拽下来20px 父盒子margin塌陷 
     让父盒子形成bfc 解决此问题 给父盒子overflow：hidden
-    
+### CSS 画三角
+ #triangle-up {
+     width: 0;
+     height: 0;
+     border-left: 50px solid transparent;
+     border-right: 50px solid transparent;
+     border-bottom: 100px solid red;
+ }
