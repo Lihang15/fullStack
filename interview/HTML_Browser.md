@@ -86,3 +86,9 @@
     500 服务器内部错误
     502 网关出问题
     503 服务器挂了
+
+### 浏览器 history对象的方法和属性
+    length      返回浏览器历史列表中的URL数量
+    back()      加载 history 列表中的前一个URL
+    forward() 加载 history 列表中的下一个URL
+    go()         加载history列表中的某个具体页面。

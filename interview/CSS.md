@@ -36,3 +36,12 @@
    不同点：
    visibility跟opacity是不会改变dom页面，也就说保存在原有位置只是看不见而已。display会改变dom页面，不会占用原有位置
    事件操作：有visibility、display样试的元素不会触发任何事件，有opacity样试的元素可以触发事件如点击事件
+
+### 画一条高度为0.5px的线
+   <div class='div1'><div>  
+   .div1{
+      width:300px;
+      height:1px;
+      background-color:red;
+      transform:scaleY(0.5)
+   }

@@ -11,10 +11,10 @@
             height: 200px;
             background-color: pink;
              /* 2d转换 translate 移动效果 x y 是轴  移动方式类似于相对定位 但是不会影响其他盒子位置  */
-             /* transition: 过度效果 */
-             /* transition: all 0.2s; */
-            /* transform: translate(100px,0);
-            transform: translateY(100px) */
+             /* transition: 过度效果 过度效果和transform一起用transition会不生效* transition一般用于原盒子受到外力干预变化的盒子，比如:hover改变盒子原来长度/
+             transition: all 0.2s;
+            /* transform: translate(100px,0); */
+            /* transform: translateY(100px) */
             /* transform: translate(50%,50%); */
         }
         .child{
@@ -31,8 +31,8 @@
             width: 200px;
             height: 200px;
             background-color: black;
-            /* 顺时针旋转45度
-            transform: rotate(45deg); */
+            /* 顺时针旋转45度 */
+            /* transform: rotate(45deg); */
             border: 3px solid red;
             transition: all 0.3s;
         }
