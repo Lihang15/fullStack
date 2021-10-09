@@ -1,5 +1,30 @@
-### 问题一 js处理小数丢失精度问题
-   parseFloat((0.1 + 0.2).toFixed(10))  等于0.3
+### 问题一 js一些骚操作
+   1.处理小数丢失精度问题处理
+   parseFloat((0.1 + 0.2).toFixed(10))  等于0.3 返回的类型为number
+
+   2.String() 和New String() 和let str='stringss' 区别
+   String()返回的字符串是string基本类型 
+   let str 也是基本类型
+   new String() 返回的是Object类型
+   
+   3.短路操作（&&和||）var a=4399<0&&typeof(4399+'')  &&真真为真 如果第一个为假就不会往后走了 ||假假才是假 第一个是真就不会往后走了
+      console.log(a) false
+
+   4.NaN 非数值  isNaN()如果是非数值 返回true （纯数字和纯数字字符串不是NaN）
+
+   5.类型转换 整数转字符串(10).toString();  字符串转整数parseInt('d123') 开头如果是字母 会转成NaN 字母如果不在开头在中间或者结尾 会把前面的数字转化出来
+
+   6.js特性  js 只有0，-0，NaN，""，null，undefined这六个值转布尔值时，是false
+         function testFalse(arg){
+         if(arg){
+               console.log('true::'+arg)
+         }else{
+               console.log('false::'+arg)
+         }
+      }
+
+   7.[]!=true  !![]==true ![]==false  []==0  记住这些为true
+
 ### 问题二 如何检测一个对象一定是数组
    Array.isArray()
    arr instanceof Array
