@@ -24,6 +24,41 @@
       }
 
    7.[]!=true  !![]==true ![]==false  []==0  记住这些为true
+   8.js var 变量提升和函数提升
+   变量提升即将变量声明提升到它所在作用域的最开始的部分
+   console.log(a)          等价于 var a
+   var a = 'aaa'           console.log(a) 
+   console.log(a)             a ='aaa'
+                            console.log(a)
+   function fn () {
+      　　console.log(a); // undefined
+      　　var a = 'aaa';
+      　　console.log(a); // aaa
+      }
+      fn();
+   
+   函数提升
+   console.log(f1); // function f1() {}   声明式函数会提升至顶部，表达式函数不会提升
+   console.log(f2); // undefined  
+   function f1() {}
+   var f2 = function() {}
+   
+   js可以有同名字的函数
+   function a(){
+    console.log('123')
+   }
+   function a(){
+      console.log('456')
+   }
+   a() //456
+   或者   第一个a函数 提升到最高
+   console.log(a()) //456
+   function a(){
+      return '123'
+   }
+   function a(){
+      return '456'
+   }
 
 ### 问题二 如何检测一个对象一定是数组
    Array.isArray()
@@ -33,9 +68,24 @@
       2.可以在<script async src=""> async 不会阻塞页面渲染，异步加载，脚本加载完立即执行
 ### 问题四 通过new操作符调用构造函数，会经历哪些阶段？
     1、创建一个新的对象；
-    2、链接到原型；
-    3、将构造函数的this指向这个新对象，执行构造函数的代码，为这个对象添加属性，方法等；
+    2、将this指向这个新对象
+    3、执行构造函数的代码，为这个对象添加属性，方法等；
     4、返回新对象。
+     function Base(name){
+      this.name = name
+      this.id = 123
+      }
+      Base.prototype.toString = function() {
+         return this.id;
+      }
+
+let obj = new Base('wanglihang')
+
+console.log(obj.toString(),obj.name) //123 wanglihang
+      //具体执行
+      var obj  = {};
+      obj.__proto__ = Base.prototype;
+      Base.call(obj);
 ### 问题五 js模块化
    require/exports	2009年	CommonJS  应用nodejs
    import/export	2015年	ECMAScript2015（ES6）应用前端js
@@ -237,9 +287,8 @@ console.log(bb())
 
 ### 问题10 : 哪些操作会造成内存泄漏 
       1.闭包
-      2.未被引用的全局变量
+      2.意外的全局变量  name=‘aaa’ 会被放到window.name里
       3.被遗忘的定时器
-      4.脱离dom的引用 定义了dom 设为null 没被垃圾回收器回收
 
 ### 问题11：js var 变量提升
    console.log(i)
@@ -334,3 +383,102 @@ console.log(bb())
    }
    var x =fn()
    x()  输出50
+
+### js的垃圾回收算法
+1.引用计数算法 ：循环引用会造成  函数已经结束 按理来说对象都应该被回收 但是垃圾回收器认为两个对象相互至少引用了一次，不会回收它们
+  目前js不用引用计数法
+function funct() {
+    var obj = {}; // 命名为对象1，此时引用数量为1
+    var obj2 = {}; // 命名为对象2，此时引用数量为1
+    obj.a = obj2; // obj的a属性引用obj2，此时对象2的引用数量为2
+    obj2.a = obj; // obj2的a属性引用obj，此时对象1的引用数量为2
+    return 1;
+    // 此时执行栈的obj变量与obj2变量被销毁，对象1与对象2的引用数量减1
+    // 对象1的引用数量为1，对象2的引用数量为1，两个对象都不会被引用计数算法垃圾回收
+}
+2.标记清除算法
+（1）.垃圾回收器在运行的时候会给所有存储在内存中的变量都加上标记
+（2）.去掉运行环境中的变量和被环境变量引用的变量的标记
+（3）.仍然有标记的变量视为准备删除的变量
+ (4).垃圾回收器回收带有标记变量的内存空间
+
+### 手写一个Promise
+
+### 手写一个事件类 也就是手写一个订阅发布模式
+
+class Event{ // 订阅-发布类
+    constructor(){
+        this.handlers = {};
+    }
+
+    on(key, handler) { // 订阅
+        if (!(key in this.handlers)) this.handlers[key] = [];
+        this.handlers[key].push(handler);
+    }
+
+    off(key, handler) { // 卸载
+        const index = this.handlers[key].findIndex(item => item === handler);
+        if (index < 0) return false;
+        if (this.handlers[key].length === 1) delete this.handlers[key];
+        else this.handlers[key].splice(index, 1);
+        return true;
+    }
+
+    emit(key, ...args) { // 触发
+        if (!this.handlers[key]) return false;
+        this.handlers[key].forEach(handler => handler.apply(this, args));
+        return true;
+    }
+}
+
+###Object 对象的方法 defineProperty() 可以在一个对象上加一个新属性，或者修改一个对象的现有属性
+有三个参数 参数一要操作的obj，参数二，要加或者要改的属性，三怎么操作
+
+var obj = {};
+Object.defineProperty(obj, "key", {
+    configurable: true,
+    value: 1
+});
+console.log(obj.key); // 1
+
+Object.defineProperty(obj, "key", {
+    enumerable: true // 
+});
+delete obj.key; // configurable为true时可以删除属性
+console.log(obj.key); // undefined
+
+
+Object.defineProperty(obj, 'val', {
+    //当取属性值时候调用这个
+    get: function () {
+        console.log("get："+val)
+        return val;
+    },
+    //当给属性赋值时候自动调用这个
+    set: function (newVal) { 
+        console.log("set:"+newVal)
+        val = newVal;//定义val等于修改后的内容
+    }
+});
+
+obj.val = '123'
+console.log(obj.val)
+
+let obj ={
+    name:'wang',
+    b:123,
+    a:1323
+}
+let arr = Object.keys(obj)
+输出arr为一个键数组 [ 'name','b','a']
+
+### 函数柯里化
+function add(a){
+    return function(b){
+        return function(c){
+            return a+b+c
+        }
+    }
+}
+
+console.log(add(1)(2)(3)) 
