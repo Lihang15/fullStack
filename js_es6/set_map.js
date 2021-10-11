@@ -23,7 +23,9 @@ console.log(map.get("age"))
 map.set("sex","男")
 console.log(map.get("sex"))
 console.log(map.has("sex"))
-map.forEach((key,value)=>{
+
+// 遍历数组的forEach也是value，key
+map.forEach((value,key)=>{
     console.log(value,key)
 })
 

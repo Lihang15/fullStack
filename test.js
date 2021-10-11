@@ -1,13 +1,9 @@
 
 
+let str ='wanglihang'
 
-function testFalse(arg){
-     if(arg){
-         console.log('true::'+arg)
-     }else{
-         console.log('false::'+arg)
-     }
+
+for(let index of str){
+    console.log(index)
 }
-// 0，-0，NaN，""，null，undefined
-testFalse([])
-console.log([1]==true)
+
