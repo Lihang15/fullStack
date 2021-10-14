@@ -32,18 +32,27 @@
 
 //插入排序
 
-let insertSort=arr=>{
-    for(let i=1;i<arr.length;i++){
-        let temp = arr[i]
-        //内层循环决定找到插入位置 要往后移动多少位，只要temp前面的数 大于temp前后位置交换
-        for(var j = i-1;j>=0&&arr[j]>temp;j--){
-           arr[j+1] = arr[j]
+let charu = (arr)=>{
+    for(let i =1;i<arr.length;i++){
+        //待插入的值
+        let tmp = arr[i]
+        // 需要插入的位置下标
+        let index = 0
+        let flag =false
+        for(let k=i-1;k>=0;k--){
+            // 比目标值小的向后移位
+            if(arr[k]>tmp){
+                arr[k+1] = arr[k]
+                index = k
+                flag = true
+            }
         }
-        // arr[j+1]就是要插入的位置
-        arr[j+1] =temp
+        if(flag){
+            arr[index] = tmp
+        }
     }
 }
 
-let arr =[5,9,8,7,6,1]
-insertSort(arr)
+let arr = [5,9,8,7,6,1]
+charu(arr)
 console.log(arr)
