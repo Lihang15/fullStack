@@ -6,7 +6,7 @@ var buf = Buffer.from(str)
 console.log(buf)
 console.log(buf.toString())
 
-//创建一个大小为 1024b 的buffer 1024b =1k
+//创建一个大小为 1024b 的字节数组  1024b =1k
 var buf2 = Buffer.alloc(1024)
 
 
