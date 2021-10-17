@@ -26,5 +26,4 @@
                 </plugins>
             </build>
 
-  java -Dmysql_ip=192.168.176.62 -Dmysql_port=3306 -Dmysql_db=test_wlh -Dusername=root -Dpassword=111111Aa -Dkey=7857847BD5ABD53BD984BD543544BD53 -jar sign-script-1.0-SNAPSHOT-jar
--with-dependencies.jar
+
