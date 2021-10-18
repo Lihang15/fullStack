@@ -27,4 +27,43 @@ Integer.toString(num)
 依赖 一个类作为一个类的方法参数 
 耦合性 继承>关联>依赖
 
+### 基本类型和包装类型
+1.包装类型可以为 null，而基本类型不可以 一般实体都用Integer 而不用int 数据库查出得实体可能是null，null赋值给int会出空指针
+      Integer a = null;相当于db值
+      int b = a; 自动拆箱给b
+      System.out.print(b);//空指针
+2.包装类型可用于泛型，而基本类型不可以
+3.基本类型比包装类型更高效  基本类型值存在栈里，包装类型值存在堆里，栈中存的是地址
 
+### Integer类型的自动装箱和拆箱  (基本类型转包装类型装箱，包装类型转基本类型拆箱)
+Integer chenmo = new Integer(10);  // 手动装箱
+
+Integer chenmo  = 10  //自动装箱
+int wanger = chenmo;  //自动拆箱
+
+
+当需要进行自动装箱时，如果数字在 -128 至 127 之间时，会直接使用缓存中的对象，而不是重新创建一个对象
+
+// 1）基本类型和包装类型
+int a = 180;
+Integer b = 180;
+Integer c = new Integer(180)
+System.out.println(a == b);//true
+System.out.println(c == a);//true
+
+// 2）两个包装类型
+Integer c = 127;
+Integer d = 127;
+System.out.println(c == d);//true
+
+// 3）
+Integer c = 128;
+Integer d = 128;
+System.out.println(c == d);//false
+
+String str1 = "123";
+String str2 = "123";
+str1==str2  =>true
+
+String str3 = new String("123")
+str1 ==str3 => false
