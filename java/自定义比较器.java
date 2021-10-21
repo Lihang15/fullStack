@@ -8,12 +8,15 @@ public class Test{
     @SuppressWarnings("unchecked")
     public static void main(String[] args){
         String[] strs = new String[]{"cc", "dd", "aa", "ee", "bb"};
+        //java7
         Arrays.sort(strs, new Comparator<String>() {
             @Override
             public int compare(String o1, String o2) {
                 return o1.compareTo(o2);
             }
         });
+        //java8
+        Arrays.sort(strs, (o1,o2)=>{o1.compareTo(o2)});
         System.out.println(Arrays.toString(strs));
 
         //第二种自定义比较器

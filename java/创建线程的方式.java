@@ -15,6 +15,7 @@ public class Testa{
         //继承调用方式
         ThreadExtend et = new ThreadExtend();
         et.start();
+
         //runnable调用方式
         ThreadRunnable rt = new ThreadRunnable();
         Thread rtt = new Thread(rt);
@@ -22,6 +23,20 @@ public class Testa{
         System.out.println(Thread.currentThread().getName());
 
 
+        //Callable的调用方式 需要结合FutureTask<>
+        CallableThreadTest ctt = new CallableThreadTest();
+        FutureTask<Integer> ft = new FutureTask<>(ctt);
+        new Thread(ft,"有返回值的线程").start();
+            new Thread(()->{
+                try {
+                    System.out.println("获取子线程的返回值："+ft.get());
+                    System.out.println("没获取子线程返回值之前我是阻塞的");
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                }
+            },"线程2").start();
         //java8
           new Thread(() -> {
             System.out.println(Thread.currentThread().getName());
@@ -45,5 +60,15 @@ class ThreadRunnable implements Runnable{
     public void run() {
         Thread.currentThread().getName();
         System.out.println(Thread.currentThread().getName());
+    }
+}
+
+//实现Callable接口 能使线程有返回值
+class CallableThreadTest implements Callable<Integer> {
+    @Override
+    public Integer call() throws Exception
+    {
+        Thread.sleep(5000);
+        return 100;
     }
 }
