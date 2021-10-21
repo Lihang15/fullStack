@@ -1,90 +1,97 @@
-数据库索引 怎么建立，有啥用，为啥要建立
-数据库隔离离别 
-sql注入问题，
-数据库引擎问题
-对事物的理解 
-什么情况下数据库锁住表 和行
-new 和make的区别
-指针和普通引用的区别
-了解过哪些底层的源码 了解过go 比如map channl 锁 内存管理相关 的哪些实现原理，说一说，简单聊聊说一个你了解过的
-怎么让线程有序运行
-怎么确保你主线程里面另外跑的三个线程都跑完了
-说说你的项目中哪一部分你认为你写的你认为比较好一点的代码，，或者优化过的代码，
-slice扩容机制
-定时器有了解过吗
+创建数据库 CREATE DATABASE IF NOT EXISTS tb_users DEFAULT CHARSET utf8mb4;
 
-索引问题===
- 1.索引是什么：加快对表中记录的查找，索引作用于数据表一个列或者多个列
-   2.索引怎末建立 ：创建一个普通索引 CREATE INDEX indexName ON mytable(username(length)); 
-  3.为啥要建立索引：索引 聚集索引（主键索引  在磁盘中生成的b+树结构 行数据都在叶子上 二分查找查到）  
-  非聚集索引 （普通列的索引）（行数据不在叶子节点 查找时候需要找到聚集索引键 再去查数据）
-  联合索引（用在多个列上的索引）
-  在经常搜索的列  和 经常用到 where 的列 为了增加查询速度，但是索引也会带来一定开销
-经常修改表操作不要建立索引 因为修改表 相应的索引也要改）
+CREATE TABLE `tb_users`
+(
+    `id`                  bigint(20) NOT NULL AUTO_INCREMENT,
+    `avatar`              bigint(20) NOT NULL DEFAULT '1' COMMENT '头像id',
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4  COMMENT='用户表';
 
-数据库的事物问题=== 
-数据库默认开启事物，自动提交数据不可以回滚,默认事务隔离级别（可重复读）  一个数据库连接对应一个事务
-数据库事物4大特性 
-1原子性：事物不可分割，要么全部成功，要么全部失败
-2.一致性：事物从一个一致状态变成另一个一致状态
-3.隔离性：数据库每个事物 没有影响，相互隔离
-4.持久性，事物一旦提交，对数据库的改变是持久的
 
-事物的隔离级别问题===
-事物的隔离级别--多个事物操作数据库的时候，数据库负责隔离操作，以保证各个事物获取数据的准确性
-5.数据库可以设置事物隔离级别解决相应问题   如果数据库不考虑隔离性，会引发脏读（读未提交的数据），幻读（读已提交的数据，针对insert语句 删除） 不可重复读（读已提交的数据，针对update）
-Serializable(串行化)：可避免脏读、不可重复读、虚读情况的发生。
-Repeatable read(可重复读)：可避免脏读、不可重复读情况的发生。
-Read committed(读已提交)：可避免脏读情况发生。
-Read uncommitted(读未提交)：最低级别，以上情况均无法保证。
+CREATE TABLE `tb_role`
+(
+    `id`                  bigint(20) NOT NULL AUTO_INCREMENT,
+    `role_name`              varchar(255) NOT NULL DEFAULT '1' COMMENT '角色名字',
+    `ent_date`              datetime(6) DEFAULT NULL,
+    `user_id`               
+    PRIMARY KEY (`id`)
+    CONSTRAINT `外键1` FOREIGN KEY (`user_id`) REFERENCES `tb_users` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4  COMMENT='用户表';
 
-数据库的表锁 和行锁 问题===
-mysql innodb引擎 有行锁（ myisam 那个引擎不支持事务 没有外键 查询速度快 没有行锁 ）多个事物操作同一条数据 除了select  （有索引情况）都会加上行锁 锁住行  ，如果索引失效 行锁会变表锁 锁住表。
-索引失效：对于使用了联合索引 查时候 不使用第一部分  like语句 %后，或全表扫 的速度大于索引速度。
+创建索引 CREATE INDEX phone_number ON tb_users (phone_number);
 
-sql 注入 问题  判断传参字符串 过滤 一些你你认为危险的注入
+增加唯一性约束 ALTER TABLE tb_filestorage ADD UNIQUE KEY `filestorage_UK` (`uuid`);
 
-new 和make的区别 都是用来给对象在堆上分配内存  mkae只用于 channl map slice的创建 
-（初始化 内存不为0） new 给类型分配内存 内存值为0
-go 怎么保证主线程运行的线程都跑完  sycn 包 里面的 等待组功能
-go 有序运行线程
-package main
+查看表的结构 show create table 
 
-import (
-        "fmt"
+备份数据表
+ CREATE TABLE tb_certified_log_bak3 LIKE tb_certified_log;
+ INSERT INTO tb_certified_log_bak3 SELECT * FROM tb_certified_log;
+
+创建存储过程
+DROP PROCEDURE IF EXISTS deleteIndexIfExist;
+
+ CREATE PROCEDURE deleteIndexIfExist(IN tableNameIn varchar(200),IN idxNameIn varchar(200),IN columnNameIn varchar(200)) BEGIN
+        IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.STATISTICS WHERE TABLE_SCHEMA = (SELECT DATABASE()) AND TABLE_NAME = tableNameIn AND INDEX_NAME=idxNameIn AND  COLUMN_NAME = columnNameIn) THEN
+            SET @SQLContent = CONCAT("ALTER TABLE ",tableNameIn," DROP INDEX ",idxNameIn);
+            PREPARE STMT FROM @SQLContent;
+            EXECUTE  STMT;
+        END IF;
+    END;
+//执行
+CALL deleteIndexIfExist('tb_users','indexname','name');
+
+DROP PROCEDURE IF EXISTS deleteIndexIfExist;
+
+union 的用法  合并两个查询的结果集（要求 两个查询必须列数相同，可以不一样，不一样的按照第一个列名显示）
+union all 合并结果集不去重，union去重复
+select * from table1 union all select * from table2;(合并出来name是table1的列名)
+
+id  name    url         country
+1,Google,www.google.com,USA
+2,淘宝,www.taobao.com,CN
+
+1,微博app,www.weibo.com,CN
+2,淘宝app,www.taobao.com,CN
+
+table1
+id  name   url         country
+1,Google,www.google.com,USA
+2,淘宝,www.taobao.com,CN
+
+table2
+id app_name    url      country
+2,淘宝app,www.taobao.com,CN
+1,微博app,www.weibo.com,CN
+
+group by 的使用
+
+group by  必须和聚合函数一起使用 count(*) 是统计所有数据行数 count(列名)统计这个字段的总行数，排除null
+having   一般用于分组 之后的筛选
+
+
+inner join..on 把两张表连接到一起 取交集
+left  join..on 以左表为准，右表没有的数据取空
+right join..on 以右表为准，左表没有的数据取空
+
+
+select * from table1 limit 0,5; 左闭又开
+
+子查询 in    not in  
+select * 
+from xsb
+where 学号 in
+	(
+		select 学号 from cjb where 课程=206 
+	) 
+
+比较查询  all 全比较 some 比较到一个就是true
+	select * 
+from xsb
+where 出生日期<all
+(
+	select 出生日期
+	from xsb
+	where 专业='计算机'
 )
 
-var c1 chan bool
-var c2 chan bool
-
-func f1() {
-        fmt.Println(5)
-        c1 <- true
-}
-func f2() {
-        <-c1
-        fmt.Println(2)
-        c2 <- true
-}
-func f3() {
-        <-c2
-        fmt.Println(3)
-}
-
-func main() {
-        c1 = make(chan bool, 0)
-        c2 = make(chan bool, 0)
-        go f1()
-        go f2()
-        go f3()
-        for {
-        }
-}
-go 定时器 time.NewTimer(2 * time.Second) 返回一个 channel
-
-指针和普通对象：Go的函数调用是值传递，所以如果传对象会进行拷贝.所以一般情况下使用指针，如果要修改参数，则必须使用指针
-
-https://blog.csdn.net/Butterfly_resting/article/details/89668661
-
-
-https://www.cnblogs.com/gulei/p/6589177.html 微信小程序

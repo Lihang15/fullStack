@@ -15,6 +15,3 @@ let xipai =array=>{
 
 console.log(xipai([1,2,3,4,5,6,7,8,9]))
 
-//创建一个1-100的数组
-let a = Array.from(Array(100),(value,index)=>{return index+1})
-console.log(a)
