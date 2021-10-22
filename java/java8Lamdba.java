@@ -13,5 +13,5 @@ public class Hello {
 
 //定义函数类型
 interface myFunction {
-    int f(int a, int b);
+    int f(int a, int b)
 }
