@@ -18,15 +18,17 @@
 // function delRepeat1(arr){
 //     return Array.from(new Set(arr))
 // }
+[obj, '', 10];
+for 
 
-// function reduceDel(arr){
-//     return arr.reduce((prev,cur)=>{
-//         if(!prev.includes(cur)){
-//              prev.push(cur)
-//         }
-//         return prev  
-//     },[])
-// }
+function reduceDel(arr){
+    return arr.reduce((prev,cur)=>{
+        if(!prev.includes(cur)){
+             prev.push(cur)
+        }
+        return prev  
+    },[])
+}
 
 // let arr = [2,3,4,5,8,8,0,6,4,3,5,5,55]
 
