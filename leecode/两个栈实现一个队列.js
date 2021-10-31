@@ -1,5 +1,6 @@
 class MyQueue{
     constructor(){
+        //数组push pop 模仿栈入栈，出栈操作
         this.in = []
         this.out = []
     }

@@ -23,7 +23,7 @@
          }
       }
 
-   7.[]!=true  !![]==true ![]==false  []==0  记住这些为true
+   7.[]==false  ![]==false !![]==true   []==0  记住这些为true
    8.js var 变量提升和函数提升
    变量提升即将变量声明提升到它所在作用域的最开始的部分
    console.log(a)          等价于 var a
@@ -64,8 +64,8 @@
    Array.isArray()
    arr instanceof Array
 ### 问题三 JS加载会阻塞页面渲染吗？
-   会 1.可以在<script defer src=""> defer 不会阻塞页面渲染，异步加载，等到页面加载完立即执行
-      2.可以在<script async src=""> async 不会阻塞页面渲染，异步加载，脚本加载完立即执行
+   会 1.可以在<script defer src=""> defer 不会阻塞页面渲染，异步先加载，等到页面元素加载完立即执行脚本
+      2.可以在<script async src=""> async 根defer差不多 但是不保证 倒入脚本的执行顺序
 ### 问题四 通过new操作符调用构造函数，会经历哪些阶段？
     1、创建一个新的对象；
     2、将this指向这个新对象

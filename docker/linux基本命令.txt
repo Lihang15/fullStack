@@ -63,7 +63,8 @@ taskkill /F /PID pid 杀死进程
 14.scp 用于两个linux电脑的文件复制
 scp -r ./ lihang@1.1.1.1:/tmp  将本机的当前目录下所有东西传到 lihang机器下/tmp目录
 scp file.txt ihang@1.1.1.1:/tmp 将本机的当前目录下file.txt传到  lihang机器下/tmp目录
-
+15 。tar
+tar -zxvf 压缩包 -C ./
 
 
 
