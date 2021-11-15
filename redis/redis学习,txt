@@ -1,0 +1,38 @@
+windows 下安装直接下载个redis包 解压出来就行了里面有客户端和服务端可执行程序
+
+redis是单线程的 redis是基于内存操作的，cpu不是redis性能瓶颈，redis得瓶颈是机器内存和网络带宽
+既然单线程可以实现，就没用多线程
+
+linux 默认安装路径 /usr/loacl/bin/     配置文件在/opt下
+
+redis.config 修改
+daemonize yes 配置redis后台启动
+
+linux：在redis-server /你的配置文件
+客户端连接 redis-cli -p 6379
+输入 ping 输出PONG 证明连上了
+shutdown 结束连接
+
+redis 默认16个小数据库 默认使用第一个
+flushdb 清空当前db
+flushall 清空所有db
+select 3 切换到第三个
+dbsize查看当前db有多少数据
+
+key的操作？
+set key wanglihang
+keys * 查看所有设置的key名字
+exists key 判断这个key存不存在
+expire key 10 设置key过期时间
+ttl key 查看这个key还有多长时间过期
+type key 查看这个key的类型
+append key "hello" 追加
+incr key   加一
+decr key   减一
+incrby key 10 在key值基础上加10
+decrby key 10  减10操作
+
+getrange key 0 5 取字符串0-5
+
+
+

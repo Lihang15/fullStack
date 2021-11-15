@@ -55,6 +55,8 @@ ps aux 列出所有进程
 12.lsof -i :port
 lsof -i tcp:8000 查看8000端口的 pid 和8000端口有没有被占用
 
+ps -ef|grep redis 查看redis有没有启动
+
 13.  windows系统 
 netstat -ano | findstr 8000 查看进程pid
 taskkill /F /PID pid 杀死进程
