@@ -112,8 +112,8 @@ aof：则是将Redis执行的每次写命令记录到单独的日志文件中，
 如果两个都配了优先加载AOF
 
  分布式缓存？
- 缓存雪崩？缓存失效，请求直接打到数据库，把数据库打崩
- 解决：并发量不多，加锁等待
+ 缓存雪崩？在同一时间缓存全部过期，把数据库打崩
+
  为每一个key设置缓存过期
  给缓存数据加标记，如果过期 更新数据
 
@@ -207,3 +207,19 @@ java1.8 Node<K,V>[] table;在构造函数中直接调用 初始16
 java 1.8之前 Entry<K,V>[] table; 在put时候调用
 
 
+SpringBoot 自动装配原理
+
+SpringBoot
+通过主函数  
+启动一个SpringApplication 调用run方法，返回一个ApplicationContext对象
+
+这个配置来源 核心启动类注解@SpringBootApplication 
+包含了 @SpringBootConfiguration 这个注解的底层是一个@Configuration注解，意思被@Configuration注解修饰的类是一个IOC容器，
+       @EnableAutoConfiguration 这个注解表明启动自动装配，里面包含连个比较重要的注解@AutoConfigurationPackage（可以扫三方注解@Entity）和@Import。
+       @CompontentScan 这个就是扫描注解的意思，默认扫描当前类所在的包及其子包下包含的注解，将@Controller/@Service/@Component/@Repository等注解加载到IOC容器中;
+
+       SpringBoot启动的时候通过@EnableAutoConfiguration注解找到META-INF/spring.factories文件中的所有自动配置类,并加载，并把全局配置文件里的属性读到自动配置类上
+       如server.port 
+      
+
+  
