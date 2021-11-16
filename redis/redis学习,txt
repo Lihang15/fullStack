@@ -19,8 +19,9 @@ flushall 清空所有db
 select 3 切换到第三个
 dbsize查看当前db有多少数据
 
-key的操作？
+key的操作？ String 类型
 set key wanglihang
+mset k1 "值1" k2 "值二" 多键值设置   mget取得多个值
 keys * 查看所有设置的key名字
 exists key 判断这个key存不存在
 expire key 10 设置key过期时间
@@ -34,5 +35,47 @@ decrby key 10  减10操作
 
 getrange key 0 5 取字符串0-5
 
+setex key3 30 "hello" key3 30秒后过期 如果不存在才会创建，不会覆盖
+
+String 类型使用场景：出了是字符串 也可以是整数 
+可以做计数器  =》粉丝数
+存 对象 user = {name:"wanglihang",age:18}    mset user:1:name "wanglihang"  user:1:age 18
 
 
+List 类型 相当于一个数组
+LPUSH key wanglihang，mutongben   取得LRANGE key 0 10
+RPUSH key "right"          往右边插入
+Lpop  key 移除头部元素
+Rpop  key  移除尾部元素
+lrem  key  1 "value"  移除指定一个值
+lset  key  0  "item"  修改第0个位置的值
+list 可以模拟消息队列、
+
+Hash 类型 相当于map
+Hash ：HMSET key name "wanglihang" description "hello"    取得：HGETALL key 
+
+
+Set类型 set中的值不能重复
+SADD key redis，mysql      取得 SMEMBERS key
+
+Zset 排序的set 
+ZADD key 1 redis
+ZADD key 2 mongodb   取得 ZRANGE key 0 10 WITHSCORES
+
+redis事务？
+redis事务不能保证原子性  如果语法有错误 都不会执行，  运行时如果中间执行有错误 正确的语句还是会执行
+multi 开启事务
+exec 提交事务
+
+mysql 乐观锁：不上锁，更新数据时候去判断一下在此期间有没有人改过这个数据，加一个version字段 每次有人更新都加1 
+1.获取version  1
+2.更新时候比较version 如果被别人改成了2 肯定就改不了了
+
+redis乐观锁 ：通过 watch   watch money  这个钱只有当前watch的线程可以改
+其他线程修改失败了 先 unwatch一下  在重新 watch money 
+
+java 连接redis工具一般用Jedis  Jedis对象封装了所有指令到函数中
+
+如果用springboot可以直接用redis模板 引入包 在application.yml里写配置
+
+Redis 配置文件
