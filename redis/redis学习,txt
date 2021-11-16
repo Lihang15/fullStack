@@ -11,6 +11,8 @@ daemonize yes 配置redis后台启动
 linux：在redis-server /你的配置文件
 客户端连接 redis-cli -p 6379
 输入 ping 输出PONG 证明连上了
+默认是没有密码的 连上之后可以 config set requirepass “123456”设置密码  config get requirepass 获取密码信息 
+通过 auth 123456 登录
 shutdown 结束连接
 
 redis 默认16个小数据库 默认使用第一个
@@ -78,4 +80,5 @@ java 连接redis工具一般用Jedis  Jedis对象封装了所有指令到函数�
 
 如果用springboot可以直接用redis模板 引入包 在application.yml里写配置
 
-Redis 配置文件
+
+
