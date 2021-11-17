@@ -4,7 +4,7 @@ interface Person{
     readonly id: number 
     name: string
     age: number
-    sex?: string
+    // sex?: string 
     [birthday: string]: string | number   //键值必须是字符串 
 }
 

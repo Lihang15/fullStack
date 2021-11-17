@@ -1,4 +1,3 @@
-"use strict";
 // public private protect readonly static 修饰符类似于java 只是protect 只能子类访问
 class Animal {
     constructor(name) {

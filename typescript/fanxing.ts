@@ -21,17 +21,17 @@ console.log(echoWith({length:10,max:10}))  //必须包含length属性 否则报�
 
 //类 
 
-class Queue<T>{
-    private data = []
-    push(item:T){
-        return this.data.push(item)
-    }
-    pop():T{
-        return this.data.unshift()
-    }
-}
+// class Queue<T>{
+//     private data = []
+//     push(item:T){
+//         return this.data.push(item)
+//     }
+//     pop():T{
+//         return this.data.unshift()
+//     }
+// }
 
-const queue = new Queue<Number>()
+// const queue = new Queue<Number>()
 
 
 //接口泛型
