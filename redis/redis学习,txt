@@ -7,11 +7,11 @@ linux 默认安装路径 /usr/loacl/bin/     配置文件在/opt下
 
 redis.config 修改
 daemonize yes 配置redis后台启动
-
+                      默认加载默认路径下的配置文件redis.conf
 linux：在redis-server /你的配置文件
 客户端连接 redis-cli -p 6379
 输入 ping 输出PONG 证明连上了
-默认是没有密码的 连上之后可以 config set requirepass “123456”设置密码  config get requirepass 获取密码信息 
+默认是没有密码的 redis不需要用户名  连上之后可以 config set requirepass “123456”设置密码  config get requirepass 获取密码信息 
 通过 auth 123456 登录
 shutdown 结束连接
 

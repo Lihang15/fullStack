@@ -1,4 +1,5 @@
 
+//观察者模式  也叫定阅发布模式
 class myEvent{
     constructor(){
         //放入所有发布的函数
