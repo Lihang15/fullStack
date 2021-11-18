@@ -1,3 +1,6 @@
+mysql 配置文件 mysql.ini 
+
+
 创建数据库 CREATE DATABASE IF NOT EXISTS tb_users DEFAULT CHARSET utf8mb4;
 
 CREATE TABLE `tb_users`

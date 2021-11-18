@@ -47,18 +47,18 @@ console.log(mystype)
 type funcType = () => string
 type funcTypeOrString = string | funcType
 
-function getName(n: funcTypeOrString): string | funcType{
-    if(typeof n ==='string'){
-        return n
-    }
-    if(typeof n =='function'){
-        console.log(n())
-    }
-}
-function testType(): string{
-    return "testType"
-}
-getName(testType)
+// function getName(n: funcTypeOrString): string | funcType{
+//     if(typeof n ==='string'){
+//         return n
+//     }
+//     if(typeof n =='function'){
+//         console.log(n())
+//     }
+// }
+// function testType(): string{
+//     return "testType"
+// }
+// getName(testType)
 
 //类型断言 不是强制类型转换  也不能用于强制类型转换  只能断言声明的类型 这个例子只能断言成 string或者number 
 
@@ -75,13 +75,13 @@ getName(testType)
   
 //   或者
   
-  function func(val: string | number): number {
-    if ((val as string).length) {
-      return (val as string).length
-    }else{
-        console.log(val)
-    }
+//   function func(val: string | number): number {
+//     if ((val as string).length) {
+//       return (val as string).length
+//     }else{
+//         console.log(val)
+//     }
       
-  }
+//   }
 
-console.log(func(123456))
+// console.log(func(123456))

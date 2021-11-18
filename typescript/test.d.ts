@@ -1,1 +1,1 @@
-declare module 'wlh-hbbhk'
+// declare module 'wlh-hbbhk'

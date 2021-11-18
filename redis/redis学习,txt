@@ -7,11 +7,11 @@ linux 默认安装路径 /usr/loacl/bin/     配置文件在/opt下
 
 redis.config 修改
 daemonize yes 配置redis后台启动
-
+                      默认加载默认路径下的配置文件redis.conf
 linux：在redis-server /你的配置文件
 客户端连接 redis-cli -p 6379
 输入 ping 输出PONG 证明连上了
-默认是没有密码的 连上之后可以 config set requirepass “123456”设置密码  config get requirepass 获取密码信息 
+默认是没有密码的 redis不需要用户名  连上之后可以 config set requirepass “123456”设置密码  config get requirepass 获取密码信息 
 通过 auth 123456 登录
 shutdown 结束连接
 
@@ -71,7 +71,8 @@ exec 提交事务
 
 mysql 乐观锁：不上锁，更新数据时候去判断一下在此期间有没有人改过这个数据，加一个version字段 每次有人更新都加1 
 1.获取version  1
-2.更新时候比较version 如果被别人改成了2 肯定就改不了了
+2. 处理事务
+3. 获取 version 的最新数据并比较，成功则提交，否则回滚
 
 redis乐观锁 ：通过 watch   watch money  这个钱只有当前watch的线程可以改
 其他线程修改失败了 先 unwatch一下  在重新 watch money 
@@ -80,5 +81,41 @@ java 连接redis工具一般用Jedis  Jedis对象封装了所有指令到函数�
 
 如果用springboot可以直接用redis模板 引入包 在application.yml里写配置
 
+持久化 默认rdb 可以在配置文件修改  隔一段时间就把数据写到dump.rdb里
 
+aof 把除了读的命令 每秒都把执行命令放到appendonly.aof文件里  如果aof出问题了  redis起不来了  可以通过redis-check-aof --fix修复
+可能会丢失1秒的数据
+aof（i/o操作多）运行效率比rdb低
+
+如果两者都开启，优先aof  因为aof文件 数据完整性高
+
+redis 发布订阅模式？
+发布者 publish key "wanglihang"
+
+定阅者 subscribe key  能自动拿到 "wanglihang"
+
+redis 主从复制，读写分离  指的是将一台redis服务器的数据，复制到其他redis服务器
+master以写为主，slave以读为主    大部分数据库读操作多
+作用：1.当主节点出现问题，从节点提供服务，实现高可用
+      2.写少读多的场景，从节点可以分担读的负载，提高redis并发
+
+怎么配置？  查看 info replication 查看当前机器情况 是主还是从 
+默认情况下 每一台都是主节点  
+临时配置：在从机节点上 可以通过 slaveof 主的ip 端口  这样就选出了主机 从机和主机信息都会刷新
+永久配置：一般去修改配置文件 把配置文件 里改 slaveof 主的ip 端口这个
+主机写完数据 自动同步从机 从机不能写 
+
+哨兵模式： 可以避免主节点挂掉要去手动在配置主节点，从节点可以自己去选出一个老大   主机的点恢复后只能当小弟了
+开启哨兵模式  创建并 vim sentinel.conf  将sentinel monitor myredis 主节点ip 端口 1
+后面这个1 代表 主机挂了 从机去投票选举   
+启动哨兵 redis-sentinel /sentinel.conf
+
+redis缓存穿透，缓存击穿和缓存雪崩？
+缓存穿透（查不到） ：查询的数据缓存里没有，直接都访问了数据库
+ 解决：在到缓存那层之前加一个布隆过滤器，布隆过滤器包含一个大的可能得结果集，没有的数据直接过滤掉
+缓存击穿（查到了，突然过期）：一个热点数据，大量并发访问中，缓存如果突然过期，有的请求会直接访问数据库
+ 解决：在访问真实db的代码层 加锁等待，只让一个线程进去
+缓存雪崩（缓存崩了）宕机或者缓存同一时间大面积过期
+解决：1.搭建集群 
+      2.再上线之前进行缓存预热，把可能的缓存都加载到内存，为缓存的key设置不同的过期时间，让缓存失效尽量均匀
 
