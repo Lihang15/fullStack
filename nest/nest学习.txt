@@ -1,0 +1,10 @@
+1.通过官方脚手架搭建
+ 
+安装nest工具  npm i -g @nestjs/cli 
+创建项目 nest new 项目名
+
+2.模块   不同模块实现不同功能   包含controller service 那些
+nest g module cats 
+
+3.swagger工具
+npm install --save @nestjs/swagger swagger-ui-express
