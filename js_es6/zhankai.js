@@ -20,3 +20,9 @@ console.log(end)
 let arrrr = [...'hello']
 console.log(arrrr)
 console.log(arrrr.length)
+
+//    对象合并
+   // let obj = {username:"wanglihang",pass:"123456"}
+    // let obj1 = {age:"18",www:"www.baidu.com"}
+    // let obj3 = {...obj,...obj1}
+    // console.log(obj3)
