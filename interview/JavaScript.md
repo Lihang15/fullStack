@@ -471,6 +471,12 @@ let obj ={
 let arr = Object.keys(obj)
 输出arr为一个键数组 [ 'name','b','a']
 
+// let a ={
+//     name:"wanglihang"
+// }
+
+// let b = Object.create(a) 创建b对象 并且b的__proto__属性指向a
+
 ### 函数柯里化
 function add(a){
     return function(b){

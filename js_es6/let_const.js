@@ -14,3 +14,8 @@ const str = "abc"  //常量 不可改变
 console.log(str)
 // str = "a"
 // console.log(str)
+
+
+
+// 自执行函数中 不用var 定义变量 定义的是全局变量
+// 普通函数 用不用var定义的变量都是函数内部局部变量 外部无法使用
