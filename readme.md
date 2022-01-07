@@ -24,3 +24,5 @@ https://github.com/WindrunnerMax/EveryDay web前端学习
 https://blog.csdn.net/weixin_42322206/article/details/106452116 nginx部署前 后端项目 解决跨域问题
 
 https://www.jianshu.com/p/b819f3037e37 加密知识
+
+https://programmercarl.com  代码随想录
