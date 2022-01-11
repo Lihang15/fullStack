@@ -22,7 +22,7 @@ const Effect: React.FC=()=>{
            document.removeEventListener('click',updateMouse)
        }
        //第二个参数可以传一个空数组也可以不传，不传参数 useEffect每次每次更新状态都会执行
-       //传一个空数组 useEffect只在初始化时候执行一次 
+       //传一个空数组 useEffect只在初始化时候执行一次 相当于componentDidMount()
        //[count]代表只有当count改变时候才会执行useEffect和return（注：第一次渲染总会执行useEffect）
     },[])
     return(
