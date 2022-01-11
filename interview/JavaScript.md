@@ -440,9 +440,6 @@ Object.defineProperty(obj, "key", {
 });
 console.log(obj.key); // 1
 
-Object.defineProperty(obj, "key", {
-    enumerable: true // 
-});
 delete obj.key; // configurable为true时可以删除属性
 console.log(obj.key); // undefined
 
