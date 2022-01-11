@@ -1,7 +1,7 @@
 //数组转成层结构['a','b','c'] value=123  返回{a:{b:{c:123}}}
 
 const f = (arr, value)=> {
-        var result = {}
+        let result = {}
         arr.reduce((prev, cur, index)=> {
             if (index == arr.length - 1) {
                 prev[cur] = value
@@ -9,8 +9,18 @@ const f = (arr, value)=> {
             }
             prev[cur] = {}
             return prev[cur]
-        }, {})
-        console.log(JSON.stringify(result))
+        }, result)
+        console.log(result)
     }
     
-    f(['a', 'b', 'c', 'd', 'e','f'], '123')
+    f(['a', 'b', 'c'], '123')
+
+
+    // let obj = {
+
+    // }
+    // obj['a'] = {}
+
+    // obj['a']['b'] = {}
+    // console.log(obj)
+

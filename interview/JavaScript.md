@@ -440,9 +440,6 @@ Object.defineProperty(obj, "key", {
 });
 console.log(obj.key); // 1
 
-Object.defineProperty(obj, "key", {
-    enumerable: true // 
-});
 delete obj.key; // configurable为true时可以删除属性
 console.log(obj.key); // undefined
 
@@ -470,6 +467,12 @@ let obj ={
 }
 let arr = Object.keys(obj)
 输出arr为一个键数组 [ 'name','b','a']
+
+// let a ={
+//     name:"wanglihang"
+// }
+
+// let b = Object.create(a) 创建b对象 并且b的__proto__属性指向a
 
 ### 函数柯里化
 function add(a){

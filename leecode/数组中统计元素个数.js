@@ -1,7 +1,9 @@
 let a =['name','name','age','wac','age','age']
 
 function arrObj(arr){
-    return arr.reduce((pure,cur)=>{
+
+
+    let result =  arr.reduce((pure,cur)=>{
            if(cur in pure){
               pure[cur]++
            }else{
@@ -9,6 +11,7 @@ function arrObj(arr){
            }
            return pure
     },{})
+    return result
 }
 
 console.log(arrObj(a))

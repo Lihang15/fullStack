@@ -33,7 +33,7 @@ __decorate([
 //     }
 // }
 // dec(Log,'print')
-// 2.注解类型的装饰器
+// 2.注解类型的装饰器 可以用@decorate注解在函数上
 function decorate(target, property, decriptor) {
     const oldValue = decriptor.value;
     decriptor.value = msg => {

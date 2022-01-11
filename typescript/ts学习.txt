@@ -18,13 +18,13 @@ js代码和ts代码共存 => tsc只会编译ts代码 js代码不会编译=>ts完
 如果开启严格模式需要在这个包下写一个.d.ts文件 declare module 'wlh-hbbhk' tsc就可以全局编译 这样就可以用了  或者把这个.d.ts文件放到根目录下也可以
 这句话声明这个js文件都是any类型      
 
-2.也可以为三方的npm js文件写一些其他的.d.ts类型声明 也可以放到项目根目录下 暂时没理解咋写   
+2.也可以为三方的npm js文件写他的.d.ts类型声明 也可以放到项目根目录下 也可以放到npm包路径下  declare module ‘npm包名’ 全部声明成any类型  具体里面的类型声明 参考官网   
 
 在ts文件如何引入本地的js和js.d.ts？
 
-本地的js文件和这个本地的js.d.ts文件暂时没找到方案 暂不考虑
+本地的js文件和这个本地的js.d.ts文件暂时没找到方案 暂不考虑 ts项目本地文件都用.ts去写 再写js多此一举
 
-.d.ts声明类型文件
+.d.ts声明类型文件？
 
 .d.ts 文件可以直接和npm包写在一起发布   也可以提一个pr给DefinitelyTyped这个项目 @types
 
@@ -33,3 +33,11 @@ js代码和ts代码共存 => tsc只会编译ts代码 js代码不会编译=>ts完
 npx create-react-app ts-react --template typescript
 
 
+wlh-hbbhk 源码
+let v = '123'
+module.exports={
+    getName:(str)=>{
+        return "wlh npm:"+str
+    },
+    v:v
+}
