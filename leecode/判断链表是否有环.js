@@ -5,14 +5,15 @@ function node(val){
 
 
 function isLoop(head){
-    let fast = head.next.next
-    let slow = head.next
+    let fast = head
+    let slow = head
 
-    while(head){
+    while(fast.next != null && fast.next.next != null && slow.next != null){
+        fast = fast.next.next
+        slow = slow.next
         if(fast==slow){
             return true
         }
-        fast = fast.next.next
-        slow = slow.next
     }
+    return false
 }
