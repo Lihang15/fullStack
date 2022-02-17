@@ -37,12 +37,14 @@ git reset --soft head-id  撤销到当前头 你本地改的代码不会被删�
 (2)填加文件 git add -> git commit ‘xx’
 (3)git remote add origin ‘远程git仓库’   关联仓库
 (4)git branch -M main        修改本地master分支名字成main
-(5)git push -u origin main   将本地main分支和远程main分支关联
+(5)git push -u origin main   将本地main分支和远程main分支关联 远程没有会创建main
 
-4.1将自己本地分支推送远程
+4.1将自己本地分支推送远程并把改变代码也推上去
 (1) git checkout -b branch1
-(2) 添加文件 修改文件git add ->git commit ->git push --set-upstrem origin branch1
+(2) 添加文件 修改文件git add ->git commit ->git push --set-upstrem origin branch1 或者git push -u origin branch1
 
+4.2将自己本地分支和远程分支建立关系 git branch --set-upstream-to  origin/远程分支名  本地分支名 
+   解除本地分支和远程分支的关系 git branch --unset-upstream  本地分支名
 
 5.在git创建空仓库可以直接git clone下来 远程默认main分支 本地默认也是main分支 已经关联 可以改
 
