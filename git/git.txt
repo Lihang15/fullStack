@@ -1,0 +1,50 @@
+1.撤销commit操作
+git reset --hard head-id  撤销到当前头 你本地改的代码会被删除
+git reset --soft head-id  撤销到当前头 你本地改的代码不会被删除
+如果commit信息写错了的话 可以不撤销执行 git commit --amend
+
+2.本地多次忘了push的commit操作合并成一个 使提交记录更干净
+(1)执行 git log  比如 前4条提交合并成一个 找到第五条的id
+(2)git rebase -i 第五条的id
+(3)出现对话框 把框内4个开头pick字符串 保留第一个 其余pick 改为s
+(4)保存退出 再出现对话框 填写合并的commit信息 
+(5)git push
+
+3.冲突情况     <<<<<<<<<<<<current change
+              你改的
+              ===========
+              别人改的
+              <<<<<<<<<<<<incoming change
+
+3.1-情况一：比如本地git commit '11'之后发现（本地修改a文件加了一行‘xx’,修改b文件加了一行‘yy’,别人也修改了a文件加了‘aa’） git push 不上去 
+（1）执行 git pull 拉下来文件冲突 当前工作区只能看到冲突文件 必须解决冲突并提交冲突文件 解决完 
+（2）git add 冲突文件，
+（3）git commit '22'
+（4）git push  （有两条commit记录为'11' '22'）
+
+3.2-情况二：比如本地没有commit但是修改了文件导致的冲突（本地修改a文件加了一行‘xx’,修改b文件加了一行‘yy’,别人也修改了a文件加了‘aa’）git pull 拉不下来
+（1）先执行git stash 
+（2）git pull 
+（3）git stash pop 
+（4）此时本地b文件被自动add 然后解决a冲突 
+（5）再git add a冲突文件 
+（6）git commit 'xxx'
+（7）git push（这次push必须有冲突文件a）
+
+4.自己本地git仓库 关联github远程仓库
+
+(1)在本地已有项目执行git init 初始化本地库（默认master分支）
+(2)填加文件 git add -> git commit ‘xx’
+(3)git remote add origin ‘远程git仓库’   关联仓库
+(4)git branch -M main        修改本地master分支名字成main
+(5)git push -u origin main   将本地main分支和远程main分支关联 远程没有会创建main
+
+4.1将自己本地分支推送远程并把改变代码也推上去
+(1) git checkout -b branch1
+(2) 添加文件 修改文件git add ->git commit ->git push --set-upstrem origin branch1 或者git push -u origin branch1
+
+4.2将自己本地分支和远程分支建立关系 git branch --set-upstream-to  origin/远程分支名  本地分支名 
+   解除本地分支和远程分支的关系 git branch --unset-upstream  本地分支名
+
+5.在git创建空仓库可以直接git clone下来 远程默认main分支 本地默认也是main分支 已经关联 可以改
+

@@ -26,3 +26,5 @@ https://blog.csdn.net/weixin_42322206/article/details/106452116 nginx部署前 �
 https://www.jianshu.com/p/b819f3037e37 加密知识
 
 https://programmercarl.com  代码随想录
+https://itbilu.com/nodejs/npm/V1PExztfb.html#api-bulkCreate Sequelize文档
+https://www.sequelize.com.cn/core-concepts/validations-and-constraints

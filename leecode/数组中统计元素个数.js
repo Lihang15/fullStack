@@ -13,5 +13,6 @@ function arrObj(arr){
     },{})
     return result
 }
-
-console.log(arrObj(a))
+let x = arrObj(a)
+console.log(x.name)
+console.log(x)
