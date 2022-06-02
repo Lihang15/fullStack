@@ -305,68 +305,6 @@ console.log(bb())
 // nodejs 适合io密集型，高并发场景，异步非阻塞io，js主线程可以不断处理新的请求，
 // 缺点 js单线程 不适合cpu密集行计算 大的for循环  
 
-### 问题13：js 原型，原型链
-      export class Student{
-         constructor(name){
-            this.name=name
-         }
-            getname(){
-               console.log(this.name)
-            }
-      }
-
-      console.log(Student.prototype)
-
-      let student = new Student('A')
-
-      Student.prototype == student._proto_
-      显示原型              隐式原型   他们俩指向同一个对象
-
-      class Person{
-         constructor(name){
-            this.name = name
-         }
-         drink(){
-            console.log('drink')
-         }
-      }
-
-      class Teacher extends Person{
-         constructor(name){
-            super(name)
-            this.name = name
-         }
-         teach(){
-            console.log('teach')
-         }
-      }
-
-      let teacher = new Person('B')
-      b.teach()
-      b.drink()
-
-      执行teacher.teach的时候通过这个对象里的_proto_ 找到Teacher.protoType 执行teach()
-      当执行drink的时候发现Teacher.protoType 里没有 然后去 Teacher.protoType._proto_下去找它其实指向它继承那个类的Person.protoType 找到了执行 
-      如果没有找到 就去Object.prototype去找 如果为null 没找到，这就是原型链
-
-      如何检查这个属性或者方法是不是自身的
-      teacher.hasOwnProperty('name')  =>true
-      teacher.hasOwnProperty('teach') =>false 原型上的
-
-      原型继承
-      function Father(name){
-            this.name =name
-            this.f =function(){
-               console.log('ff')
-            }
-      }
-      function Son(){
-      }
-      let F = new Father('wanglihang')
-      Son.prototype = F
-      let S = new Son()
-      S.f()
-      console.log(S.name)
 
 ### 问题14 js作用域（全局作用域，函数作用域，块级作用域）  作用域链 
    作用域 全局作用域：在程序的任意地方都能访问，函数作用域  只能在函数中访问 块级作用域 只能在{}有效
@@ -430,49 +368,7 @@ class Event{ // 订阅-发布类
     }
 }
 
-###Object 对象的方法 defineProperty() 可以在一个对象上加一个新属性，或者修改一个对象的现有属性
-有三个参数 参数一要操作的obj，参数二，要加或者要改的属性，三怎么操作
 
-var obj = {};
-Object.defineProperty(obj, "key", {
-    configurable: true,
-    value: 1
-});
-console.log(obj.key); // 1
-
-delete obj.key; // configurable为true时可以删除属性
-console.log(obj.key); // undefined
-
-
-Object.defineProperty(obj, 'val', {
-    //当取属性值时候调用这个
-    get: function () {
-        console.log("get："+val)
-        return val;
-    },
-    //当给属性赋值时候自动调用这个
-    set: function (newVal) { 
-        console.log("set:"+newVal)
-        val = newVal;//定义val等于修改后的内容
-    }
-});
-
-obj.val = '123'
-console.log(obj.val)
-
-let obj ={
-    name:'wang',
-    b:123,
-    a:1323
-}
-let arr = Object.keys(obj)
-输出arr为一个键数组 [ 'name','b','a']
-
-// let a ={
-//     name:"wanglihang"
-// }
-
-// let b = Object.create(a) 创建b对象 并且b的__proto__属性指向a
 
 ### 函数柯里化
 function add(a){

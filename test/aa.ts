@@ -1,22 +1,18 @@
-let a :string = 'wanglihang'
+function getNewVersionIndustryString(industry: string): string {
+    switch (industry) {
+      case 'Finance':
+        return 'Financials';
+      case 'Government Agency':
+        return 'Others';
+      case 'Consumer Goods & Services':
+        return 'Consumer Discretionary';
+      default:
+        return industry;
+    }
+  }
 
-interface P {
-    a: string
-}
-
-interface person{
-    name:string,
-    age?:number,
-    [prop:string]:number | string,
-    readonly xx :string,
-}
-
-const b:person = {
-    name:'wanglihang',
-    xxxxxxx:'xxxxx',
-    xx:'xxx',
-}
-b.age = 19
-b.xxxxxxx = 'xxxxx'
-
-console.log(b)
+  console.log(getNewVersionIndustryString('Finance'))
+  console.log(getNewVersionIndustryString('Government Agency'))
+  console.log(getNewVersionIndustryString('Consumer Goods & Services'))
+  console.log(getNewVersionIndustryString('11'))
+ 

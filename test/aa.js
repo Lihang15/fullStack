@@ -1,10 +1,5 @@
-var a = 'wanglihang';
-var b = {
-    name: 'wanglihang',
-    xxxxxxx: 'xxxxx',
-    xx: 'xxx',
-    arr: [{ a: "a" }]
-};
-b.age = 19;
-b.xxxxxxx = 'xxxxx';
-console.log(b);
+function Student() {}
+var stu = new Student();
+
+console.log(Student.prototype.constructor === Student) // true
+console.log(stu.constructor === Student) // true
