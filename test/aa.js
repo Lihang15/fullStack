@@ -1,5 +1,3 @@
-function Student() {}
-var stu = new Student();
-
-console.log(Student.prototype.constructor === Student) // true
-console.log(stu.constructor === Student) // true
+;
+var a = { '123': '456', name: '123', 1: '1' };
+console.log(a);
