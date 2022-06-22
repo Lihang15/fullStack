@@ -8,4 +8,80 @@ body{
     color: #666;
 }
 
+.app ul{
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+.app ul li {
+    height: 45px;
+    background-color: #333333;
+    float: left;
+    list-style: none;
+}
+.app ul :nth-child(1){
+    width: 8%;
+    text-align: center;
+    line-height: 45px;
+}
+.app ul :nth-child(2){
+    width: 10%;
+    line-height: 45px;
+    text-align: center;
+}
+.app ul :nth-child(3){
+    width: 57%;
+    line-height: 45px;
+}
+.app ul :nth-child(4){
+    width: 25%;
+    line-height: 45px;
+    background-color: red;
+    text-align: center;
+    color: aliceblue;
+}
 
+.app ul :nth-child(1) img{
+    width: 10px;
+}
+.app ul :nth-child(2) img{
+    width: 25px;
+    vertical-align: middle;
+}
+
+.search-wrap{
+    display: flex;
+}
+.search-btn{
+    width: 30px;
+    height: 44px;
+    border: 1px solid red;
+}
+.search-login{
+    width: 30px;
+    height: 44px;
+    border: 1px solid red;
+}
+.search{
+    height: 44px;
+    flex: 1;
+    margin-top: 7px;
+}
+.search input{
+    width: 100%;
+    outline: none;
+    border-radius: 15px;
+    height: 30px;
+}
+nav a{
+    float: left;
+    width: 20%;
+    text-align: center;
+}
+nav a img{
+    width: 40px;
+    margin: 10px 0;
+}
+nav a span{
+    display: block;
+}

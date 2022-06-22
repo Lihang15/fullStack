@@ -1,7 +1,7 @@
 body{
+    /* 设计稿最大宽度 通过这个宽度写代码 去适配所有手机*/
     max-width: 750px;
-    min-width: 320px;
-    width: 100%;
+    /* 不用调节body宽度 百分比布局 默认100%*/
     margin: 0 auto;
     font-family: -apple-system, Helvetica, sans-serif;
     font-size: 14px;

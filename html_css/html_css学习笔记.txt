@@ -278,6 +278,7 @@
       默认基于baseline对齐 baseline 在bottom 上面一点
       vertical-align: middle;居中 不设置div高度也能消掉 自带空白
   
+   // 设置父行高 等于父宽 align-center:center 图片设置vertical-align: middle; 也可让图片水平垂直居中
    7.单行文字溢出显示...
         <style>
             div{

@@ -1,6 +1,6 @@
 ### 问题一 js一些骚操作
    1.处理小数丢失精度问题处理
-   parseFloat((0.1 + 0.2).toFixed(10))  等于0.3 返回的类型为number
+   parseFloat((0.1 + 0.2).toFixed(1))  等于0.3 返回的类型为number 保留小数点后一位
 
    2.String() 和New String() 和let str='stringss' 区别
    String()返回的字符串是string基本类型 
@@ -23,7 +23,7 @@
          }
       }
 
-   7.[]==false  ![]==false !![]==true   []==0  记住这些为true
+   7.[]==false  []==0   ![]==false  !![]==true  记住这些为true  if([]){console.log('[]也是可以进来if的')} 
    8.js var 变量提升和函数提升
    变量提升即将变量声明提升到它所在作用域的最开始的部分
    console.log(a)          等价于 var a
@@ -44,14 +44,7 @@
    var f2 = function() {}
    
    js可以有同名字的函数
-   function a(){
-    console.log('123')
-   }
-   function a(){
-      console.log('456')
-   }
-   a() //456
-   或者   第一个a函数 提升到最高
+   第一个a函数 提升到最高
    console.log(a()) //456
    function a(){
       return '123'
@@ -59,6 +52,8 @@
    function a(){
       return '456'
    }
+
+   a() //456
 
 ### 问题二 如何检测一个对象一定是数组
    Array.isArray()
@@ -176,7 +171,7 @@ console.log(aa())
 console.log(bb())
 
  ### 问题八 js防抖节流函数
- 防抖
+ 防抖  清表中断表执行
    <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -207,7 +202,7 @@ console.log(bb())
 </body>
 </html>
 
-节流
+节流  表不null进入 执行完把表弄null
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -239,7 +234,7 @@ console.log(bb())
 </body>
 </html>
 
-### 问题九:实现bind apply call 函数
+### 问题九:实现bind apply call 函数  函数调用apply call bind 相当于调用函数本身 并将内部this指向传入的对象 
 
       function person(arg1,arg2){
          console.log(this.name)
@@ -250,12 +245,12 @@ console.log(bb())
          name:'王老师'
       }
 
-      // person.call(egg)
+      // person.call(egg,1,2) 相当于把person放到egg内部，并执行
 
       //实现call
       Function.prototype.newCall =function(obj,...arg){
          //   var obj = obj || window    nodejs 没有window对象
-         //this 指向person（）
+         //this 指向person（）拿个函数执行newCall this就指向哪个函数
             obj.p = this
             obj.p(...arg)
             delete obj.p
