@@ -17,9 +17,9 @@ const { Footer, Sider, Content } = Layout;
 
 export default class Admin extends Component {
     render() {
-        if (!memoryUtil.token) {
-            return <Redirect to='/login'></Redirect>
-        }
+        // if (!memoryUtil.token) {
+        //     return <Redirect to='/login'></Redirect>
+        // }
         return (
             <Layout style={{ height: '100%' }}>
                 <Sider><LeftNav /></Sider>

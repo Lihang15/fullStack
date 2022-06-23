@@ -121,3 +121,22 @@
   display: inline-block;
   margin-right: 60px;
 }
+
+
+.dot_item{
+  height: 15px;
+  width: 60px;
+  margin-right: 5px;
+  background-color: #fff;
+}
+
+.dots{
+ display: flex;
+ position: absolute;
+ bottom: 4%;
+ left: 50%;
+}
+
+.carouselAndDots{
+  position: relative;
+}

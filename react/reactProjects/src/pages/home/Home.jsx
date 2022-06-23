@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, useRef } from 'react'
 import { Carousel } from 'antd';
 import './Home.css'
 import imgURL1 from './images/home-atomization.png';
@@ -7,10 +7,18 @@ import imgURL3 from './images/home-access.png';
 import imgURL4 from './images/home-common.png';
 import imageUrl5 from './images/logo-white.png'
 import imageUrl6 from './images/logo-black.png'
+
 export default class Home extends Component {
+  constructor(props){
+    super(props)
+    // this.cref = React.createRef();
+    this.cref = null
+  }
   state = {
     selectedKey: '',
-    scrollStatus:true
+    scrollStatus:true,
+    selectdBannerIndex:0,
+    timer:null,
   }
   enter = (key) => {
     console.log("aaa")
@@ -24,19 +32,51 @@ export default class Home extends Component {
       selectedKey: ''
     })
   }
-  
+  //处理点击切换  避免点击下一个 表也刚好到时间切换下一个  这样直接切换了2个图  清掉表
+  handleCarouselSlick = (index)=>{
+    this.cref.goTo(index,false)
+    this.setState({
+      //设置被选择图片的下表
+      selectdBannerIndex:index,
+      // 清除表
+      timer: clearInterval(this.state.timer)
+    })
+   
+    // 重新计时 比如点了第三张 切换第四张要重新计时
+    this.setState({
+      timer:setInterval(this.change,3000)
+    })
+    
+  }
   componentDidMount(){
     window.addEventListener('scroll',()=>{
       let scrollTop = document.documentElement.scrollTop||document.body.scrollTop;
       console.log(scrollTop)
-      if(scrollTop!=0){
+      if(scrollTop!==0){
          this.setState({scrollStatus:false})
       }else{
         this.setState({scrollStatus:true})
       }
     })
+     // 自动切换
+     this.setState({
+      timer:setInterval(this.change,3000)
+    })
   }
-  
+  change=()=>{
+    // 不是最后一张
+     if(this.state.selectdBannerIndex!==2){
+        this.setState({
+          selectdBannerIndex:this.state.selectdBannerIndex+1
+        })
+        this.cref.goTo(this.state.selectdBannerIndex,false)
+     }else{
+      this.cref.next();
+      this.setState({
+        selectdBannerIndex:0
+      })
+     }
+  }
   render() {
 
     const featureList = [
@@ -84,13 +124,6 @@ export default class Home extends Component {
     </div>)
     return <div className='home'>
               <div className="h" style={this.state.scrollStatus?{backgroundColor:'rgba(220,38,38,0.0)',color:'#fff'}:{backgroundColor:'#fff',color:'black'}}>
-                  {/* <ul className='ulul'>
-                     <li><img src={imageUrl5} alt=""/></li>
-                     <li>首页</li>
-                     <li>Z-ONE生态</li>
-                     <li>资源中心</li>
-                     <li>开发者大会</li>
-                  </ul> */}
                   <div className='div1'><img src={this.state.scrollStatus?imageUrl5:imageUrl6} alt=""/></div>
                   <div className='div2'>首页</div>
                   <div className='div3'>Z-ONE生态</div>
@@ -99,14 +132,22 @@ export default class Home extends Component {
                   <div className='div6'>控制台</div>
                   <div className='div7'>登陆/注册</div>
               </div>
-      <Carousel autoplay>
-        <div className='banner_image1'></div>
-        <div className='banner_image2'></div>
-        <div className='banner_image3'></div>
-      </Carousel>
+              <div className='carouselAndDots'>
+                <Carousel autoplay={false} dots={false} ref={(el)=>{this.cref=el}}>
+                    <div className='banner_image1'></div>
+                    <div className='banner_image2'></div>
+                    <div className='banner_image3'></div>
+                  </Carousel>
+                  <div className="dots"> 
+                    {
+                      [1,2,3].map((_, index) => <div className="dot_item" style={this.state.selectdBannerIndex===index?{backgroundColor:'black'}:{backgroundColor:'#fff'}} onClick={()=>{this.handleCarouselSlick(index)}}></div>)
+                    }
+                  </div>
+              </div>
       <div className="mouse" onMouseLeave={this.outer}>
         {list}
       </div>
+    
     </div>
 
   }
