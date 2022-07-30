@@ -98,3 +98,11 @@ where 出生日期<all
 	where 专业='计算机'
 )
 
+
+//修改表结构 添加一列
+alter table Users add COLUMN updatedAt varchar(10) default '';
+
+同步表结构
+15.create table stu_info_bak select * from stu_info where 1=2；
+同步表数据 
+insert into stu_info_bak select * from stu_info where sex ='男'

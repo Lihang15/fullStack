@@ -2,6 +2,8 @@
   "dependencies": {
     "crypto": "^1.0.1",
     "crypto-js": "^4.1.1",
-    "jsonwebtoken": "^8.5.1"
+    "jsonwebtoken": "^8.5.1",
+    "xlsx": "^0.18.5",
+    "xlsx-style": "^0.8.13"
   }
 }

@@ -8,10 +8,12 @@
    1.子盒子 margin 0 auto
    2.父盒子 dispaly：flex；
            justify-content：center；
+           align-items: center;
+
    3.父盒子 position ：relative
      子盒子 position：absolute
-           top：0；left：50%
-           transform:translate(-50%,0%)
+           top：50%；left：50%
+           transform:translate(-50%,50%)
 ### BFC
     BFC 块级格式化上下文 他是一个独立的块级渲染区域 子盒子不会影响外部盒子布局 bfc可以阻止浮动元素 覆盖bfc元素（给bfc元素overflew：hidden）
     现象 ：父盒子不设置高度 子类盒子浮动导致父类盒子没有高度 这个父盒子没形成bfc

@@ -175,10 +175,12 @@
             /* 设置测轴上的子元素的排列方式 多行 */
              /* 有换行情况下 align-content 来调整多行 只在多行换行情况下生效 */
             
-            /* 主轴为x轴时候 行间距没了 并水平排列x轴上面 默认wrap是有行间距的 */
+            /* 主轴为x轴时候 换行情况下 默认wrap是有行间距的  flex-start消除原有行间距 并元素靠x轴上*/
             align-content: flex-start;
-            /* 主轴为x轴时候 行间距没了 并水平排列x轴下面 默认wrap是有行间距的 */
+            /* 根 flex-start功能一样  元素会靠x轴下*/
             align-content: flex-end;
+
+            /* 以x轴为例 多行情况下 比如2行 会第一行在x轴最上 第二行在最下*/
             /* align-content: space-between; */
             
         }
@@ -268,13 +270,16 @@
         元素
     </div>
 
-    6.图片和文字居中对齐
-      vertical-align: middle;
-    /* 改变图片对齐方式 一个div中 有文字和图片，文字居中对齐，图片设置vertical-align改变图片对齐方式 */
-
-
+  /* 改变图片对齐方式 一个div中 有文字和图片，文字居中对齐，图片设置vertical-align改变图片和文字对齐方式 
+    
+    */
+    6.图片和文字居中对齐 一般用于置换元素（图片） 块元素不生效 调整图片的对齐方式
+     如果div 内有图片和文字 div没有高度 图片撑起来的div 底部会有空白
+      默认基于baseline对齐 baseline 在bottom 上面一点
+      vertical-align: middle;居中 不设置div高度也能消掉 自带空白
+  
+   // 设置父行高 等于父宽 align-center:center 图片设置vertical-align: middle; 也可让图片水平垂直居中
    7.单行文字溢出显示...
-        
         <style>
             div{
                 width: 100px;
@@ -300,6 +305,16 @@
             display: -webkit-box;
             -webkit-box-orient: vertical;
             -webkit-line-clamp: 3; 
-            overflow: hidden;
     }
     
+    position:absolute | relative | fixed;
+    left:0px;
+    top:0px;
+    z-index: -1; 
+
+    absolute 依靠有定位的父盒子定位，如果没有依赖body
+    不在文档流 会遮盖其他元素  z-index可以调节遮盖层级 只要又这个属性遮盖等级最低 
+
+    relative 依赖自身 定位后原来位置保留
+
+    fixed 不在文档流 依赖body

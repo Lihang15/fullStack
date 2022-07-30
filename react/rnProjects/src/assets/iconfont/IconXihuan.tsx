@@ -1,0 +1,35 @@
+/* tslint:disable */
+/* eslint-disable */
+
+import React, { FunctionComponent } from 'react';
+import { ViewProps } from 'react-native';
+import { Svg, GProps, Path } from 'react-native-svg';
+import { getIconColor } from './helper';
+
+interface Props extends GProps, ViewProps {
+  size?: number;
+  color?: string | string[];
+}
+
+let IconXihuan: FunctionComponent<Props> = ({ size, color, ...rest }) => {
+  return (
+    <Svg viewBox="0 0 1152 1024" width={size} height={size} {...rest}>
+      <Path
+        d="M576.025759 1024a162.705846 162.705846 0 0 1-120.852793-54.123226L89.589066 571.516387a354.994573 354.994573 0 0 1 0-471.645253 297.341572 297.341572 0 0 1 444.58364 0l41.853053 45.718998 41.853053-45.718998a297.509657 297.509657 0 0 1 444.751724 0 355.498827 355.498827 0 0 1 0 471.645253L696.878552 969.876774a162.369677 162.369677 0 0 1-120.852793 54.123226zM311.796844 100.879642a199.516363 199.516363 0 0 0-147.914406 67.23382 252.126828 252.126828 0 0 0 0 335.160597l365.5839 398.360387a62.527453 62.527453 0 0 0 93.118842 0l365.751984-398.360387a252.126828 252.126828 0 0 0 0-335.160597 196.658926 196.658926 0 0 0-296.16498 0l-116.146425 126.567668L459.879334 168.113462a199.852532 199.852532 0 0 0-148.08249-67.23382z"
+        fill={getIconColor(color, 0, '#333333')}
+      />
+      <Path
+        d="M874.039669 543.278182a50.425366 50.425366 0 0 1-36.810517-84.882699c100.010308-106.73369 42.357307-174.639849 29.750966-187.24619a50.425366 50.425366 0 0 1 0-70.931681 50.425366 50.425366 0 0 1 70.427427-2.017015c1.512761 1.512761 148.250575 143.544207-25.885021 329.109552a50.425366 50.425366 0 0 1-37.482855 15.968033z"
+        fill={getIconColor(color, 1, '#333333')}
+      />
+    </Svg>
+  );
+};
+
+IconXihuan.defaultProps = {
+  size: 18,
+};
+
+IconXihuan = React.memo ? React.memo(IconXihuan) : IconXihuan;
+
+export default IconXihuan;

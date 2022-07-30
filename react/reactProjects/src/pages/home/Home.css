@@ -1,0 +1,142 @@
+.banner_image1 {
+  min-width: 1700px;
+  min-height: 980px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  padding-top: 56.25%;
+  background-image: url(images/home-1.png);
+}
+.banner_image2 {
+  min-width: 1700px;
+  min-height: 980px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  padding-top: 56.25%;
+  background-image: url(images/home-2.png);
+}
+.banner_image3 {
+  min-width: 1700px;
+  min-height: 980px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  padding-top: 56.25%;
+  background-image: url(images/home-3.png);
+}
+.banner {
+  position: relative;
+  padding-top: 50%;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  margin: 0 auto;
+}
+.mouse {
+  display: flex;
+  width: 100%;
+  height: 400px;
+  background: #f7f7f7;
+  margin-top: -18px;
+}
+.mouse_item {
+  flex: 1;
+  width: 100%;
+  height: 400px;
+  background-color: #fff;
+  letter-spacing: 0;
+  z-index: 1;
+}
+.mouse_item .mouse_image {
+  margin-top: 82px;
+  transition: ease 0.8s;
+}
+.mouse_image_hover {
+  margin-top: 42px;
+  transition: ease 0.8s;
+}
+.flex_center {
+  display: flex;
+  justify-content: center;
+}
+.feature-title {
+  margin-top: -15px;
+  font-size: 24px;
+  color: #131313;
+}
+.feature-content {
+  max-width: 355px;
+  margin-top: 10px;
+  font-size: 16px;
+  color: #646464;
+  text-align: center;
+}
+.h {
+  min-width: 1700px;
+  min-height: 80px;
+  height: 80px;
+  width: 100%;
+  background-color: #fff;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  padding-left: 400px;
+}
+.h .ulul {
+  float: left;
+}
+.div1 {
+  display: inline-block;
+  margin-right: 60px;
+}
+.div2 {
+  display: inline-block;
+  margin-right: 60px;
+  background: #fff;
+  width: 75px;
+  border-radius: 15px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: #131313;
+}
+.div3 {
+  display: inline-block;
+  margin-right: 60px;
+}
+.div4 {
+  display: inline-block;
+  margin-right: 60px;
+}
+.div5 {
+  display: inline-block;
+  margin-right: 360px;
+}
+.div6 {
+  display: inline-block;
+  margin-right: 60px;
+}
+.div7 {
+  display: inline-block;
+  margin-right: 60px;
+}
+
+
+.dot_item{
+  height: 15px;
+  width: 60px;
+  margin-right: 5px;
+  background-color: #fff;
+}
+
+.dots{
+ display: flex;
+ position: absolute;
+ bottom: 4%;
+ left: 50%;
+}
+
+.carouselAndDots{
+  position: relative;
+}

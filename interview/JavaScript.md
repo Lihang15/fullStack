@@ -1,6 +1,6 @@
 ### 问题一 js一些骚操作
    1.处理小数丢失精度问题处理
-   parseFloat((0.1 + 0.2).toFixed(10))  等于0.3 返回的类型为number
+   parseFloat((0.1 + 0.2).toFixed(1))  等于0.3 返回的类型为number 保留小数点后一位
 
    2.String() 和New String() 和let str='stringss' 区别
    String()返回的字符串是string基本类型 
@@ -23,7 +23,7 @@
          }
       }
 
-   7.[]==false  ![]==false !![]==true   []==0  记住这些为true
+   7.[]==false  []==0   ![]==false  !![]==true  记住这些为true  if([]){console.log('[]也是可以进来if的')} 
    8.js var 变量提升和函数提升
    变量提升即将变量声明提升到它所在作用域的最开始的部分
    console.log(a)          等价于 var a
@@ -44,14 +44,7 @@
    var f2 = function() {}
    
    js可以有同名字的函数
-   function a(){
-    console.log('123')
-   }
-   function a(){
-      console.log('456')
-   }
-   a() //456
-   或者   第一个a函数 提升到最高
+   第一个a函数 提升到最高
    console.log(a()) //456
    function a(){
       return '123'
@@ -59,6 +52,8 @@
    function a(){
       return '456'
    }
+
+   a() //456
 
 ### 问题二 如何检测一个对象一定是数组
    Array.isArray()
@@ -176,7 +171,7 @@ console.log(aa())
 console.log(bb())
 
  ### 问题八 js防抖节流函数
- 防抖
+ 防抖  清表中断表执行
    <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -207,7 +202,7 @@ console.log(bb())
 </body>
 </html>
 
-节流
+节流  表不null进入 执行完把表弄null
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -239,7 +234,7 @@ console.log(bb())
 </body>
 </html>
 
-### 问题九:实现bind apply call 函数
+### 问题九:实现bind apply call 函数  函数调用apply call bind 相当于调用函数本身 并将内部this指向传入的对象 
 
       function person(arg1,arg2){
          console.log(this.name)
@@ -250,12 +245,12 @@ console.log(bb())
          name:'王老师'
       }
 
-      // person.call(egg)
+      // person.call(egg,1,2) 相当于把person放到egg内部，并执行
 
       //实现call
       Function.prototype.newCall =function(obj,...arg){
          //   var obj = obj || window    nodejs 没有window对象
-         //this 指向person（）
+         //this 指向person（）拿个函数执行newCall this就指向哪个函数
             obj.p = this
             obj.p(...arg)
             delete obj.p
@@ -305,68 +300,6 @@ console.log(bb())
 // nodejs 适合io密集型，高并发场景，异步非阻塞io，js主线程可以不断处理新的请求，
 // 缺点 js单线程 不适合cpu密集行计算 大的for循环  
 
-### 问题13：js 原型，原型链
-      export class Student{
-         constructor(name){
-            this.name=name
-         }
-            getname(){
-               console.log(this.name)
-            }
-      }
-
-      console.log(Student.prototype)
-
-      let student = new Student('A')
-
-      Student.prototype == student._proto_
-      显示原型              隐式原型   他们俩指向同一个对象
-
-      class Person{
-         constructor(name){
-            this.name = name
-         }
-         drink(){
-            console.log('drink')
-         }
-      }
-
-      class Teacher extends Person{
-         constructor(name){
-            super(name)
-            this.name = name
-         }
-         teach(){
-            console.log('teach')
-         }
-      }
-
-      let teacher = new Person('B')
-      b.teach()
-      b.drink()
-
-      执行teacher.teach的时候通过这个对象里的_proto_ 找到Teacher.protoType 执行teach()
-      当执行drink的时候发现Teacher.protoType 里没有 然后去 Teacher.protoType._proto_下去找它其实指向它继承那个类的Person.protoType 找到了执行 
-      如果没有找到 就去Object.prototype去找 如果为null 没找到，这就是原型链
-
-      如何检查这个属性或者方法是不是自身的
-      teacher.hasOwnProperty('name')  =>true
-      teacher.hasOwnProperty('teach') =>false 原型上的
-
-      原型继承
-      function Father(name){
-            this.name =name
-            this.f =function(){
-               console.log('ff')
-            }
-      }
-      function Son(){
-      }
-      let F = new Father('wanglihang')
-      Son.prototype = F
-      let S = new Son()
-      S.f()
-      console.log(S.name)
 
 ### 问题14 js作用域（全局作用域，函数作用域，块级作用域）  作用域链 
    作用域 全局作用域：在程序的任意地方都能访问，函数作用域  只能在函数中访问 块级作用域 只能在{}有效
@@ -430,49 +363,7 @@ class Event{ // 订阅-发布类
     }
 }
 
-###Object 对象的方法 defineProperty() 可以在一个对象上加一个新属性，或者修改一个对象的现有属性
-有三个参数 参数一要操作的obj，参数二，要加或者要改的属性，三怎么操作
 
-var obj = {};
-Object.defineProperty(obj, "key", {
-    configurable: true,
-    value: 1
-});
-console.log(obj.key); // 1
-
-delete obj.key; // configurable为true时可以删除属性
-console.log(obj.key); // undefined
-
-
-Object.defineProperty(obj, 'val', {
-    //当取属性值时候调用这个
-    get: function () {
-        console.log("get："+val)
-        return val;
-    },
-    //当给属性赋值时候自动调用这个
-    set: function (newVal) { 
-        console.log("set:"+newVal)
-        val = newVal;//定义val等于修改后的内容
-    }
-});
-
-obj.val = '123'
-console.log(obj.val)
-
-let obj ={
-    name:'wang',
-    b:123,
-    a:1323
-}
-let arr = Object.keys(obj)
-输出arr为一个键数组 [ 'name','b','a']
-
-// let a ={
-//     name:"wanglihang"
-// }
-
-// let b = Object.create(a) 创建b对象 并且b的__proto__属性指向a
 
 ### 函数柯里化
 function add(a){

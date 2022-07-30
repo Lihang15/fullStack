@@ -28,3 +28,5 @@ https://www.jianshu.com/p/b819f3037e37 加密知识
 https://programmercarl.com  代码随想录
 https://itbilu.com/nodejs/npm/V1PExztfb.html#api-bulkCreate Sequelize文档
 https://www.sequelize.com.cn/core-concepts/validations-and-constraints
+
+https://cloud.tencent.com/developer/article/1687790?from=15425 原型链和作用域链子
