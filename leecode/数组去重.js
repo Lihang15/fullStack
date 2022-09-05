@@ -18,8 +18,7 @@
 // function delRepeat1(arr){
 //     return Array.from(new Set(arr))
 // }
-[obj, '', 10];
-for 
+
 
 function reduceDel(arr){
     return arr.reduce((prev,cur)=>{

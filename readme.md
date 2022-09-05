@@ -30,3 +30,25 @@ https://itbilu.com/nodejs/npm/V1PExztfb.html#api-bulkCreate Sequelize文档
 https://www.sequelize.com.cn/core-concepts/validations-and-constraints
 
 https://cloud.tencent.com/developer/article/1687790?from=15425 原型链和作用域链子
+
+https://blog.csdn.net/weixin_42282999/article/details/110912999 sequelize
+ where: where(fn('date_format', col('created_at'), literal('"%Y-%m"')),'=', fn('date_format', fn('now'), literal('"%Y-%m"'))),
+
+
+
+   const { fn,Op,literal } = this.app.Sequelize;
+      const orders = await ctx.datanodeModel.Issuer.findAll({
+        attributes: [
+          'created_at',
+        ],
+        // where: where(fn('date_format', col('created_at', literal('"%Y-%m')))),
+        where: {
+          createdAt: {
+            [Op.between]: [
+              fn('date_sub', fn('now'), literal('interval 2 month')),
+              fn('now'),
+            ],
+          },
+        },
+        limit:1
+      });      
