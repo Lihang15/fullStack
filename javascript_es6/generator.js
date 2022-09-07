@@ -35,16 +35,10 @@ function* gen(){
 }
 
 let g = gen()
-g.next().value.then(data=>{
-   return g.next("我来了").value
-}).then((data)=>{
-   console.log(data)
+g.next().value.then(data1=>{
+    console.log(data1)
+    // 把data1传给下一个函数
+   return g.next(data1).value
+}).then((data2)=>{
+   console.log(data2)
 })
-
-function a(n){
-    if(n==0){
-        return 0
-    }
-    return n+a(n-1)
-}
-console.log(a(5)) 

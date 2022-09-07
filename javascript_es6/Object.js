@@ -3,7 +3,7 @@
 
 // const obj = {name1:'',name2:''}
 
-// const obj = Object.assign({}, {name:'wanglihang'}); 将后面对象浅拷贝给前面
+// const obj = Object.assign({}, {name:'wanglihang'}); 将后面对象浅拷贝给前面{}原对象，obj也是原对象
 
 // var obj = {name:'父对象'}
 // const child = Object.create(obj,{age:{
@@ -56,15 +56,20 @@ delete obj.key; // configurable为true时可以删除属性
 console.log(obj.key); // undefined
 
 
-Object.defineProperty(obj, 'val', {
+// 为对象设置一个监听属性 当这个属性赋值或取值时候 调用set get函数
+let obj={}
+Object.defineProperty(obj, 'listenProperty', {
     //当取属性值时候调用这个
-    get: function () {
-        console.log("get："+val)
-        return val;
-    },
+     get(){
+         return ''
+     },
     //当给属性赋值时候自动调用这个
-    set: function (newVal) { 
-        console.log("set:"+newVal)
-        val = newVal;//定义val等于修改后的内容
+    set: function (value) { 
+        obj.name=value
+        obj.age=18
     }
 });
+
+obj.listenProperty = 'wanglihang' //调用set
+console.log(obj.listenProperty) //调用get 返回 ''
+console.log(obj) //返回{ name: 'wanglihang', age: 18 } 不会显示监听属性

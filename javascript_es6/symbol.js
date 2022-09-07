@@ -1,4 +1,4 @@
-js 的基本数据类型 string number boolean undefined null Symbol 引用类型 Object
+// js 的基本数据类型 string number boolean undefined null Symbol 引用类型 object
 
 
 // 防止重名 每个Symbol是不同的  id和id2不相等 
