@@ -5,10 +5,10 @@ interface Person{
     name: string
     age: number
     // sex?: string 
-    [birthday: string]: string | number   //键值必须是字符串 
+    [dynamics: string]: string | number   //键值必须是字符串 
 }
 
-let p: Person = {name:"wanglihang",age:15,id:123,"xxxx":"sssss"}
+let p: Person = {name:"wanglihang",age:15,id:123,"xxxx":"sssss",'xx':1}
 
 // p.id = 1234  //只读属性不允许附值
 console.log(p)

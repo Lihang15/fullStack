@@ -19,8 +19,6 @@ class User{
         if (age<18){
             console.log("未成年人")
         }
-
-
     }
 
 }
@@ -32,10 +30,11 @@ console.log("+++",new User("wanglihang",18).name)
 
 
 class wanglihang extends User{
+  
     constructor(name,age){
         super(name,age)
-        this.name1 = "wlh"
-        this.age1 = "18"
+        this.name = "wlh"
+        this.age = "18"
     }
     sayhello(){
         console.log('son class')
