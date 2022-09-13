@@ -29,10 +29,12 @@ function decorate(target,property,decriptor){
     const oldValue = decriptor.value
     decriptor.value = msg=>{
         msg = `{${msg}}`
-        return oldValue.apply(null,[msg])
+        oldValue.apply(null,[msg])
     }
     return decriptor
 }
 
 const log = new Log()
 log.print("Hello")   //装饰后输出"{Hello}"
+
+//tsc decorator.ts --target ES5 -w --experimentalDecorators 监听ts文件热更新
