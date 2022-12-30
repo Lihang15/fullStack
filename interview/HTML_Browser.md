@@ -93,3 +93,17 @@
     back()      加载 history 列表中的前一个URL
     forward() 加载 history 列表中的下一个URL
     go()         加载history列表中的某个具体页面。
+###  viewport 用于适配手机端 
+https://blog.csdn.net/sinat_32290679/article/details/78595760 博客地址  
+    为了能在移动端可以正常的访问pc端的浏览器，移动浏览器开发商默认了iphone浏览器的文档宽度为980px, 这样访问pc网页的时候，才不会使网页结构崩溃，想一想，假设直接用 320px,那么当我们访问pc端网页，由于pc一般是以1024px作为总宽度的，如果一行有两个元素的宽度之和大于 320px,那么在移动端可能发生一个元素被挤到另外一行的情况。
+    
+     没有这个 <meta name="viewport" content="width=device-width,initial-scale=1.0" /> 
+    所以在iphone移动端访问时，浏览器会先把文档渲染到980px宽度里的文档里，然后在(按一定比例)显示到手机上，所以才会出现以上左边有留白的情况。即使你宽度是1200也不会出滚动条
+
+  
+
+    有这个 <meta name="viewport" content="width=device-width,initial-scale=1.0" /> 
+      手机默认布局视口 980px  渲染后 我们看到的是虚拟视口
+    改变手机默认布局窗口 和缩放比例 1.0默认不缩放html元素
+    在当前设备下 渲染 比如xr 会按照414px 布局视口去渲染 
+    如果缩放比例改为2.0 会将元素先放大 再在414px里渲染 414px 放不下 会出滚动条

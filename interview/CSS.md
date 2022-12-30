@@ -2,10 +2,12 @@
    包含了一下几个内容margin,padding,border,content 
    宽度 高=padding+content+border 
    css3 提供了box-sizing:border-box  内边距不会撑开盒子
+### 调试 
+蓝色为内容 绿色内边距 黄色外边距也就是空区
 ### CSS常用选择器，选择器权重问题
-   !important > 内联style > id > class > elemnet > 伪类和属性
+   !important > 内联style > id > class > 伪类和属性 > elemnet 
 ### CSS盒子如何水平垂直居中
-   1.子盒子 margin 0 auto
+   1.子盒子 margin 0 auto 这个是水平居zhong
    2.父盒子 dispaly：flex；
            justify-content：center；
            align-items: center;

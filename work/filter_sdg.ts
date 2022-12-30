@@ -159,7 +159,7 @@ function getSdgs(sdgs: Array<string>, sdgs_target: Array<string>) {
   }
   return result;
 }
-
+console.log(getSdgs(sdgs,sdgs_target))
 // for(const ProjectCategorie of data){
 //   let sdgArgs =[]
 //   if(ProjectCategorie.sdgs){
@@ -180,7 +180,7 @@ function getSdgs(sdgs: Array<string>, sdgs_target: Array<string>) {
 //   const sdgs = getSdgs(sdgArgs,sdgTargetArgs);
 //   console.log(sdgs)
 // }
-  console.log(getSdgs(sdgs,sdgs_target))
+
 
   // let s ='SDG Target 13'
   // const str = s.match(/[0-9]+/);

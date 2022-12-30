@@ -59,15 +59,12 @@ console.log(obj.key); // undefined
 // 为对象设置一个监听属性 当这个属性赋值或取值时候 调用set get函数
 let obj={}
 Object.defineProperty(obj, 'listenProperty', {
-    //当取属性值时候调用这个
-     get(){
-         return ''
-     },
-    //当给属性赋值时候自动调用这个
-    set: function (value) { 
-        obj.name=value
-        obj.age=18
-    }
+    get:()=>{
+        return 'listen属性的默认值'
+      },
+      set:(val)=>{
+        console.log(`监听的值:${val} 一旦监听的值变了 做出操作`) 
+      }
 });
 
 obj.listenProperty = 'wanglihang' //调用set
