@@ -243,7 +243,7 @@
         <li>7</li>
     </ul>
     
-    伪类伪元素::before  ::after
+    伪类伪元素::before  ::after  在盒子内部
 
     <style>
     .box{
@@ -273,12 +273,12 @@
   /* 改变图片对齐方式 一个div中 有文字和图片，文字居中对齐，图片设置vertical-align改变图片和文字对齐方式 
     
     */
-    6.图片和文字居中对齐 一般用于置换元素（图片） 块元素不生效 调整图片的对齐方式
+    6.图片和文字居中对齐 一般用于置换元素（图片） 块元素不生效 调整图片的对齐方式 （垂直方向对齐方式）
      如果div 内有图片和文字 div没有高度 图片撑起来的div 底部会有空白
       默认基于baseline对齐 baseline 在bottom 上面一点
       vertical-align: middle;居中 不设置div高度也能消掉 自带空白
   
-   // 设置父行高 等于父宽 align-center:center 图片设置vertical-align: middle; 也可让图片水平垂直居中
+   // 设置父行高 等于父高 align-center:center 图片设置vertical-align: middle; 也可让图片水平垂直居中
    7.单行文字溢出显示...
         <style>
             div{
@@ -286,9 +286,9 @@
                 height: 100px;
                 border: 1px solid red;
 
-                white-space:nowrap;
-                overflow:hidden; 
-                text-overflow:ellipsis;
+                white-space:nowrap; 强制不换行
+                overflow:hidden; 超出隐藏
+                text-overflow:ellipsis;省略号
             }
         </style>
         <body>
@@ -304,7 +304,7 @@
             text-overflow:ellipsis;
             display: -webkit-box;
             -webkit-box-orient: vertical;
-            -webkit-line-clamp: 3; 
+            -webkit-line-clamp: 3; // 第几行设置省略号
     }
     
     position:absolute | relative | fixed;
@@ -318,3 +318,5 @@
     relative 依赖自身 定位后原来位置保留
 
     fixed 不在文档流 依赖body
+
+    div内 默认汉字自动换行 设置英文字母自动换行  word-break:break-all

@@ -32,16 +32,18 @@ https://www.sequelize.com.cn/core-concepts/validations-and-constraints
 https://cloud.tencent.com/developer/article/1687790?from=15425 原型链和作用域链子
 
 https://blog.csdn.net/weixin_42282999/article/details/110912999 sequelize
+
+ select created_at from dpo_order  where date_format(created_at,'%Y-%m')=date_format(now(),'%Y-%m');
  where: where(fn('date_format', col('created_at'), literal('"%Y-%m"')),'=', fn('date_format', fn('now'), literal('"%Y-%m"'))),
 
 
+select  created_at from dpo_order where created_at between date_sub(now(),interval 2 month) and now();
 
    const { fn,Op,literal } = this.app.Sequelize;
       const orders = await ctx.datanodeModel.Issuer.findAll({
         attributes: [
           'created_at',
         ],
-        // where: where(fn('date_format', col('created_at', literal('"%Y-%m')))),
         where: {
           createdAt: {
             [Op.between]: [
@@ -54,3 +56,7 @@ https://blog.csdn.net/weixin_42282999/article/details/110912999 sequelize
       });      
 
       https://www.bookstack.cn/read/apache-apisix-1.4-zh/111b5e1749227453.md  apisix 中文文档
+
+      https://www.cnblogs.com/wang715100018066/p/16460399.html mac homebrew 安装
+      https://www.processon.com/ 流程图
+      https://app.diagrams.net/ 流程图
