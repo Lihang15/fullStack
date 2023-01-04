@@ -34,6 +34,12 @@
        <li>辣椒</li>
        <li>香蕉</li>
      </ul>
+     写上这个样式 ul 相当于外层div li相当于内层div ul的高度靠li撑起  如果ul套在 div内 div有行高  li的高度 默认继承div行高 行高也会被继承
+     ul{
+    list-style: none;
+     margin: 0;
+      padding: 0;
+     }
 
   6.表格
     1.table  th会加粗 td不会 内容居中

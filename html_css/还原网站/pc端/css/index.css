@@ -1,3 +1,116 @@
-.shortcut{
-    
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+a{
+    list-style: none;
+    text-decoration: none;
+}
+.shortcut{
+    height: 31px;
+    background-color: #f1f1f1;
+    line-height: 31px;
+}
+.w{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+ul{
+    list-style: none;
+}
+.shortcut ul li{
+  float: left;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.fr ul li:nth-child(even){
+    width: 1px;
+    height: 12px;
+    background-color: #666;
+    margin: 10px 15px 0;
+}
+.icon {
+    width: 1em; height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+ }
+
+ .che {
+    width: 1em; height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+ }
+
+ header{
+    height: 105px;
+    position: relative;
+ }
+ .logo{
+  position: absolute;
+  bottom: 0;
+ }
+ .logo a{
+    display: block;
+    width: 80px;
+    height: 80px;
+    background: url('https://img11.360buyimg.com/jdphoto/s80x80_jfs/t27847/91/107794072/6854/14716732/5b850ecaN644d2983.png') no-repeat;
+    background-size: 80px 80px;
+ }
+ .search{
+    position: absolute;
+    left: 346px;
+    top:25px;
+    width: 538px;
+    height: 36px;
+    border: 2px solid #b1191a;
+ }
+
+ input[type='text']{
+    width: 480px;
+    height: 32px;
+    border: 0;
+    outline: 0;
+    padding-left: 1em;
+    float: left;
+ }
+ button{
+    border: 0;
+    outline: 0;
+    width: 54px;
+    height: 32px;
+    float: left;
+    background-color: #b1191a;
+    font-size: 10px;
+    color: #fff;
+ }
+ .keywords{
+    position: absolute;
+    left: 346px;
+    top:65px;
+    padding-left: 10px;
+ }
+ .keywords a{
+    color: black;
+    font-size: 10px;
+    margin-right: 25px;
+ }
+
+ .shopcar{
+    position: absolute;
+    right: 60px;
+    top: 25px;
+    width: 140px;
+    height: 35px;
+    border: 1px solid #dfdfdf;
+    background-color: #dfdfdf;
+    line-height: 35px;
+    text-align: center;
+ }
