@@ -44,7 +44,7 @@ ul{
 
  .che {
     width: 1em; height: 1em;
-    vertical-align: -0.15em;
+    vertical-align:-0.15em;
     fill: currentColor;
     overflow: hidden;
  }
@@ -114,3 +114,114 @@ ul{
     line-height: 35px;
     text-align: center;
  }
+.nav{
+    height: 47px;
+    border-bottom: 2px solid #b1191a;
+}
+.navitems{
+    line-height: 47px;
+    float: left;
+}
+
+.navitems ul li{
+    float: left;
+    padding: 0 15px;
+}
+.nav .dropdown{
+    float: left;
+    width: 210px;
+    height: 45px;
+}
+.main{
+    height: 470px;
+    width: 200px;
+    background-color: #f1f1f1;
+    float: left;
+    margin: 10px 10px 0 0;
+}
+.main ul li{
+    height:25px;
+    line-height: 25px;
+    margin-left: 10px;
+    padding-left: 10px;
+    font-size: 15px;
+    
+}
+.focus{
+    width:590px;
+    height: 470px;
+    float: left;
+    margin: 10px 10px 0 0;
+}
+
+.newsflash{
+    height: 470px;
+    float: left;
+    width: 250px;
+    margin-top: 10px;
+    border: 1px solid #e4e4e4;
+}
+.news{
+    height: 165px;
+    width: 1px solid #e4e4e4;
+}
+.news .news_hd{
+    height: 33px;
+    border-bottom: 1px solid #e4e4e4;
+    line-height: 33px;
+    padding: 0 15px;  
+}
+.news a{
+    float: right;
+    font-size: 12px;
+    color: black;
+}
+.news h5{
+    float: left;
+}
+
+.news .news_bd{
+    padding: 5px 15px 0;
+}
+
+.news .news_bd ul li{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 24px;
+    line-height: 24px;
+    font-size: 14px;
+}
+.lifeservice{
+    overflow: hidden;
+}
+.lifeservice ul li{
+    width: 62px;
+    height: 71px;
+    float: left;
+    text-align: center;
+}
+
+.lifeservice ul li i{
+   margin-top: 12px;
+   display: inline-block;
+   width: 24px;
+   height: 28px;
+   background: url('../img/icons.png') no-repeat -79px -15px
+}
+.bargin{
+    margin-top: 15px;
+}
+.count{
+    font-size: 12px;
+    position: absolute;
+    height: 14px;
+    line-height: 14px;
+    top: -5px;
+    left: 105px;
+    color: #fff;
+    background-color: red;
+    padding: 0 5px;
+    border-radius: 7px 7px 7px 0; 
+  
+}

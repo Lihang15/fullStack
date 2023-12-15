@@ -106,3 +106,10 @@ alter table Users add COLUMN updatedAt varchar(10) default '';
 15.create table stu_info_bak select * from stu_info where 1=2；
 同步表数据 
 insert into stu_info_bak select * from stu_info where sex ='男'
+
+您可以使用JSON_EXTRACT函数和WHERE子句来按JSON键的值过滤MySQL中的JSON类型数据。例如，以下查询将返回JSON类型的数据中名为"key1"的键的值为"value1"的所有行：
+SELECT * FROM table_name WHERE JSON_EXTRACT(json_column, '$.key1') = 'value1';
+
+如果键的值是一个数组，则可以使用JSON_CONTAINS函数来判断值是否存在于数组中。例如，以下查询将返回JSON类型的数据中名为"key1"的键的值包含"value1"的所有行：
+SELECT * FROM table_name WHERE JSON_CONTAINS(JSON_EXTRACT(json_column, '$.key1'), 'value1');
+

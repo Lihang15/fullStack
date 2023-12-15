@@ -31,7 +31,7 @@ function* gen(){
     let data1 = yield ajax("data1")
     //获取data2
     let data2 = yield ajax("data2",data1)
-    console.log("bbbb")
+    return data2;
 }
 
 let g = gen()

@@ -1,0 +1,8 @@
+#root{
+    width: 200px;
+    height: 200px;
+    /* background-color: red; */
+    background-image: url('./cat.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}

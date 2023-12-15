@@ -1,0 +1,18 @@
+@media screen and (max-width:991px){
+    .nav li{
+        float: left;
+        width: 20%;
+    }
+    .lie{
+        display: none;
+    }
+}
+
+.nav ul{
+    list-style: none;
+}
+.hang{
+    color: red;
+}
+
+/* 姗格控制列 媒体查询控制每一列的元素 实现响应式布局 */

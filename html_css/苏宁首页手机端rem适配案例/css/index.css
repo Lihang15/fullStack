@@ -57,10 +57,10 @@ html {
   }
 }
 body {
+  /* 只为在pc端开发 不用调节到手机调试模式 一般设置750按照 设计稿 */
+  /* 不用调节body宽度 body默认100% 比如xr默认宽度414 会按照这个414去适配*/
   max-width: 750px;
-  min-width: 320px;
   margin: 0 auto;
-  width: 15rem;
   font-family: Arial, Helvetica;
   background: #f2f2f2;
   line-height: 1.5;

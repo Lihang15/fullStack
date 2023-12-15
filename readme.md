@@ -1,7 +1,7 @@
 
 http://pic.netbian.com/tupian/24695.html
 
-https://www.douban.com/note/768521641/?from=tag //健康卡
+https://www.douban.com/note/768521641/?from=tag //
 链接：https://www.zhihu.com/question/24648388/answer/64352375 nodejs 知识点
 
 

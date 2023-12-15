@@ -1,7 +1,12 @@
 ### SPA单页应用的原理
 spa 就是一个页面完成所有功能 什么操作展示什么内容
 1.锚点(hash) window.onhashchange()这个函数在点击<a href="#/home"></a>自动执行，在location.hash中能获取#/home  2.h5(history)
-2.react-router-dom库，让react能开发spa项目，直接在根组件使用。
+2.react-router-dom库，让react能开发spa项目，直接在根组件使用，路由匹配到的组件 props会被传入3个参数 match history location 在props.match.params.xx拿到跳转到本路由带过来的参数
+如果组件不在路由里 该组件要用withRouter()高阶组件包装 props才能获取这3个属性 该高阶组件通过context实现 props.history.push('/detail/${id}') 可以重定向到这个路由
+现在函数组件也提供了 hooks ，在react-router-dom v5版本中导出 const history = useHistory（）
+不通过history也可以 可以用<Link to={'/detail/${id}'} />这是一个超链接
+
+react-router-dom v6版本 useHistory 被useNavigation替代  
 3.路由嵌套 
 
 ### React实现原理
@@ -15,7 +20,7 @@ spa 就是一个页面完成所有功能 什么操作展示什么内容
  diff算法是同级比较，假设第一层两个虚拟DOM节点不一致，
  就不会往下比了，就会将原始页面虚拟DOM全部删除掉，然后用新的虚拟DOM进行全部的替换
 ### 问题一 高阶组件（HOC）实现方式 
-属性代理模式  state复用 传入一个组件 返回一个新组件 新组件得到增强 ，复用代码写在父亲组件中
+属性代理模式  state复用 或者 代码逻辑复用(重复的代码 可以通过函数向下传递) 传入一个组件 返回一个新组件 新组件得到增强 ，复用代码写在父亲组件中
 const withHoc =(WrappedComponent)=>{
     //提供状态用逻辑
     class Mouse extends React.Component{
@@ -98,7 +103,7 @@ componentWillMount() //不适合异步取数据操作，render中取得接口数
 render()  dom已插入
 componentDidMount() //初始化数据
 
-更新阶段 当组件props和state发生变化
+更新阶段 当组件state发生变化
  shouldComponentUpdate() 由于父组件更新，子组件render也会调用，可以在这个函数
  写判断 只有子组件依赖父组件数据更新才更新，可以用pureComponent代替
  render()
@@ -113,3 +118,6 @@ componentDidCatch()
 ### 问题5 为什么要使用Hook
 1.组件复用状态逻辑难  =>之前能通过hoc 和render-props实现
 2.复杂组件难以理解   =>this的指向难以理解，不相关的逻辑都添加到了一起
+
+### 状态提升
+// 子组建状态写到到父组件里，通过props在传给子组建

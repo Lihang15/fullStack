@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "bignumber": "^1.1.0",
+    "bignumber.js": "^9.1.1",
+    "deep-diff": "^1.0.2",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.4",
+    "pdf-lib": "^1.17.1",
+    "pdf-poppler": "^0.2.1",
+    "pdf2pic": "^3.0.3",
+    "xml2js": "^0.6.2"
+  }
+}

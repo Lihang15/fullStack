@@ -1,16 +1,13 @@
 //Hook的规则 
 //1.只在最顶层使用Hook     2.只在React函数中调用Hook 3.别在判断语句和for里使用hook
 //useReducer => useState的替代方案
-//useMemo 依赖数据发生变化 他会去重新计算 一般用于 数据结构转换
-// function arrToTree(){
-//     return []
-// }
-// function DemouUseMemo(props:any){
-//     const tree = useMemo(()=>{
-//         return arrToTree(props.data)
-//     },[props.data])
-// }
-//useCallback 和useMemo 用法差不多 
+
+//useCallback(用于子组建)   减少没必要渲染 比如父组件 状态更新 子组建也会更 func传给子组建 只有【】内的变量变化了 才会执行useCallback （相当于shouldCompontentUpdate）
+// const func = useCallback(()=>(testFunc()),[state])
+
+// useMemo用于缓存数据对象（当前可用，减少计算开销 只有state变了 data才会更新），写法需要return 对象{} 
+// const data = useMemo(()=>({name:'wangliahng'+state}),[state])
+
 //useLayoutEffect同步（执行完 内部如果有dom插入操作才会插入到浏览器） 和useEffect异步 用法一样
 
 
