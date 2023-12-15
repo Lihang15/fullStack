@@ -2,13 +2,44 @@
 //1.只在最顶层使用Hook     2.只在React函数中调用Hook 3.别在判断语句和for里使用hook
 //useReducer => useState的替代方案
 
-//useCallback(用于子组建)   减少没必要渲染 比如父组件 状态更新 子组建也会更 func传给子组建 只有【】内的变量变化了 才会执行useCallback （相当于shouldCompontentUpdate）
+//useCallback(用于缓存函数） state变化了 func会重新创建 不变化用的是以前的  优化性能
 // const func = useCallback(()=>(testFunc()),[state])
+function ExampleComponent() {
+    const [count, setCount] = useState(0);
+  
+    // 使用 useCallback 缓存函数，仅在 count 发生变化时才重新创建函数
+    const handleClick = useCallback(() => {
+      setCount(count + 1);
+    }, [count]); // 依赖变量：当 count 变化时重新创建 handleClick 函数
+  
+    return (
+      <div>
+        <p>Count: {count}</p>
+        <button onClick={handleClick}>Increment</button>
+      </div>
+    );
+  }
 
 // useMemo用于缓存数据对象（当前可用，减少计算开销 只有state变了 data才会更新），写法需要return 对象{} 
-// const data = useMemo(()=>({name:'wangliahng'+state}),[state])
+// const data = useMemo(()=>({name:'wangliahng'+state}),[state])  可以在子组建里 把state换成父组建的props 获取这个data来决定 子组建要渲染什么
 
-//useLayoutEffect同步（执行完 内部如果有dom插入操作才会插入到浏览器） 和useEffect异步 用法一样
+// 函数组件中使用 useMemo 示例
+const ChildComponent = ({ prop1, prop2 }) => {
+    // ... 组件逻辑
+  
+    // useMemo 返回 memoized 值，控制组件渲染
+    const memoizedValue = useMemo(() => {
+      // ... 需要 memoize 的值
+    }, [prop1, prop2]); // 只有在 prop1 或 prop2 发生变化时才重新计算值
+   
+    return (
+        {
+            memoizedValue && </Component>
+             // ... 组件 JSX
+        }
+     
+    );
+  };
 
 
 
