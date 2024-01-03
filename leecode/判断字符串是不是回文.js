@@ -1,12 +1,10 @@
 let huiwen = str=>{
     let strLength =str.length
-    let count =0
     for(let i=0;i<strLength;i++){
-        if(str.charAt(i)==str.charAt(strLength-1-i)){
-        }else{
+        if(str.charAt(i)!==str.charAt(strLength-1-i)){
             return false
         }
     }
     return true
 }
-console.log(huiwen("135853"))
+console.log(huiwen("level1"))

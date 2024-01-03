@@ -5,16 +5,18 @@ function Node(val){
 
 
 function endk(head,k){
-    let p1 = head
-    let p2 = head
-    for (let i = 0;i<k-1;i++){
-        p1 = p1.Next
+    let first = head
+    let second = head
+    // 先走k步数
+    for(let i =0;i<=k-1;i++){
+        first = first.next
     }
-    while(p1.Next!=null){
-        p1 = p1.Next
-        p2 = p2.Next
+    while(first!=null){
+        first = first.next
+        second = second.next
     }
-    return p2
+    console.log(second.val)
+    return second
     
 }
 

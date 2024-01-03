@@ -3,15 +3,16 @@ function node(val){
     this.next = null
 }
 
-
+// 链表最后一个节点 指向自己或前面的任意一个节点 形成一个环
 function isLoop(head){
-    let fast = head
-    let slow = head
-
-    while(fast.next != null && fast.next.next != null && slow.next != null){
+    let slow = root
+    let fast = root
+    
+    while(fast!=null&&fast.next!=null){
         fast = fast.next.next
         slow = slow.next
-        if(fast==slow){
+        if(fast===slow){
+            console.log(true);
             return true
         }
     }

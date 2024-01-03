@@ -8,10 +8,11 @@ function TreeNode(val) {
 
 function rowPrint(root) {
     let queue = []
+    let result = []
     queue.push(root)
     while (queue.length > 0) {
         let node = queue.shift()
-        console.log(node.val)
+        result.push(node.val)
         if (node.left != null) {
             queue.push(node.left)
         }
@@ -19,6 +20,7 @@ function rowPrint(root) {
             queue.push(node.right)
         }
     }
+    return result
 }
 
 let node = new TreeNode(1)
